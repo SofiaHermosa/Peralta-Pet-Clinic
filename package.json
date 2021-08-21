@@ -1,0 +1,18 @@
+{
+  "name": "peralta-pet-clinic",
+  "version": "1.0.0",
+  "description": "Secure router with XSS and CSRF",
+  "main": "index.js",
+  "dependencies": {
+    "autoprefixer": "^10.3.1",
+    "postcss": "^8.3.6",
+    "tailwindcss": "^2.2.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build-css": "tailwindcss build assets/css/style.css -o assets/css/custom.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
