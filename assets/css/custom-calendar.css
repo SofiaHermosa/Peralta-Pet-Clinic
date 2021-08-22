@@ -10,13 +10,18 @@
 .fc .fc-button-primary {
     background: #a5b4fc !important;
     border-color: transparent !important;
+    padding: 5px !important;
+    font-size: revert !important;
+    margin: 5px 0 !important;
 }
 .fc-toolbar-chunk > *{
 	display: flex !important;
 }
 
 .fc .fc-toolbar-title {
-	padding:0 15px !important;
+    padding: 10px 40px !important;
+    font-size: larger !important;
+    font-weight: 600 !important;
 }
 .fc-v-event .fc-event-title {
 	text-align: center !important;
@@ -30,4 +35,19 @@
 }
 .fc .fc-daygrid-event-harness {
 	border-bottom: #dddddd 1px solid;
+}
+.fc .fc-toolbar.fc-header-toolbar {
+	margin-bottom: 1rem !important;
+}
+
+.fc .fc-daygrid-day-frame {
+	max-height: 4rem !important;
+}
+.fc .fc-daygrid-day-bottom {
+	text-align: center !important;
+    color: #af66df !important;
+    font-weight: 600 !important;
+}
+.fc-direction-ltr .fc-daygrid-event.fc-event-end, .fc-direction-rtl .fc-daygrid-event.fc-event-start {
+	background: aliceblue !important;
 }

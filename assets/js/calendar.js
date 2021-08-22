@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
   var data 
-  var calendar = new FullCalendar.Calendar(calendarEl, {
+  var dashboardCalendar = new FullCalendar.Calendar(calendarEl, {
     headerToolbar: false,
     initialView: 'timeGridDay',
     slotMinTime: '6:00',
@@ -19,5 +19,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     ]
   });
-  calendar.render();
+  dashboardCalendar.render();
 });

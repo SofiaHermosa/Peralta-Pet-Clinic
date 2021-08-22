@@ -111,8 +111,10 @@
       </div>
     </div>
   </main>
-
-		
+	
 <?php
 	include_once('layout/footer.php');
 ?>
+
+<script src="../../../assets/js/chart.js"></script>
+<script src="../../../assets/js/calendar.js"></script>

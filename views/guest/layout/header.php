@@ -27,7 +27,7 @@
                   <img class="object-cover h-14 rounded-md w-auto" src="../../../assets/images/logo.png">
                 </a>
                 <div class="-mr-2 flex items-center md:hidden">
-                  <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 toggle-menu" data-toggle="#guestMobileNav" aria-expanded="false">
+                  <button type="button" class="bg-white rounded-md p-2 mx-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 toggle-menu" data-toggle="#guestMobileNav" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <!-- Heroicon name: outline/menu -->
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -51,14 +51,14 @@
           </nav>
         </div>
 
-        <div class="fixed top-0 inset-x-0 p-2 transition transform origin-top-right hidden z-10" id="guestMobileNav">
+        <div class="fixed top-0 inset-x-0 p-2 transform origin-top-right hidden z-10" id="guestMobileNav">
           <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-            <div class="px-5 pt-4 flex items-center justify-between">
+            <div class="px-2 pt-4 flex items-center justify-between">
               <div>
                 <img class="h-14 w-auto" src="../../../assets/images/logo.png" alt="">
               </div>
               <div class="-mr-2">
-                <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 toggle-menu" data-toggle="#guestMobileNav">
+                <button type="button" class="bg-white rounded-md p-2 mx-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 toggle-menu" data-toggle="#guestMobileNav">
                   <span class="sr-only">Close main menu</span>
                   <!-- Heroicon name: outline/x -->
                   <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

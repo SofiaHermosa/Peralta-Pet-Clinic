@@ -10,7 +10,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "build-css": "tailwindcss build assets/css/style.css -o assets/css/custom.css"
+    "build-css": "tailwindcss build -i assets/css/style.css -o assets/css/custom.css"
   },
   "keywords": [],
   "author": "",

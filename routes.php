@@ -2,18 +2,18 @@
 
 require_once("{$_SERVER['DOCUMENT_ROOT']}/router.php");
 
-// ##################################################
-// ##################################################
-// ##################################################
 
-// Static GET
-// In the URL -> http://localhost
-// The output -> Index
 get('/', 'views/guest/index.php');
 
-// Dynamic GET. Example with 1 variable
-// The $id will be available in user.php
 get('/res', 'views/admin/index.php');
+
+get('/res/appointment', 'views/admin/appointment.php');
+
+get('/res/team', 'views/admin/team.php');
+
+get('/res/patients', 'views/admin/patients.php');
+
+get('/res/services', 'views/admin/services.php');
 
 // Dynamic GET. Example with 2 variables
 // The $name will be available in user.php

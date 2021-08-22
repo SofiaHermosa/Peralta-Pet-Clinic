@@ -1,3 +1,17 @@
+<?php 
+    $routes = ['/res/', '/res/appointment', '/res/team', '/res/patients', '/res/services'];
+    $pages  = ['dashboard', 'appointment', 'team', 'patients', 'services'];
+    $index  = array_search($_SERVER['REQUEST_URI'], $routes);
+    $navs   = [
+        'dashboard'   => '',
+        'appointment' => '',
+        'team'        => '',
+        'patients'    => '',
+        'services'    => ''   
+    ];
+
+    $navs[$pages[$index]] = 'bg-blue-800';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,15 +35,15 @@
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
-              <a href="#" class="bg-blue-800 text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+              <a href="../res/" class="<?php echo $navs['dashboard']; ?> text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
 
-              <a href="#" class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Appointments</a>
+              <a href="../res/appointment" class="<?php echo $navs['appointment']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Appointment</a>
 
-              <a href="#" class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Teams</a>
+              <a href=../res/team class="<?php echo $navs['team']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
 
-              <a href="#" class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Patients</a>
+              <a href="../res/patients" class="<?php echo $navs['patients']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Patients</a>
 
-              <a href="#" class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Services</a>
+              <a href="../res/services" class="<?php echo $navs['services']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Services</a>
             </div>
           </div>
         </div>
@@ -52,7 +66,7 @@
                 </button>
               </div>
 
-              <div class="origin-top-right transition ease-out duration-100 absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" id="userMenuDesktop" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+              <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" id="userMenuDesktop" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                 <!-- Active: "bg-gray-100", Not Active: "" -->
                 <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
 
@@ -84,15 +98,15 @@
     <div class="hidden" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
       
-        <a href="#" class="bg-blue-800 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
+        <a href="../res/" class="<?php echo $navs['dashboard']; ?> text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
 
-        <a href="#" class="text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Appointments</a>
+        <a href="../res/appointment" class="<?php echo $navs['appointment']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Appointment</a>
 
-        <a href="#" class="text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Teams</a>
+        <a href="../res/team" class="<?php echo $navs['team']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
 
-        <a href="#" class="text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Patients</a>
+        <a href="../res/patients" class="<?php echo $navs['patients']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Patients</a>
 
-        <a href="#" class="text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Services</a>
+        <a href="../res/services" class="<?php echo $navs['services']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Services</a>
       </div>
       <div class="pt-4 pb-3 border-t border-gray-700">
         <div class="flex items-center px-5 toggle-menu" data-toggle="#userMenuMobile">
