@@ -15,7 +15,7 @@
 
           <!-- START CARDS SECTION --> 
           <div data-aos="fade-up" data-aos-duration="1000" class="d-flex grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-10 z-0">
-              <div class="rounded-lg bg-gray-100 transition transform duration-300 hover:-translate-y-2 hover:shadow-xl py-4 px-2 z-50">
+              <div class="rounded-lg bg-gray-50 shadow transition transform duration-300 hover:-translate-y-2 hover:shadow-xl py-4 px-2 z-50">
                   <div class="grid grid-cols-4">
                       <div class="d-flex col-span-1 px-4 py-6">
                         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current text-white stroke-2 bg-green-300 p-2 rounded-xl md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -29,7 +29,7 @@
                   </div>
               </div>
 
-              <div class="rounded-lg bg-gray-100 transition transform duration-300 hover:-translate-y-2 hover:shadow-xl py-4 px-2 z-50">
+              <div class="rounded-lg bg-gray-50 shadow transition transform duration-300 hover:-translate-y-2 hover:shadow-xl py-4 px-2 z-50">
                    <div class="grid grid-cols-4">
                       <div class="d-flex col-span-1 px-4 py-6">
                         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current text-white stroke-2 bg-purple-300 p-2 rounded-xl md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -43,7 +43,7 @@
                   </div>
               </div>
 
-              <div class="rounded-lg bg-gray-100 transition transform duration-300 hover:-translate-y-2 hover:shadow-xl py-4 px-2 z-50">
+              <div class="rounded-lg bg-gray-50 shadow transition transform duration-300 hover:-translate-y-2 hover:shadow-xl py-4 px-2 z-50">
                    <div class="grid grid-cols-4">
                       <div class="d-flex col-span-1 px-4 py-6">
                         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current text-white stroke-2 bg-indigo-300 p-2 rounded-xl md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -57,7 +57,7 @@
                   </div>
               </div>
 
-              <div class="rounded-lg bg-gray-100 transition transform duration-300 hover:-translate-y-2 hover:shadow-xl py-4 px-2 z-50">
+              <div class="rounded-lg bg-gray-50 shadow transition transform duration-300 hover:-translate-y-2 hover:shadow-xl py-4 px-2 z-50">
                    <div class="grid grid-cols-4">
                       <div class="d-flex col-span-1 px-4 py-6">
                         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current text-white stroke-2 bg-yellow-300 p-2 rounded-xl md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -76,7 +76,7 @@
           <!-- START GRAPHS SECTION -->
           <div data-aos="fade-up" data-aos-duration="1200" class="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-10">
 
-              <div data-aos="fade-right" data-aos-duration="1000" class="d-flex py-4 px-6 bg-gray-100 rounded-lg">
+              <div data-aos="fade-right" data-aos-duration="1000" class="d-flex py-4 px-6 bg-gray-50 shadow rounded-lg">
                 <div class="d-flex rounded-md bg-indigo-300 transform -translate-y-10 text-white text-center shadow-md">
                     <h1 class="text-lg py-4">Appointments per Month</h1>
                 </div>
@@ -85,7 +85,7 @@
                 </canvas>
 
               </div>
-              <div data-aos="fade-left" data-aos-duration="1200" class="d-flex py-4 px-6 bg-gray-100 rounded-lg">
+              <div data-aos="fade-left" data-aos-duration="1200" class="d-flex py-4 px-6 bg-gray-50 shadow rounded-lg">
                 <div class="d-flex rounded-md bg-yellow-300 transform -translate-y-10 text-white text-center shadow-md">
                     <h1 class="text-lg py-4">Monthly Income</h1>
                 </div>
@@ -99,7 +99,7 @@
 
           <!-- START DAILY APPOINTMENT SECTION -->
           <div data-aos="fade-up" data-aos-duration="1200" class="grid grid-cols-1 gap-10">
-              <div class="d-flex py-4 px-6 bg-gray-100 rounded-lg">
+              <div class="d-flex py-4 px-6 bg-gray-50 shadow rounded-lg">
                 <div class="d-flex rounded-md bg-green-300 transform -translate-y-10 text-white text-center shadow-md">
                     <h1 class="text-lg py-4">Todays Appointments</h1>
                 </div>
