@@ -6,6 +6,10 @@
   include_once('sections/services.php');
 ?>
 
+<?php
+  include_once('sections/doctors.php');
+?>
+
   
 	
 <?php
