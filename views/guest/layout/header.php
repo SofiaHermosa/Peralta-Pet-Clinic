@@ -10,10 +10,12 @@
 </head>
 <body>
 
-<div class="relative bg-white z-50 overflow-hidden">
+<?php include_once('./views/admin/login.php');  ?>
+
+<div class="relative bg-indigo-700 z-50 overflow-hidden">
   <div class="max-w-7xl mx-auto lg:h-screen sm:h-120">
-    <div class="relative z-10 h-full pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-      <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+    <div class="relative z-10 h-full pb-8 bg-indigo-700 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+      <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-indigo-700 transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
         <polygon points="50,0 100,0 50,100 0,100" />
       </svg>
 
@@ -27,7 +29,7 @@
                   <img class="object-cover h-14 rounded-md w-auto" src="../../../assets/images/logo.png">
                 </a>
                 <div class="-mr-2 flex items-center md:hidden">
-                  <button type="button" class="bg-white rounded-md p-2 mx-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 toggle-menu" data-toggle="#guestMobileNav" aria-expanded="false">
+                  <button type="button" class="bg-white rounded-md p-2 mx-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 toggle-menu" data-toggle="#guestMobileNav" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <!-- Heroicon name: outline/menu -->
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -37,16 +39,16 @@
                 </div>
               </div>
             </div>
-            <div data-aos="fade-down" data-aos-anchor-placement="top-center" data-aos-duration="500" class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
-              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Appointment</a>
+            <div data-aos="fade-down" data-aos-anchor-placement="top-center" data-aos-duration="500" class="hidden md:block md:ml-6 md:pr-2 md:space-x-2">
+              <a href="#" class="px-4 py-2 rounded-sm font-medium text-gray-50 hover:bg-indigo-200 hover:text-indigo-700">Appointment</a>
 
-              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Services</a>
+              <a href="#" class="px-4 py-2 rounded-sm font-medium text-gray-50 hover:bg-indigo-200 hover:text-indigo-700">Services</a>
 
-              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Our Teams</a>
+              <a href="#" class="px-4 py-2 rounded-sm font-medium text-gray-50 hover:bg-indigo-200 hover:text-indigo-700">Our Teams</a>
 
-              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">About Us</a>
+              <a href="#" class="px-4 py-2 rounded-sm font-medium text-gray-50 hover:bg-indigo-200 hover:text-indigo-700">About Us</a>
 
-              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
+              <a href="javascript:void(0)" class="font-medium text-indigo-600 hover:text-indigo-500 px-4 py-2 bg-white rounded-sm toggle-menu" data-toggle="#loginForm" data-modal="true">Log in</a>
             </div>
           </nav>
         </div>
@@ -58,7 +60,7 @@
                 <img class="h-14 w-auto" src="../../../assets/images/logo.png" alt="">
               </div>
               <div class="-mr-2">
-                <button type="button" class="bg-white rounded-md p-2 mx-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 toggle-menu" data-toggle="#guestMobileNav">
+                <button type="button" class="bg-white rounded-md p-2 mx-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 toggle-menu" data-toggle="#guestMobileNav">
                   <span class="sr-only">Close main menu</span>
                   <!-- Heroicon name: outline/x -->
                   <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -68,13 +70,13 @@
               </div>
             </div>
             <div class="px-2 pt-2 pb-3 space-y-1">
-              <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Appointment</a>
+              <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-400 hover:bg-gray-50">Appointment</a>
 
-              <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Services</a>
+              <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-400 hover:bg-gray-50">Services</a>
 
-              <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Our Teams</a>
+              <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-400 hover:bg-gray-50">Our Teams</a>
 
-              <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">About Us</a>
+              <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-400 hover:bg-gray-50">About Us</a>
             </div>
             <a href="#" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100">
               Log in

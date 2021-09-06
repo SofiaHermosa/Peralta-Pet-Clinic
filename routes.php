@@ -15,6 +15,8 @@ get('/res/patients', 'views/admin/patients.php');
 
 get('/res/services', 'views/admin/services.php');
 
+get('/login', 'views/admin/login.php');
+
 // Dynamic GET. Example with 2 variables
 // The $name will be available in user.php
 // The $last_name will be available in user.php

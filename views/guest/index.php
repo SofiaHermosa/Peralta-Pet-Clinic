@@ -10,7 +10,9 @@
   include_once('sections/doctors.php');
 ?>
 
-  
+<?php
+  include_once('sections/products.php');
+?>  
 	
 <?php
 	include_once('layout/footer.php');

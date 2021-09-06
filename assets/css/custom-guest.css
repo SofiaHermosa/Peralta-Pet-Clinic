@@ -27,3 +27,75 @@ body{
 .h-115{
 	height: 115vh !important;
 }
+
+.login-form{
+	z-index: 9999 !important;
+    backdrop-filter:blur(6px) !important;
+}
+
+.custom-shape-divider-bottom-1630387629 {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1630387629 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-bottom-1630387629 .shape-fill {
+    fill: #FFFFFF;
+}
+
+.custom-shape-divider-top-1630388462 {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1630388462 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-top-1630388462 .shape-fill {
+    fill: #FFFFFF;
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px) {
+    .custom-shape-divider-top-1630388462 svg {
+        width: calc(100% + 1.3px);
+        height: 84px;
+    }
+
+    .custom-shape-divider-bottom-1630387629 svg {
+        width: calc(100% + 1.3px);
+        height: 84px;
+    }
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+    .custom-shape-divider-top-1630388462 svg {
+        width: calc(100% + 1.3px);
+        height: 64px;
+    }
+
+    .custom-shape-divider-bottom-1630387629 svg {
+        width: calc(100% + 1.3px);
+        height: 64px;
+    }
+}
