@@ -14,7 +14,7 @@
 
 <?php include_once('./views/admin/login.php');  ?>
 
-<div class="nav fixed top-0 left-0 bg-black shadow-xl backdrop-filter backdrop-blur-md bg-opacity-40 py-4 px-4 w-screen sm:px-6 lg:px-12 z-top" data-aos="fade-down" data-aos-anchor-placement="top-top" data-aos-duration="500">
+<div class="nav fixed top-0 left-0 bg-black shadow-xl backdrop-filter backdrop-blur-md bg-opacity-40 py-2 px-4 w-screen sm:px-6 lg:px-12 z-top" data-aos="fade-down" data-aos-anchor-placement="top-top" data-aos-duration="500">
   <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
     <div data-aos="fade-down" data-aos-anchor-placement="top-center" data-aos-duration="500" class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
       <div class="flex items-center justify-between w-full md:w-auto">
