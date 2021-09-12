@@ -11,7 +11,6 @@
             </svg>
           </button>
         </div>
-
         <div class="h-full flex flex-col py-6 bg-white shadow-xl">
           <div class="px-4 sm:px-6">
             <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">
@@ -24,26 +23,28 @@
             <div class="absolute inset-0 px-4 sm:px-6">
               <div class="h-full  overflow-y-auto pr-4" aria-hidden="true">
                   <h1 class="block my-4 text-lg text-gray-600 font-semibold text-center">Patient Details</h1>
+                  <input type="hidden" name="apt_id" id="apt_id">
+                  <input type="hidden" name="apt_date" id="apt_date">
                   <div class="grid grid-cols-2 gap-2 border-b border-solid border-gray-300 pb-6">
                       <div class="col-span-1">
                           <label class="form_label">First name</label>
-                          <input type="text" name="" class="form_input focus:ring-indigo-100 focus:border-indigo-100 duration-300">
+                          <input type="text" name="fname" class="form_input focus:ring-indigo-100 focus:border-indigo-100 duration-300" id="fname">
                       </div>
                       <div class="col-span-1">
                           <label class="form_label">Last name</label>
-                          <input type="text" name="" class="form_input">
+                          <input type="text" name="lname" class="form_input" id="lname">
                       </div>
                       <div class="col-span-1">
                           <label class="form_label">Middle initial</label>
-                          <input type="text" name="" class="form_input">
+                          <input type="text" name="minit" class="form_input" id="minit">
                       </div>
                       <div class="col-span-1">
                           <label class="form_label">Contact No.</label>
-                          <input type="text" name="" class="form_input">
+                          <input type="text" name="contact_no" class="form_input" id="contact_no">
                       </div>
                       <div class="col-span-2">
                           <label class="form_label">Address</label>
-                          <textarea name="" class="form_input"></textarea>
+                          <textarea name="address" class="form_input" id="address"></textarea>
                       </div>
                   </div>
 
@@ -51,26 +52,60 @@
                   <div class="grid grid-cols-2 gap-2">
                       <div class="col-span-1">
                           <label class="form_label">Type of patient</label>
-                          <select type="text" name="" class="form_input">
+                          <select type="text" name="patient_type" class="form_input" id ="patient_type">
                               <option></option>
-                              <option>Existing</option>
-                              <option>New</option>
+                              <option value="Existing">Existing</option>
+                              <option value="New">New</option>
                           </select>
                       </div>
                       <div class="col-span-1">
                           <label class="form_label">Time</label>
-                          <input type="text" name="" class="form_input">
+                          <input type="text" name="time" class="form_input" id="time">
                       </div>
                       <div class="col-span-2">
                           <label class="form_label">Reason of Visit</label>
-                          <textarea name="" rows="3" class="form_input"></textarea>
+                          <textarea name="visit_reason" rows="3" class="form_input" id="visit_reason"></textarea>
+                      </div>
+                      <div class="col-span-2">
+                          <label class="form_label">Confirm Transaction: </label>
+                          <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="saveappointment">Save Appointment</button>
                       </div>
                   </div>
-              </div>
+              </div> 
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> 
+
+<script>
+    $(document).ready(function(){
+    $("#saveappointment").click(function(){
+      var apt_id = $('#apt_id').val();
+      var fname = $('#fname').val();
+      var lname = $('#lname').val();
+      var minit = $('#minit').val();
+      var contactno = $('#contact_no').val();
+      var address = $('#address').val();
+      var get_patient_type = document.getElementById("patient_type");
+      var patient_type = get_patient_type.options[get_patient_type.selectedIndex].text;
+      var createdate =  document.getElementById("appointmentDateTitle").innerHTML;
+      var updatedate =  $("#apt_date").val();
+      var time = $('#time').val();
+      var visit_reason = $('#visit_reason').val();
+      $.ajax({
+            url:"/res/submitappointment",    //the page containing php script
+            type: "post",    //request type,
+            dataType: 'json',
+            data: {apt_id: apt_id, first_name: fname, last_name: lname, middle_init: minit,
+            contact_no: contactno, address: address, patient_type: patient_type, time: time, createdate: createdate, updatedate: updatedate, visit_reason: visit_reason},
+            success:function(result){ 
+              alert(result); 
+              location.replace("/res/appointment"); 
+            }
+        });
+    });
+  }); 
+</script>
