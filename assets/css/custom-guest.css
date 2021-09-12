@@ -13,6 +13,17 @@ body{
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888888; 
+  background: rgba(0,0,0,0.3); 
   border-radius: 10px;
+}
+
+
+.animate-svg:hover > .svg{
+	transition-duration: 0.8s;
+	transform: skewY(10deg) translateY(45px);
+	z-index: 99999 !important;
+}
+
+.h-115{
+	height: 115vh !important;
 }

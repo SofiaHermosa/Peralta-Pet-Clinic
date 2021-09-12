@@ -23,7 +23,7 @@
       </main>
     </div>
   </div>
-  <div data-aos="fade-left" data-aos-duration="2000" class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 bg-indigo-200">
-    <img class="h-80 w-full object-scale-down lg:mx-12 sm:h-72 md:h-96 lg:w-full lg:h-full" src="../../../assets/images/banner.png" alt="">
+  <div data-aos="fade-left" data-aos-duration="2000" class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 pt-16">
+    <img class="h-80 object-cover ml-10 w-full sm:h-72 md:h-96 lg:w-full lg:h-full" src="../../../assets/images/banner.png" alt="">
   </div>
 </div>  
