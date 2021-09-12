@@ -35,5 +35,5 @@ $(".nav--link").click(function(e) {
     var div = $(this).attr('href');
     $('html, body').animate({
         scrollTop: $(div).offset().top
-    }, 2000);
+    }, 1000);
 });
