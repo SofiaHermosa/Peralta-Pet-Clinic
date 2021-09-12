@@ -1,10 +1,7 @@
 <div class="m-0 fixed top-0 left-0 bg-gray-800 bg-opacity-40 w-screen login-form hidden" id="loginForm">
-	<div data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-duration="1000" class="grid lg:grid-cols-5 md:grid-cols-1 gap-0 px-40 py-16 h-screen">
+	<div data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-duration="1000" class="grid lg:grid-cols-5 md:grid-cols-1 gap-0 px-40 py-12 h-screen">
 		<div class="col-span-3 flex w-full bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 rounded-tl-xl rounded-bl-xl mix-blend-darken shadow-lg overflow-hidden">
 			<img class="w-full object-cover" src="../../../assets/images/services-bg.jpg">
-
-			<img class="absolute w-20 left-40 top-10 z-50 m-4" src="../../../assets/images/logo.png">
-
 		</div>
 		<div class="col-span-2 bg-indigo-600 mix-blend-overlay rounded-tr-xl rounded-br-xl shadow-lg">
 			<button type="button" class="absolute right-40 transform -translate-y-6 translate-x-6 bg-white rounded-full p-2 mx-2 inline-flex items-center justify-center text-gray-800 font-bolder shadow-xl hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 toggle-menu" data-toggle="#loginForm" data-modal="true">
@@ -34,7 +31,7 @@
 						</div>
 					</div>	
 
-					<button type="submit" class="p-2 my-6 w-full bg-pink-600 text-white font-bold rounded-md shadow-md hover:bg-pink-700">Login</button>
+					<button type="submit" class="p-2 mt-6 mb-20 w-full bg-pink-600 text-white font-bold rounded-md shadow-md hover:bg-pink-700">Login</button>
 				</form>
 				<div class="grid grid-cols-5 gap-4 px-6 mx-auto absolute bottom-6 left-0">
 					<div class="hover:bg-white p-2 rounded-full mx-auto w-11 border-2 border-solid border-white transform hover:-translate-y-2 text-white hover:text-indigo-600">

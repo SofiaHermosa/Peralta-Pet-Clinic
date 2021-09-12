@@ -8,11 +8,15 @@
 
 <?php
   include_once('sections/doctors.php');
-?>
+?>  
 
 <?php
-  include_once('sections/products.php');
-?>  
+  include_once('sections/about.php');
+?> 
+
+<?php
+  include_once('sections/inquiry.php');
+?> 
 	
 <?php
 	include_once('layout/footer.php');
