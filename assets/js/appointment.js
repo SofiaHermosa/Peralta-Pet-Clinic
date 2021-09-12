@@ -18,15 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
         dayMaxEventRows: 2,  // adjust to 6 only for timeGridWeek/timeGridDay
         eventBackgroundColor: '#9cdfc4',
         eventContent: function(info) {
-          console.log(info);
           return {
           'html' : `<div data-aos="flip-up" data-aos-duration="1000" class="w-full">
-                        <div class="font-bold text-md text-left text-blue-500 opacity-0 sm:opacity-100">Sample User</div>
+                        <div class="font-bold text-md text-left text-blue-500 opacity-0 sm:opacity-100">` + info.event._def.extendedProps.visit_reason + `</div>
                           <div class="text-sm text-gray-500 font-semibold text-justify overflow-hidden overflow-ellipsis font-light mt-1 px-2 opacity-0 sm:opacity-100">
-                            ${info.event._def.title}
+                           ` + info.event._def.extendedProps.fname +` `+ info.event._def.extendedProps.lname + `
                           </div>
                           <div class="w-full text-xs py-1 text-blue-400 text-right">
-                              ${info.timeText}m
+                              `+info.event._def.extendedProps.starttime +`
                           </div>
                       </div>`,
           };
@@ -34,68 +33,77 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       timeGridWeek: {
         eventContent: function(info) {
-          console.log(info);
           return {
           'html' : `<div data-aos="flip-up" data-aos-duration="1000" class="w-full">
-                        <div class="font-bold text-md text-left text-blue-500 opacity-0 sm:opacity-100">Sample User</div>
+                        <div class="font-bold text-md text-left text-blue-500 opacity-0 sm:opacity-100">${info.event._def.extendedProps.visit_reason}</div>
                           <div class="text-sm text-gray-500 font-semibold text-justify overflow-hidden overflow-ellipsis font-light mt-1 px-2 opacity-0 sm:opacity-100">
-                            ${info.event._def.title}
+                            ${info.event._def.extendedProps.fname } ${info.event._def.extendedProps.lname }
                           </div>
                           <div class="w-full text-xs py-1 text-blue-400 text-right transform -translate-y-4">
-                              ${info.timeText}m
+                              ${info._def.extendedProps.starttime}m
                           </div>
                       </div>`,
           };
         }
       },
     },
-    events: [
-    {
-      'title' : 'Vaccination',
-      'start' : '2021-08-21 06:30',
-      'color' : '#9cdfc4'
-    },
-    {
-      'title' : 'Gromming',
-      'start' : '2021-08-21 07:45',
-      'color' : '#9cdfc4'
-    },
-    {
-      'title' : 'Gromming',
-      'start' : '2021-08-21 09:00',
-      'color' : '#9cdfc4'
-    },
-    {
-      'title' : 'Vaccination',
-      'start' : '2021-08-26 06:30',
-      'color' : '#9cdfc4'
-    },
-    {
-      'title' : 'Gromming',
-      'start' : '2021-08-28 07:45',
-      'color' : '#9cdfc4'
-    },
-    {
-      'title' : 'Gromming',
-      'start' : '2021-08-30 09:00',
-      'color' : '#9cdfc4'
-    },
-    {
-      'title' : 'Gromming',
-      'start' : '2021-08-16 09:00',
-      'color' : '#9cdfc4'
-    },
-      {
-      'title' : 'Gromming',
-      'start' : '2021-08-08 09:00',
-      'color' : '#9cdfc4'
-    }
-    ],
     dateClick: function(info) {
-      console.log(info);
       $('#appointmentDateTitle').html(info.dateStr);
+      document.getElementById("apt_id").value = "";
+      document.getElementById("fname").value = "";
+      document.getElementById("lname").value = "";
+      document.getElementById("minit").value = "";
+      document.getElementById("contact_no").value = "";
+      document.getElementById("address").value = "";
+      document.getElementById("patient_type").value = "";
+      document.getElementById("visit_reason").value = "";
+      document.getElementById("time").value = "";
+      document.getElementById("apt_date").value = "";
       $('#newAppointmentModal').fadeToggle('easing');
       $('body').toggleClass('overflow-hidden');
+    },
+    eventClick: function(info) {
+      console.log(info);
+      document.getElementById("apt_id").value = info.event._def.title;
+      document.getElementById("apt_date").value = info.event.extendedProps.startdates;
+      document.getElementById("fname").value = info.event.extendedProps.fname;
+      document.getElementById("lname").value = info.event.extendedProps.lname;
+      document.getElementById("minit").value = info.event.extendedProps.minit;
+      document.getElementById("contact_no").value = info.event.extendedProps.contactno;
+      document.getElementById("address").value = info.event.extendedProps.address;
+      document.getElementById("patient_type").value = info.event.extendedProps.patient_type;
+      document.getElementById("visit_reason").value = info.event.extendedProps.visit_reason;
+      document.getElementById("time").value = info.event.extendedProps.starttime;
+      $('#newAppointmentModal').fadeToggle('easing');
+      $('body').toggleClass('overflow-hidden');
+      // change the border color just for fun
+      info.el.style.borderColor = 'red';
+    },
+  });
+  var eventsarray;
+  $.ajax({
+    url:"/res/retrieveappointment",    //the page containing php script
+    type: "GET",    //request type,
+    dataType: 'json',
+    success:function(result){ 
+      $.each(result, function (i, v) {
+        var startdateobj = new Date(v.apt_time);
+        var formatteddate = startdateobj.toISOString();
+        appointmentCalendar.addEvent({
+          title: v.apt_id,
+          fname: v.apt_fname,
+          lname: v.apt_lname,
+          minit: v.apt_minit,
+          contactno: v.apt_contactno,
+          address: v.apt_address,
+          patient_type: v.apt_patient_type,
+          visit_reason: v.apt_visit_reason,
+          start: moment(v.apt_time).format('YYYY-MM-DD'),
+          description: v.apt_visit_reason,
+          startdates: moment(v.apt_time).format('YYYY-MM-DD'),
+          starttime: moment(v.apt_time).format('HH:mm')       
+        });
+      });
     },
   });
   appointmentCalendar.render();

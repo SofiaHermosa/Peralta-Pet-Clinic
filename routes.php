@@ -38,8 +38,11 @@ get('/item/$name', 'views/items.php');
 // ##################################################
 // ##################################################
 // any can be used for GETs or POSTs
+post('/res/submitappointment', 'controller/appointment/addappointment.php');
+GET('/res/retrieveappointment', 'controller/appointment/viewappointment.php');
 
 // For GET or POST
 // The 404.php which is inside the views folder will be called
 // The 404.php has access to $_GET and $_POST
 any('/404','views/errors/404.php');
+

@@ -13,7 +13,7 @@
     <div data-aos="fade-up" data-aos-duration="1200" class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">   
       <div class="px-4 py-6 sm:px-0 h-full grid grid-rows gap-14">
         <div class="d-flex" id="appointmentCalendar"></div>
-      </div>
+      </div>  
     </div>
   </main>
 
