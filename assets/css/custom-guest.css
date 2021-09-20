@@ -168,3 +168,48 @@ body {
         height: 63px;
     }
 }
+
+.custom-shape-divider-bottom-1631408833 {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1631408833 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1631408833 .shape-fill {
+    fill: #e0e7ff;
+}
+
+
+/** For tablet devices **/
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .custom-shape-divider-bottom-1631408833 svg {
+        width: calc(100% + 1.3px);
+        height: 96px;
+    }
+}
+
+
+/** For mobile devices **/
+
+@media (max-width: 767px) {
+    .custom-shape-divider-bottom-1631408833 svg {
+        width: calc(100% + 1.3px);
+        height: 63px;
+    }
+}
+
+.goTopBtn {
+    z-index: 9999 !important;
+}

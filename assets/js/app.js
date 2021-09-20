@@ -18,14 +18,28 @@
     });
 })();
 
-
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
     var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
+    console.log(currentScrollPos);
+    if (currentScrollPos <= 100) {
         document.querySelector(".nav").style.top = "0";
     } else {
-        document.querySelector(".nav").style.top = "-100px";
+        if (prevScrollpos > currentScrollPos) {
+            document.querySelector(".nav").style.top = "0";
+        } else {
+            document.querySelector(".nav").style.top = "-100px";
+        }
+    }
+
+    if (currentScrollPos >= 3600) {
+        $(".goTopBtn").fadeOut();
+    } else {
+        if (currentScrollPos >= 560) {
+            $(".goTopBtn").fadeIn();
+        } else {
+            $(".goTopBtn").fadeOut();
+        }
     }
     prevScrollpos = currentScrollPos;
 }

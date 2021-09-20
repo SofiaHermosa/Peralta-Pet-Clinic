@@ -1,5 +1,5 @@
 <div class="m-0 fixed top-0 left-0 bg-gray-800 bg-opacity-40 w-screen login-form hidden" id="loginForm">
-	<div data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-duration="1000" class="grid lg:grid-cols-5 md:grid-cols-1 gap-0 px-40 py-12 h-screen">
+	<div data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-duration="1000" class="grid lg:grid-cols-5 md:grid-cols-1 gap-0 px-40 py-24 h-screen">
 		<div class="col-span-3 flex w-full bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 rounded-tl-xl rounded-bl-xl mix-blend-darken shadow-lg overflow-hidden">
 			<img class="w-full object-cover" src="../../../assets/images/services-bg.jpg">
 		</div>

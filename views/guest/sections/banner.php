@@ -1,4 +1,4 @@
-      <main class="mt-10 z-0 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-16 z-20">
+      <main class="mt-10 z-0 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-40 z-20">
         <div class="sm:text-center lg:text-left">
           <h1 data-aos="fade-down" data-aos-duration="1800" class="text-4xl tracking-tight font-extrabold text-gray-50 sm:text-5xl md:text-6xl">
             <span class="block xl:inline">WE ARE HERE TO HELP WITH ALL OF YOUR</span>
@@ -7,24 +7,29 @@
           <p data-aos="fade-right" data-aos-duration="1000" class="mt-3 text-base text-gray-50 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
             Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
           </p>
-          <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+          <div class="mt-5 sm:mt-5 sm:flex sm:justify-center lg:justify-start">
             <div data-aos="zoom-in-right" data-aos-duration="1000" class="rounded-md shadow">
-              <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+              <a href="appointment" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-900 bg-blue-300 hover:bg-blue-400 md:py-4 md:text-lg md:px-10">
                 Book Now
               </a>
             </div>
-            <div data-aos="zoom-in-left" data-aos-duration="1000" class="mt-3 sm:mt-0 sm:ml-3">
+            <!-- <div data-aos="zoom-in-left" data-aos-duration="1000" class="mt-3 sm:mt-0 sm:ml-3">
               <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
                 Contact Us
               </a>
-            </div>
+            </div> -->
           </div>
         </div>
       </main>
     </div>
   </div>
   <div data-aos="fade-left" data-aos-duration="2000" class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 bg-blue-100">
-    <img class="h-80 object-cover w-full sm:h-72 md:h-96 lg:w-full lg:h-full" src="../../../assets/images/banner.jpg" alt="">
+    <?php 
+      $content = $cms->getContent('banner')[0]['content'];
+      foreach(json_decode($content)->images as $image){
+    ?>
+        <img class="h-80 object-cover w-full sm:h-72 md:h-96 lg:w-full lg:h-full" src="<?php echo "./$image" ?>" alt="">
+    <?php } ?>
   </div>
   <div class="custom-shape-divider-bottom-1630387629">
       <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" data-aos="fade-down" data-aos-duration="700" data-aos-anchor-placement="top-top">

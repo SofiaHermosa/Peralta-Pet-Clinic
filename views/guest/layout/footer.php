@@ -2,7 +2,7 @@
 	<div class="max-w-7xl mx-auto">
 		<div class="relative left-0 full w-full px-20">
 			<div class="grid grid-cols-6 gap-10">
-				<div class="col-span-2 d-flex place-content-center py-10 transform translate-y-14">
+				<div class="col-span-6 md:col-span-2 d-flex place-content-center py-10 transform translate-y-14">
 					<div data-aos="fade-down" data-aos-duration="900" data-aos-anchor-placement="bottom-bottom" class="grid grid-cols-5 gap-1">
 						<div class="col-span-1">
 							<img class="self-center rounded-md w-auto" src="../../../assets/images/logo.png">
@@ -27,22 +27,22 @@
 						</small>	
 					</div>
 				</div>
-				<div class="col-span-1 grid justify-content-center text-center py-14 transform translate-y-6">
-					<a data-aos="fade-up" data-aos-duration="500" data-aos-anchor-placement="bottom-bottom" href="#" class="px-4 rounded-sm font-medium text-gray-50 hover:text-gray-300 w-full mt-10">Appointment</a>
+				<div class="col-span-3 md:col-span-1 grid justify-content-center text-center py-0 md:py-14 transform translate-y-6 md:translate-y-0">
+					<a data-aos="fade-up" data-aos-duration="500" data-aos-anchor-placement="bottom-bottom" href="#" class="px-4 py-4 md:py-0 rounded-sm font-medium text-gray-50 hover:text-gray-300 w-full mt-10">Appointment</a>
 
-					<a data-aos="fade-up" data-aos-duration="700" data-aos-anchor-placement="bottom-bottom" href="#services" class="nav--link px-4 rounded-sm font-medium text-gray-50 hover:text-gray-300 w-full">Services</a>
+					<a data-aos="fade-up" data-aos-duration="700" data-aos-anchor-placement="bottom-bottom" href="#services" class="nav--link px-4 py-4 md:py-0 rounded-sm font-medium text-gray-50 hover:text-gray-300 w-full">Services</a>
 
-					<a data-aos="fade-up" data-aos-duration="900" data-aos-anchor-placement="bottom-bottom" href="#ourTeam" class="nav--link px-4 rounded-sm font-medium text-gray-50 hover:text-gray-300 w-full">Our Teams</a>
+					<a data-aos="fade-up" data-aos-duration="900" data-aos-anchor-placement="bottom-bottom" href="#ourTeam" class="nav--link px-4 py-4 md:py-0 rounded-sm font-medium text-gray-50 hover:text-gray-300 w-full">Our Teams</a>
 				</div>
-				<div class="col-span-1 grid justify-content-center text-center py-14 transform translate-y-6">
-					<a data-aos="fade-up" data-aos-duration="500" data-aos-anchor-placement="bottom-bottom" href="#about" class="nav--link px-4 rounded-sm font-medium text-gray-50 hover:text-gray-300 w-full mt-10">About Us</a>
+				<div class="col-span-3 md:col-span-1 grid justify-content-center text-center py-0 md:py-14 transform translate-y-6 md:translate-y-0">
+					<a data-aos="fade-up" data-aos-duration="500" data-aos-anchor-placement="bottom-bottom" href="#about" class="nav--link px-4 py-4 md:py-0 rounded-sm font-medium text-gray-50 hover:text-gray-300 w-full mt-10">About Us</a>
 
-					<a data-aos="fade-up" data-aos-duration="700" data-aos-anchor-placement="bottom-bottom" href="#contactUs" class="nav--link px-4 rounded-sm font-medium text-gray-50 hover:text-gray-300 w-full">Contact Us</a>
+					<a data-aos="fade-up" data-aos-duration="700" data-aos-anchor-placement="bottom-bottom" href="#contactUs" class="nav--link px-4 py-4 md:py-0 rounded-sm font-medium text-gray-50 hover:text-gray-300 w-full">Contact Us</a>
 
-					<a data-aos="fade-up" data-aos-duration="900" data-aos-anchor-placement="bottom-bottom" href="javascript:void(0)" class="font-medium text-gray-50 hover:text-gray-300 px-4 rounded-sm toggle-menu" data-toggle="#loginForm" data-modal="true">Log in</a>
+					<a data-aos="fade-up" data-aos-duration="900" data-aos-anchor-placement="bottom-bottom" href="javascript:void(0)" class="font-medium py-4 md:py-0 text-gray-50 hover:text-gray-300 px-4 rounded-sm toggle-menu" data-toggle="#loginForm" data-modal="true">Log in</a>
 				</div>
-				<div class="col-span-2 transform translate-y-9">
-					<div data-aos="fade-right" data-aos-duration="700" data-aos-anchor-placement="bottom-bottom" class="grid grid-cols-4 gap-2 py-20">
+				<div class="col-span-6 md:col-span-2 transform translate-y-9 md:translate-y-0">
+					<div data-aos="fade-right" data-aos-duration="700" data-aos-anchor-placement="bottom-bottom" class="grid grid-cols-4 gap-2 py-0 md:py-20">
 						<div class="col-span-4 text-lg text-white font-semibold">
 							<h1>Subscribe for more info</h1>
 						</div>
@@ -50,7 +50,7 @@
 							<input type="text" name="" class="form_input w-full font-semibold">
 						</div>
 						<div class="col-span-1 text-right">
-							<button class="w-full flex items-center justify-center p-1 h-full text-md font-semibold rounded-md text-indigo-700 bg-indigo-200 hover:bg-indigo-700 md:text-lg md:p-1">
+							<button class="w-full flex items-center justify-center p-1 h-full text-md font-semibold rounded-md text-indigo-700 bg-indigo-200 hover:bg-blue-300 md:text-lg md:p-1">
                                 Send
                             </button>
 						</div>

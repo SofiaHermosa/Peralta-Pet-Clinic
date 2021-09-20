@@ -1,0 +1,36 @@
+.step-app>.step-steps>li.done {
+    background-color: #4338ca !important;
+    color: #ffff !important;
+}
+
+.step-app>.step-steps>li.active {
+    background-color: #4338ca !important;
+    color: #ffff !important;
+}
+
+.step-app>.step-content {
+    border: none;
+}
+
+.step-app>.step-steps>li {
+    border: none !important;
+}
+
+.step-app>.step-steps>li {
+    padding: 1px !important;
+}
+
+body {
+    background: url('../images/organic.png') !important;
+}
+
+.frosted {
+    background: #5855551a !important;
+    backdrop-filter: blur(20px) !important;
+    /* background-clip: content-box !important; */
+    z-index: 9999 !important;
+}
+
+.time:checked+label {
+    opacity: 0.7 !important;
+}

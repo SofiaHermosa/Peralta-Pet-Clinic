@@ -12,8 +12,8 @@
 				<h1 data-aos="fade-down" data-aos-duration="1000" class="text-5xl font-bold text-white">Our Team</h1>
 		    </div> 
 
-			<div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 lg:gap-20 sm:gap-10 py-20 flex justify-center">
-				<div data-aos="zoom-in" data-aos-duration="1000" class="w-full animate-svg bg-white rounded-sm shadow-lg transition transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+			<div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10 md:gap-20 py-20 flex justify-center">
+				<div data-aos="zoom-in" data-aos-duration="1000" class="w-full animate-svg mt-10 md:mt-0 bg-white rounded-sm shadow-lg transition transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
 					<div class="flex justify-center transform -translate-y-12">
 						<img class="w-28 h-28 rounded-full object-cover ring-4 ring-white" src="../../../assets/images/doctor-1.jpg">
 					</div>
@@ -54,7 +54,7 @@
 					</div>					
 				</div>
 
-				<div data-aos="zoom-in" data-aos-duration="1000" class="w-full animate-svg bg-white rounded-sm shadow-lg transition transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+				<div data-aos="zoom-in" data-aos-duration="1000" class="w-full animate-svg mt-10 md:mt-0 bg-white rounded-sm shadow-lg transition transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
 					<div class="flex justify-center transform -translate-y-12">
 						<img class="w-28 h-28 rounded-full object-cover ring-4 ring-white" src="../../../assets/images/doctor-2.jpg">
 					</div>
@@ -95,7 +95,7 @@
 					</div>					
 				</div>
 
-				<div data-aos="zoom-in" data-aos-duration="1000" class="w-full animate-svg bg-white rounded-sm shadow-lg transition transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+				<div data-aos="zoom-in" data-aos-duration="1000" class="w-full animate-svg mt-10 md:mt-0 bg-white rounded-sm shadow-lg transition transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
 					<div class="flex justify-center transform -translate-y-12">
 						<img class="w-28 h-28 rounded-full object-cover ring-4 ring-white" src="../../../assets/images/doctor-3.jpg">
 					</div>
@@ -136,7 +136,7 @@
 					</div>					
 				</div>
 
-				<div data-aos="zoom-in" data-aos-duration="1000" class="w-full animate-svg bg-white rounded-sm shadow-lg transition transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+				<div data-aos="zoom-in" data-aos-duration="1000" class="w-full animate-svg mt-10 md:mt-0 bg-white rounded-sm shadow-lg transition transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
 					<div class="flex justify-center transform -translate-y-12">
 						<img class="w-28 h-28 rounded-full object-cover ring-4 ring-white" src="../../../assets/images/doctor-4.jpg">
 					</div>

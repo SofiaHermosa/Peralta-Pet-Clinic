@@ -11,11 +11,12 @@
         $date = $_POST["createdate"];
         $time = $_POST["time"];
         $datetime = $date ." ". $time; 
+        $endtime  = date('Y-m-d H:i',strtotime('+1 hour',strtotime($datetime)));
         $visit_reason = $_POST["visit_reason"];
         $response = "";
     
-        $result = mysqli_query($conn,"INSERT INTO tbl_appointment (apt_fname, apt_lname, apt_minit, apt_contactno, apt_address, apt_patient_type, apt_time, apt_visit_reason) 
-                VALUES ('$fname', '$lname', '$minit', '$contact_no', '$address', '$patient_type', '$datetime', '$visit_reason')")
+        $result = mysqli_query($conn,"INSERT INTO tbl_appointment (apt_fname, apt_lname, apt_minit, apt_contactno, apt_address, apt_patient_type, apt_time, end_time ,apt_visit_reason) 
+                VALUES ('$fname', '$lname', '$minit', '$contact_no', '$address', '$patient_type', '$datetime', '$endtime', '$visit_reason')")
                 or die ("failed to query insertion in the appointment table". mysqli_error());
     
         if($result){
@@ -33,12 +34,13 @@
         $date = $_POST["updatedate"];
         $time = $_POST["time"];
         $datetime = $date ." ". $time; 
+        $endtime  = date('Y-m-d H:i',strtotime('+1 hour',strtotime($datetime)));
         $visit_reason = $_POST["visit_reason"];
         $response = "";
 
         $result = mysqli_query($conn,"UPDATE tbl_appointment SET apt_fname = '$fname', apt_lname = '$lname', apt_minit = '$minit',
                                      apt_contactno = '$contact_no', apt_address = '$address', apt_patient_type = '$patient_type', 
-                                     apt_time = '$datetime', apt_visit_reason = '$visit_reason' 
+                                     apt_time = '$datetime', end_time = '$endtime', apt_visit_reason = '$visit_reason' 
                                                 WHERE apt_id = '$apt_id' ")
                 or die ("failed to query update in the appointment table". mysqli_error());
         $response = "Appointment Updated Successfully";

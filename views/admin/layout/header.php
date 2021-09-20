@@ -1,13 +1,18 @@
 <?php 
-    $routes = ['/res/', '/res/appointment', '/res/team', '/res/patients', '/res/services'];
-    $pages  = ['dashboard', 'appointment', 'team', 'patients', 'services'];
+    
+    require './class/cms.php';
+    $cms = new CMS;
+  
+    $routes = ['/res/', '/res/appointment', '/res/team', '/res/patients', '/res/services', '/res/content-management'];
+    $pages  = ['dashboard', 'appointment', 'team', 'patients', 'services', 'content-management'];
     $index  = array_search($_SERVER['REQUEST_URI'], $routes);
     $navs   = [
-        'dashboard'   => '',
-        'appointment' => '',
-        'team'        => '',
-        'patients'    => '',
-        'services'    => ''   
+        'dashboard'             => '',
+        'appointment'           => '',
+        'team'                  => '',
+        'patients'              => '',
+        'services'              => '',
+        'content-management'    => ''   
     ];
 
     $navs[$pages[$index]] = 'bg-blue-800';
@@ -45,6 +50,8 @@
               <a href="../res/patients" class="<?php echo $navs['patients']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Patients</a>
 
               <a href="../res/services" class="<?php echo $navs['services']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Services</a>
+
+              <a href="../res/content-management" class="<?php echo $navs['content-management']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Content Management</a>
             </div>
           </div>
         </div>
@@ -108,6 +115,8 @@
         <a href="../res/patients" class="<?php echo $navs['patients']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Patients</a>
 
         <a href="../res/services" class="<?php echo $navs['services']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Services</a>
+
+        <a href="../res/services" class="<?php echo $navs['content-management']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Content Management</a>
       </div>
       <div class="pt-4 pb-3 border-t border-gray-700">
         <div class="flex items-center px-5 toggle-menu" data-toggle="#userMenuMobile">

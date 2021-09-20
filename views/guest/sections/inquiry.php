@@ -1,5 +1,5 @@
-<div id="contactUs" class="relative bg-white overflow-hidden pb-20 z-0">
-	<div class="max-w-7xl mx-auto px-28 pb-20">
+<div id="contactUs" class="relative bg-indigo-100 overflow-hidden pb-20 z-0">
+	<div class="max-w-7xl mx-auto px-10 md:px-28 pb-20">
         <div class="relative left-0 h-full w-full d-flex place-content-center">
             <div class="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 lg:gap-10 sm:gap-10 py-20 flex justify-center">
                 <div class="col-span-1">

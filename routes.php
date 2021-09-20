@@ -15,7 +15,15 @@ get('/res/patients', 'views/admin/patients.php');
 
 get('/res/services', 'views/admin/services.php');
 
+get('/res/content-management', 'views/admin/cms.php');
+
+post('/res/content-management', 'controller/cms/edit.php');
+
 get('/login', 'views/admin/login.php');
+
+get('/appointment', 'views/guest/appointment.php');
+
+post('/available/slots', 'controller/appointment/bookappointment.php');
 
 // Dynamic GET. Example with 2 variables
 // The $name will be available in user.php
