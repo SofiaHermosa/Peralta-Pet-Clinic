@@ -3,24 +3,28 @@
         <div class="relative left-0 h-full w-full d-flex place-content-center">
             <div class="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 lg:gap-10 sm:gap-10 py-20 flex justify-center">
                 <div class="col-span-1">
-                    <div class="w-full mt-2 mb-12 px-10 text-center">
+                    <div class="w-full mt-2 mb-4 px-10 text-center">
                         <h1 data-aos="fade-down" data-aos-duration="1000" class="text-5xl font-bold text-gray-900">Contact Us</h1>
                     </div>
                     <div data-aos="zoom-in" data-aos-duration="1000" class="grid grod-cols-2 gap-4">
-                        <div class="col-span-1">
+                        <div class="col-span-2">
                             <label class="form_label">Name</label>
-                            <input type="text" name="" class="form_input">
+                            <input type="text" name="name" class="form_input">
                         </div>
                         <div class="col-span-1">
                             <label class="form_label">Contact No.</label>
-                            <input type="text" name="" class="form_input">
+                            <input type="text" name="contact_no" class="form_input">
+                        </div>
+                        <div class="col-span-1">
+                            <label class="form_label">Email</label>
+                            <input type="text" name="email" class="form_input">
                         </div>
                         <div class="col-span-2">
                             <label class="form_label">Message</label>
-                            <textarea name="" rows="6" class="form_input"></textarea>
+                            <textarea name="content" rows="5" class="form_input"></textarea>
                         </div>
                         <div class="col-span-2 pt-6">
-                            <button class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-3 md:text-lg md:px-10">
+                            <button data-url="send/inquiry" id="sendInquiry" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-3 md:text-lg md:px-10">
                                 Send
                             </button>
                         </div>

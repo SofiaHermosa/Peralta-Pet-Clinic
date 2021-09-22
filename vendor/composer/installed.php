@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'c0f2a68ea8c060db72eb9fc0d4598018d3c27102',
+        'reference' => '431f947e05f3834fe3b15be150895d0d94fdf260',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'c0f2a68ea8c060db72eb9fc0d4598018d3c27102',
+            'reference' => '431f947e05f3834fe3b15be150895d0d94fdf260',
             'dev_requirement' => false,
         ),
         'nesbot/carbon' => array(
@@ -26,6 +26,15 @@
             'install_path' => __DIR__ . '/../nesbot/carbon',
             'aliases' => array(),
             'reference' => 'f4655858a784988f880c1b8c7feabbf02dfdf045',
+            'dev_requirement' => false,
+        ),
+        'phpmailer/phpmailer' => array(
+            'pretty_version' => 'v6.5.1',
+            'version' => '6.5.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpmailer/phpmailer',
+            'aliases' => array(),
+            'reference' => 'dd803df5ad7492e1b40637f7ebd258fee5ca7355',
             'dev_requirement' => false,
         ),
         'symfony/deprecation-contracts' => array(

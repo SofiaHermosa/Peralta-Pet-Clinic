@@ -9,7 +9,7 @@ get('/res', 'views/admin/index.php');
 
 get('/res/appointment', 'views/admin/appointment.php');
 
-get('/res/team', 'views/admin/team.php');
+get('/res/inquiries', 'views/admin/inquiries.php');
 
 get('/res/patients', 'views/admin/patients.php');
 
@@ -24,6 +24,10 @@ get('/login', 'views/admin/login.php');
 get('/appointment', 'views/guest/appointment.php');
 
 post('/available/slots', 'controller/appointment/bookappointment.php');
+
+post('/send/inquiry', 'controller/inquiries/inquiry.php');
+
+get('/reply/inquiry', 'controller/inquiries/reply.php');
 
 // Dynamic GET. Example with 2 variables
 // The $name will be available in user.php

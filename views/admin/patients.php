@@ -1,4 +1,12 @@
 <?php
+    require_once('./class/patient.php');
+
+    $class = new Patients;
+
+    $patients = $class->getPatients();
+?>
+
+<?php
 	include_once('layout/header.php');
 ?>
 
@@ -21,16 +29,13 @@
                     <thead class="bg-gray-50">
                       <tr>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Name
+                          Patient
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Title
+                          Contact No.
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Status
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Role
+                          Address
                         </th>
                         <th scope="col" class="relative px-6 py-3">
                           <span class="sr-only">Edit</span>
@@ -38,6 +43,7 @@
                       </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
+                    <?php foreach($patients as $patient){ ?>
                       <tr>
                         <td class="px-6 py-4 whitespace-nowrap">
                           <div class="flex items-center">
@@ -46,98 +52,27 @@
                             </div>
                             <div class="ml-4">
                               <div class="text-sm font-medium text-gray-900">
-                                Jane Cooper
+                                <?php echo $patient['apt_fname'].' '.$patient['apt_minit'].'. '.$patient['apt_lname']  ?>
                               </div>
                               <div class="text-sm text-gray-500">
-                                jane.cooper@example.com
+                                <?php echo $patient['email']; ?>
                               </div>
                             </div>
                           </div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
-                          <div class="text-sm text-gray-500">Optimization</div>
+                          <div class="text-sm text-gray-500"><?php echo $patient['apt_contactno'] ?></div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            Active
-                          </span>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          Admin
+                          <div class="text-sm text-gray-500"><?php echo $patient['apt_address']; ?></div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                           <a href="#" class="text-indigo-600 rounded py-1 px-4 bg-indigo-50 hover:text-indigo-900 hover:bg-indigo-200">Edit</a>
                         </td>
                       </tr>
+                      <?php } ?>
 
-                      <tr>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="flex items-center">
-                            <div class="flex-shrink-0 h-10 w-10">
-                              <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
-                            </div>
-                            <div class="ml-4">
-                              <div class="text-sm font-medium text-gray-900">
-                                Jane Cooper
-                              </div>
-                              <div class="text-sm text-gray-500">
-                                jane.cooper@example.com
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
-                          <div class="text-sm text-gray-500">Optimization</div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            Active
-                          </span>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          Admin
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <a href="#" class="text-indigo-600 rounded py-1 px-4 bg-indigo-50 hover:text-indigo-900 hover:bg-indigo-200">Edit</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="flex items-center">
-                            <div class="flex-shrink-0 h-10 w-10">
-                              <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
-                            </div>
-                            <div class="ml-4">
-                              <div class="text-sm font-medium text-gray-900">
-                                Jane Cooper
-                              </div>
-                              <div class="text-sm text-gray-500">
-                                jane.cooper@example.com
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
-                          <div class="text-sm text-gray-500">Optimization</div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            Active
-                          </span>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          Admin
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <a href="#" class="text-indigo-600 rounded py-1 px-4 bg-indigo-50 hover:text-indigo-900 hover:bg-indigo-200">Edit</a>
-                        </td>
-                      </tr>
-
-                      <!-- More people... -->
-                    </tbody>
+                     </tbody>
                   </table>
                 </div>
               </div>

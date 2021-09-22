@@ -1,4 +1,25 @@
 <?php
+    require './class/inquiry.php';
+    require './class/appointment.php';
+    require './class/patient.php';
+
+    $inquiryClass = new Inquiry;
+    $inquiries = $inquiryClass->getInquiries();
+
+    $appointmentClass = new Appointment;
+    $appointments = $appointmentClass->getAppointment()->appointment;
+
+    $patientClass = new Patients;
+    $patients = $patientClass->getPatients();
+
+?>
+
+<?php
+
+  
+?>
+
+<?php
 	include_once('layout/header.php');
 ?>
 
@@ -16,15 +37,29 @@
           <!-- START CARDS SECTION --> 
           <div data-aos="fade-up" data-aos-duration="1000" class="d-flex grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-10 z-0">
               <div class="rounded-lg bg-gray-50 shadow transition transform duration-300 hover:-translate-y-2 hover:shadow-xl py-4 px-2 z-50">
-                  <div class="grid grid-cols-4">
+                   <div class="grid grid-cols-4">
                       <div class="d-flex col-span-1 px-4 py-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current text-white stroke-2 bg-green-300 p-2 rounded-xl md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current text-white stroke-2 bg-indigo-300 p-2 rounded-xl md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                       </div>
                       <div class="col-span-3 text-left p-4">
-                          <p class="text-md d-flex font-semibold text-gray-600">Today's Appointment<p>
-                          <h1 class="d-flex text-2xl font-bold text-gray-900">100,000,000</h1>
+                          <p class="text-md d-flex font-semibold text-gray-600">Appointments<p>
+                          <h1 class="d-flex text-2xl font-bold text-gray-900"><?php echo number_format(count($appointments)); ?></h1>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="rounded-lg bg-gray-50 shadow transition transform duration-300 hover:-translate-y-2 hover:shadow-xl py-4 px-2 z-50">
+                  <div class="grid grid-cols-4">
+                      <div class="d-flex col-span-1 px-4 py-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current text-white stroke-2 bg-green-300 p-2 rounded-xl md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                        </svg>
+                      </div>
+                      <div class="col-span-3 text-left p-4">
+                          <p class="text-md d-flex font-semibold text-gray-600">Inquiries<p>
+                          <h1 class="d-flex text-2xl font-bold text-gray-900"><?php echo number_format(count($inquiries)); ?></h1>
                       </div>
                   </div>
               </div>
@@ -38,21 +73,7 @@
                       </div>
                       <div class="col-span-3 text-left p-4">
                           <p class="text-md d-flex font-semibold text-gray-600">Patients<p>
-                          <h1 class="d-flex text-2xl font-bold text-gray-900">100,000,000</h1>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="rounded-lg bg-gray-50 shadow transition transform duration-300 hover:-translate-y-2 hover:shadow-xl py-4 px-2 z-50">
-                   <div class="grid grid-cols-4">
-                      <div class="d-flex col-span-1 px-4 py-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current text-white stroke-2 bg-indigo-300 p-2 rounded-xl md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                      </div>
-                      <div class="col-span-3 text-left p-4">
-                          <p class="text-md d-flex font-semibold text-gray-600">Appointments<p>
-                          <h1 class="d-flex text-2xl font-bold text-gray-900">100,000,000</h1>
+                          <h1 class="d-flex text-2xl font-bold text-gray-900"><?php echo number_format(count($patients)); ?></h1>
                       </div>
                   </div>
               </div>

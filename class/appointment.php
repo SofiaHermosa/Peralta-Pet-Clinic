@@ -9,11 +9,11 @@
         public $appointment, $connection, $slots, $config, $date;
         
         public function __construct(){
-            require_once($_SERVER['DOCUMENT_ROOT'] . '/controller/connection/conn.php');
+            require $_SERVER['DOCUMENT_ROOT'] . '/controller/connection/conn.php';
 
             $this->connection = $conn;
             $this->slots      = [];
-            $this->date       = new DateTime($_REQUEST['date']);
+            $this->date       = new DateTime($_REQUEST['date'] ?? '');
             $this->date       = $this->date->format('Y-m-d');
 
             $config           = require_once('./config.php');
@@ -22,10 +22,13 @@
 
         public function getAppointment(){
             $json = array();
-            $date = $_REQUEST['date'];
+            $date = $_REQUEST['date'] ?? null;
             
             $sqlQuery = "SELECT apt_time, end_time FROM tbl_appointment WHERE apt_time LIKE '%$date' ORDER BY apt_id";
 
+            if($date == null){
+                $sqlQuery = "SELECT apt_time, end_time FROM tbl_appointment WHERE apt_time ORDER BY apt_id";
+            }
 
             $result = mysqli_query($this->connection, $sqlQuery);
             $eventArray = array();

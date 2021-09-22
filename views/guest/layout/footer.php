@@ -68,7 +68,9 @@
 <script src="../../../assets/js/jquery.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../../../assets/js/app.js"></script>
+<script src="../../../assets/js/inquiry.js"></script>
 <script type="text/javascript">
 	AOS.init();
 </script>
