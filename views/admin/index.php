@@ -23,7 +23,7 @@
 	include_once('layout/header.php');
 ?>
 
-  <header class="bg-white shadow">
+  <header class="bg-white shadow mt-16">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
       <h1 class="text-3xl font-bold text-gray-900">
         Dashboard
@@ -82,12 +82,12 @@
                    <div class="grid grid-cols-4">
                       <div class="d-flex col-span-1 px-4 py-6">
                         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current text-white stroke-2 bg-yellow-300 p-2 rounded-xl md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                         </svg>
                       </div>
                       <div class="col-span-3 text-left p-4">
-                          <p class="text-md d-flex font-semibold text-gray-600">Income<p>
-                          <h1 class="d-flex text-2xl font-bold text-gray-900">100,000,000</h1>
+                          <p class="text-md d-flex font-semibold text-gray-600">Services<p>
+                          <h1 class="d-flex text-2xl font-bold text-gray-900">100,000</h1>
                       </div>
                   </div>
               </div>
@@ -107,8 +107,8 @@
 
               </div>
               <div data-aos="fade-left" data-aos-duration="1200" class="d-flex py-4 px-6 bg-gray-50 shadow rounded-lg">
-                <div class="d-flex rounded-md bg-yellow-300 transform -translate-y-10 text-white text-center shadow-md">
-                    <h1 class="text-lg py-4">Monthly Income</h1>
+                <div class="d-flex rounded-md bg-green-300 transform -translate-y-10 text-white text-center shadow-md">
+                    <h1 class="text-lg py-4">Monthly Inquiries</h1>
                 </div>
                 <canvas id="lineChart" class="d-flex h-1/4">
                   

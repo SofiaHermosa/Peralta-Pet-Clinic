@@ -40,6 +40,7 @@ var barChart = new Chart(bar, {
     }
 });
 
+console.log(window.aptPerMonth);
 var lineChart = new Chart(line, {
     type: 'line',
     data: {

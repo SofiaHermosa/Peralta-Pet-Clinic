@@ -6,6 +6,7 @@
                     <div class="w-full mt-2 mb-4 px-10 text-center">
                         <h1 data-aos="fade-down" data-aos-duration="1000" class="text-5xl font-bold text-gray-900">Contact Us</h1>
                     </div>
+                    <form method="POST" id="formInquiry">
                     <div data-aos="zoom-in" data-aos-duration="1000" class="grid grod-cols-2 gap-4">
                         <div class="col-span-2">
                             <label class="form_label">Name</label>
@@ -29,6 +30,7 @@
                             </button>
                         </div>
                     </div>
+                    </form>
                 </div>
 
                 <div class="col-span-1 rounded-lg shadow-2xl bg-white p-2">

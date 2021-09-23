@@ -16,7 +16,7 @@
             $this->date       = new DateTime($_REQUEST['date'] ?? '');
             $this->date       = $this->date->format('Y-m-d');
 
-            $config           = require_once('./config.php');
+            $config           = require './config.php';
             $this->config     = $config['services'];
         } 
 

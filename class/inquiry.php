@@ -2,7 +2,7 @@
     require './mailer/mailer.php';
 
     class Inquiry{
-        public $connection, $mail;
+        public $connection, $mail, $config;
         
         public function __construct(){
             require $_SERVER['DOCUMENT_ROOT'] . '/controller/connection/conn.php';
@@ -10,6 +10,8 @@
             $this->connection = $conn;
             $this->mail = new Mailer;
 
+            $config           = require './config.php';
+            $this->config     = $config['settings'];
         }
         
         public function sendInquiry(){
@@ -46,7 +48,7 @@
         }
 
         public function sendEmail(){
-            $recepient = 'jblando1996@gmail.com';
+            $recepient = $this->config['admin_email'];
             $subject   = 'New Inquiry | '. $_POST['name'];
             $view      = './views/mail/new-inquiry.php';
             $data      = array(

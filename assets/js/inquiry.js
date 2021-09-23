@@ -1,9 +1,9 @@
-function events() {
-    $(document).on('click', '#sendInquiry', sendInquiry);
-}
+// function events() {
+//     $(document).on('click', '#sendInquiry', sendInquiry);
+// }
 
 function sendInquiry() {
-    var url = $(this).data('url');
+    var url = $('#sendInquiry').data('url');
 
     Swal.fire({
         text: 'Send Inquiry?',
@@ -24,6 +24,7 @@ function sendInquiry() {
 }
 
 function showLoading() {
+    $('.form_input').removeClass('valid');
     Swal.fire({
         title: 'Sending Inquiry ....',
         text: 'please do not reload the page.',
@@ -32,6 +33,39 @@ function showLoading() {
         showConfirmButton: false,
     });
 }
+
+$(function() {
+    $("#formInquiry").submit(function(e) {
+        e.preventDefault();
+    }).validate({
+        rules: {
+            name: "required",
+            email: {
+                required: true,
+                email: true
+            },
+            contact_no: {
+                required: true,
+                maxlength: 12,
+                minlength: 11,
+            },
+            content: "required"
+        },
+        messages: {
+            name: "Please enter your name",
+            content: "Please enter your concerns",
+            contact_no: {
+                required: "Please provide a contact no",
+                maxlength: "Please enter valid contact no",
+                minlength: "Please enter valid contact no"
+            },
+            email: "Please enter a valid email address"
+        },
+        submitHandler: function(form) {
+            sendInquiry();
+        }
+    });
+});
 
 function sendRequest(url) {
     var name = $('input[name="name"]');
@@ -64,7 +98,3 @@ function sendRequest(url) {
         })
     });
 }
-
-$(document).ready(function() {
-    events();
-});

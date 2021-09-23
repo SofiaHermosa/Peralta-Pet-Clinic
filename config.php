@@ -30,7 +30,10 @@
                 'hours' => 0,
                 'mins'  => 30,
                 'plus'  => '+30 minutes'
-            ]
-        ]
+            ],
+        ],
+        'settings' => [
+            'admin_email' => 'jblando1996@gmail.com'
+        ]    
     ];
 ?>

@@ -14,8 +14,7 @@
             $this->mailer     = new PHPMailer(true);
         }
 
-        public function mail(){
-            // $this->mailer->SMTPDebug = SMTP::DEBUG_SERVER;                     
+        public function mail(){                    
             $this->mailer->isSMTP();        
             $this->mailer->CharSet    = "utf-8";                                  
             $this->mailer->Host       = 'smtp.gmail.com';                   
