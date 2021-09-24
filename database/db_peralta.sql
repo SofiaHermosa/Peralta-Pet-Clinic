@@ -71,7 +71,7 @@ INSERT INTO `tbl_cms` (`section`, `content`, `updated_at`) VALUES
 	('services', NULL, '2021-09-19 20:50:02'),
 	('our_teams', NULL, '2021-09-19 20:50:23'),
 	('about_us', '{"images": ["uploads/cms/61484f797f77e.jpg", "uploads/cms/61484f797fa97.jpg", "uploads/cms/61484f797fc7f.jpg", "uploads/cms/61484f797fe4d.jpg", "uploads/cms/61484f79800b3.jpg"], "history": "SXQgaXMgYSBsb25nIGVzdGFibGlzaGVkIGZhY3QgdGhhdCBhIHJlYWRlciB3aWxsIGJlIGRpc3RyYWN0ZWQgYnkgdGhlIHJlYWRhYmxlIGNvbnRlbnQgb2YgYSBwYWdlIHdoZW4gbG9va2luZyBhdCBpdHMgbGF5b3V0LiBUaGUgcG9pbnQgb2YgdXNpbmcgTG9yZW0gSXBzdW0gaXMgdGhhdCBpdCBoYXMgYSBtb3JlLW9yLWxlc3Mgbm9ybWFsIGRpc3RyaWJ1dGlvbiBvZiBsZXR0ZXJzLCBhcyBvcHBvc2VkIHRvIHVzaW5nICdDb250ZW50IGhlcmUsIGNvbnRlbnQgaGVyZScsIG1ha2luZyBpdCBsb29rIGxpa2UgcmVhZGFibGUgRW5nbGlzaC4gTWFueSBkZXNrdG9wIHB1Ymxpc2hpbmcgcGFja2FnZXMgYW5kIHdlYiBwYWdlIGVkaXRvcnMgbm93IHVzZSBMb3JlbSBJcHN1bSBhcyB0aGVpciBkZWZhdWx0IG1vZGVsIHRleHQsIGFuZCBhIHNlYXJjaCBmb3IgJ2xvcmVtIGlwc3VtJyB3aWxsIHVuY292ZXIgbWFueSB3ZWIgc2l0ZXMgc3RpbGwgaW4gdGhlaXIgaW5mYW5jeS4gVmFyaW91cyB2ZXJzaW9ucyBoYXZlIGV2b2x2ZWQgb3ZlciB0aGUgeWVhcnMsIHNvbWV0aW1lcyBieSBhY2NpZGVudCwgc29tZXRpbWVzIG9uIHB1cnBvc2UgKGluamVjdGVkIGh1bW91ciBhbmQgdGhlIGxpa2UpLg=="}', '2021-09-20 02:08:09'),
-	('settings', '{"images": ["uploads/cms/614d8907dde42.png"], "comp_no": "09095020288", "comp_name": "Sofia Hermosa", "comp_email": "hermosasofia@gmail.com", "comp_address": "NjggQ2FtZXJpbm8gQXZlLCBEYW1hcmnDsWFzIENpdHksIDQxMTQgQ2F2aXRl"}', '2021-09-24 01:34:16');
+	('settings', '{"images": ["uploads/cms/614d8907dde42.png"], "comp_no": "09095020288", "comp_name": "Peralta Dog and Cat Clinic", "comp_email": "hermosasofia@gmail.com", "comp_address": "NjggQ2FtZXJpbm8gQXZlLCBEYW1hcmnDsWFzIENpdHksIDQxMTQgQ2F2aXRl"}', '2021-09-24 01:38:41');
 /*!40000 ALTER TABLE `tbl_cms` ENABLE KEYS */;
 
 -- Dumping structure for table db_peralta.tbl_inquiries
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `tbl_inquiries` (
   KEY `id` (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_peralta.tbl_inquiries: 5 rows
+-- Dumping data for table db_peralta.tbl_inquiries: 0 rows
 DELETE FROM `tbl_inquiries`;
 /*!40000 ALTER TABLE `tbl_inquiries` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tbl_inquiries` ENABLE KEYS */;
