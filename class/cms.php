@@ -4,7 +4,7 @@
         public $connection, $section, $content;
 
         public function __construct(){
-            require_once($_SERVER['DOCUMENT_ROOT'] . '/controller/connection/conn.php');
+            require $_SERVER['DOCUMENT_ROOT'] . '/controller/connection/conn.php';
 
             $this->connection = $conn;
             $this->section    = $_POST['section'] ?? '';
@@ -30,8 +30,24 @@
                 $this->content['images'] = $storedFile;
             }
 
-            if($_POST['history'] != ''){
+            if(isset($_POST['history'])){
                 $this->content['history'] = base64_encode(trim($_POST['history']));
+            }
+
+            if(isset($_POST['comp_name'])){
+                $this->content['comp_name'] = trim($_POST['comp_name']);
+            }
+
+            if(isset($_POST['comp_address'])){
+                $this->content['comp_address'] = base64_encode(trim($_POST['comp_address']));
+            }
+
+            if(isset($_POST['comp_no'])){
+                $this->content['comp_no'] = trim($_POST['comp_no']);
+            }
+
+            if(isset($_POST['comp_email'])){
+                $this->content['comp_email'] = trim($_POST['comp_email']);
             }
 
             return $this; 

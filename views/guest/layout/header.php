@@ -1,11 +1,15 @@
 <?php
     require './class/cms.php';
     $cms = new CMS;
+
+    $branding = $cms->getContent('settings')[0]['content'];
+    $branding = json_decode($branding);
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ET Peralta Dog and Cat Clinic</title>
+	<title><?php echo $branding->comp_name ?? 'Peralta Dog and Cat Clinic' ?></title>
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>

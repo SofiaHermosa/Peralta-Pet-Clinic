@@ -1,7 +1,8 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT'] . '/controller/connection/conn.php');
+
     $config           = require_once('./config.php');
-    $this->config     = $config['services'];
+    $config           = $config['services'];
     
     $apt_id = $_POST["apt_id"];
     if($apt_id === ""){

@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `tbl_appointment` (
   PRIMARY KEY (`apt_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_peralta.tbl_appointment: ~19 rows (approximately)
+-- Dumping data for table db_peralta.tbl_appointment: ~13 rows (approximately)
 DELETE FROM `tbl_appointment`;
 /*!40000 ALTER TABLE `tbl_appointment` DISABLE KEYS */;
 INSERT INTO `tbl_appointment` (`apt_id`, `apt_fname`, `apt_lname`, `apt_minit`, `email`, `apt_contactno`, `apt_address`, `apt_patient_type`, `apt_time`, `end_time`, `apt_visit_reason`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -50,14 +50,8 @@ INSERT INTO `tbl_appointment` (`apt_id`, `apt_fname`, `apt_lname`, `apt_minit`, 
 	(33, 'STUDENTD', '2D', 'AD', NULL, '092312311', 'AAAAAAD', 'Existing', '2021-09-17 12:18', '2021-09-17 13:18', 'REASON SAMPLEDD', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
 	(34, 'Employee', 'Peralta', 'O', NULL, '092312312', 'Dasmarinas Pet Clinic', 'Existing', '2021-09-19 11:00', '2021-09-19 12:00', 'HOLIDAY', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
 	(35, 'Employee 11', 'Peralta 1', 'O', NULL, '0912312312', 'PERALTA CLINIC 1', 'Existing', '2021-09-28 11:00', '2021-09-28 12:00', 'BIRTHDAY 11', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
-	(40, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasdasdasd', 'New', '2021-09-22 16:30', '2021-09-22 17:30', 'Consultation', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
-	(41, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasdasdsad', 'Existing', '2021-09-22 ', '2021-09-22 01:00', 'Consultation', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
-	(42, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasdasdsad', 'Existing', '2021-09-22 ', '2021-09-22 01:00', 'Consultation', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
-	(43, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasdasdsad', 'Existing', '2021-09-22 ', '2021-09-22 01:00', 'Consultation', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
-	(44, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasdasdsad', 'Existing', '2021-09-22 ', '2021-09-22 01:00', 'Consultation', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
-	(45, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasdasdsad', 'Existing', '2021-09-22 ', '2021-09-22 01:00', 'Consultation', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
-	(46, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasdasdasd', 'New', '2021-09-22 ', '2021-09-22 01:00', 'Vaccination', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
-	(48, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasdasd', 'New', '2021-09-22 16:40', '2021-09-22 17:40', 'Vaccination', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
+	(40, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasdasdasd', 'New', '2021-09-23 16:30', '2021-09-22 17:30', 'Consultation', '1', '2021-09-20 21:07:06', '2021-09-23 20:26:09', NULL),
+	(48, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasdasd', 'New', '2021-09-23 16:40', '2021-09-22 17:40', 'Vaccination', '1', '2021-09-20 21:07:06', '2021-09-23 20:26:06', NULL),
 	(49, 'joshua', 'blando', 'H', NULL, '09988619866', 'asddwewrwrewwr', 'New', '2021-09-16 16:00', '2021-09-16 17:00', 'Veterinary Surgery', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
 	(50, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasd', 'New', '2021-09-16 14:00', '2021-09-16 15:00', 'Veterinary Surgery', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL);
 /*!40000 ALTER TABLE `tbl_appointment` ENABLE KEYS */;
@@ -77,7 +71,7 @@ INSERT INTO `tbl_cms` (`section`, `content`, `updated_at`) VALUES
 	('services', NULL, '2021-09-19 20:50:02'),
 	('our_teams', NULL, '2021-09-19 20:50:23'),
 	('about_us', '{"images": ["uploads/cms/61484f797f77e.jpg", "uploads/cms/61484f797fa97.jpg", "uploads/cms/61484f797fc7f.jpg", "uploads/cms/61484f797fe4d.jpg", "uploads/cms/61484f79800b3.jpg"], "history": "SXQgaXMgYSBsb25nIGVzdGFibGlzaGVkIGZhY3QgdGhhdCBhIHJlYWRlciB3aWxsIGJlIGRpc3RyYWN0ZWQgYnkgdGhlIHJlYWRhYmxlIGNvbnRlbnQgb2YgYSBwYWdlIHdoZW4gbG9va2luZyBhdCBpdHMgbGF5b3V0LiBUaGUgcG9pbnQgb2YgdXNpbmcgTG9yZW0gSXBzdW0gaXMgdGhhdCBpdCBoYXMgYSBtb3JlLW9yLWxlc3Mgbm9ybWFsIGRpc3RyaWJ1dGlvbiBvZiBsZXR0ZXJzLCBhcyBvcHBvc2VkIHRvIHVzaW5nICdDb250ZW50IGhlcmUsIGNvbnRlbnQgaGVyZScsIG1ha2luZyBpdCBsb29rIGxpa2UgcmVhZGFibGUgRW5nbGlzaC4gTWFueSBkZXNrdG9wIHB1Ymxpc2hpbmcgcGFja2FnZXMgYW5kIHdlYiBwYWdlIGVkaXRvcnMgbm93IHVzZSBMb3JlbSBJcHN1bSBhcyB0aGVpciBkZWZhdWx0IG1vZGVsIHRleHQsIGFuZCBhIHNlYXJjaCBmb3IgJ2xvcmVtIGlwc3VtJyB3aWxsIHVuY292ZXIgbWFueSB3ZWIgc2l0ZXMgc3RpbGwgaW4gdGhlaXIgaW5mYW5jeS4gVmFyaW91cyB2ZXJzaW9ucyBoYXZlIGV2b2x2ZWQgb3ZlciB0aGUgeWVhcnMsIHNvbWV0aW1lcyBieSBhY2NpZGVudCwgc29tZXRpbWVzIG9uIHB1cnBvc2UgKGluamVjdGVkIGh1bW91ciBhbmQgdGhlIGxpa2UpLg=="}', '2021-09-20 02:08:09'),
-	('settings', NULL, '2021-09-20 21:04:15');
+	('settings', '{"images": ["uploads/cms/614d8907dde42.png"], "comp_no": "09095020288", "comp_name": "Sofia Hermosa", "comp_email": "hermosasofia@gmail.com", "comp_address": "NjggQ2FtZXJpbm8gQXZlLCBEYW1hcmnDsWFzIENpdHksIDQxMTQgQ2F2aXRl"}', '2021-09-24 01:34:16');
 /*!40000 ALTER TABLE `tbl_cms` ENABLE KEYS */;
 
 -- Dumping structure for table db_peralta.tbl_inquiries
@@ -91,9 +85,9 @@ CREATE TABLE IF NOT EXISTS `tbl_inquiries` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   KEY `id` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_peralta.tbl_inquiries: 3 rows
+-- Dumping data for table db_peralta.tbl_inquiries: 5 rows
 DELETE FROM `tbl_inquiries`;
 /*!40000 ALTER TABLE `tbl_inquiries` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tbl_inquiries` ENABLE KEYS */;

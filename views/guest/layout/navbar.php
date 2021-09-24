@@ -9,7 +9,7 @@
       <div class="flex items-center justify-between w-full md:w-auto">
         <a href="#banner" class="nav--link">
           <span class="sr-only">Workflow</span>
-          <img class="object-cover h-14 rounded-md w-auto" src="../../../assets/images/logo.png">
+          <img class="object-cover h-14 rounded-md w-auto" src="<?php echo '../../'.$branding->images[0]  ?? '../../../assets/images/logo.png' ?>">
         </a>
         <div class="-mr-2 flex items-center md:hidden">
           <button type="button" class="bg-white bg-opacity-40 rounded-md p-2 mx-2 inline-flex items-center justify-center text-indigo-600 hover:text-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 toggle-menu" data-toggle="#guestMobileNav" aria-expanded="false">
@@ -44,7 +44,7 @@
   <div class="rounded-lg shadow-md bg-black backdrop-filter backdrop-blur-md bg-opacity-40 ring-1 ring-black ring-opacity-5 overflow-hidden">
     <div class="px-2 pt-4 flex items-center justify-between">
       <div>
-        <img class="h-14 w-auto" src="../../../assets/images/logo.png" alt="">
+        <img class="h-14 w-auto" src="<?php echo '../../'.$branding->images[0]  ?? '../../../assets/images/logo.png' ?>" alt="">
       </div>
       <div class="-mr-2">
         <button type="button" class="bg-white rounded-md p-2 mx-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 toggle-menu" data-toggle="#guestMobileNav">

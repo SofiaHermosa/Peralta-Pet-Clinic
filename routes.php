@@ -19,6 +19,8 @@ get('/res/content-management', 'views/admin/cms.php');
 
 post('/res/content-management', 'controller/cms/edit.php');
 
+post('/res/settings', 'controller/cms/settings.php');
+
 get('/login', 'views/admin/login.php');
 
 get('/appointment', 'views/guest/appointment.php');

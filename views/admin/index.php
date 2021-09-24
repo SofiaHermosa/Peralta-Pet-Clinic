@@ -15,11 +15,6 @@
 ?>
 
 <?php
-
-  
-?>
-
-<?php
 	include_once('layout/header.php');
 ?>
 
@@ -87,7 +82,7 @@
                       </div>
                       <div class="col-span-3 text-left p-4">
                           <p class="text-md d-flex font-semibold text-gray-600">Services<p>
-                          <h1 class="d-flex text-2xl font-bold text-gray-900">100,000</h1>
+                          <h1 class="d-flex text-2xl font-bold text-gray-900">7</h1>
                       </div>
                   </div>
               </div>

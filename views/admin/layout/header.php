@@ -1,6 +1,6 @@
 <?php 
     $routes = ['/res/', '/res/appointment', '/res/inquiries', '/res/patients', '/res/services', '/res/content-management'];
-    $pages  = ['dashboard', 'appointment', 'team', 'patients', 'services', 'content-management'];
+    $pages  = ['dashboard', 'appointment', 'inquiries', 'patients', 'services', 'content-management'];
     $index  = array_search($_SERVER['REQUEST_URI'], $routes);
     $navs   = [
         'dashboard'             => '',
@@ -13,27 +13,38 @@
 
     $navs[$pages[$index]] = 'bg-blue-800';
 ?>
+
+<?php
+    require './class/cms.php';
+    $cms = new CMS;
+?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin</title>
+  <?php 
+      $branding = $cms->getContent('settings')[0]['content'];
+      $branding = json_decode($branding);
+  ?>
+	<title><?php echo $branding->comp_name ?? 'Peralta Dog and Cat Clinic' ?> | Admin</title>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css">
   <link rel="stylesheet" type="text/css" href="../../../assets/css/custom-calendar.css">
   <link rel="stylesheet" type="text/css" href="../../../assets/css/custom-admin.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../../../assets/css/custom.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.79/theme-default.min.css"/>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 	
 </head>
 <body>
 <div>
-  <nav class="bg-gradient-to-tr from-blue-700 via-indigo-600 to-indigo-700 fixed top-0 w-full z-50">
+  <nav class="bg-gradient-to-tr from-blue-700 via-indigo-700 to-purple-700 fixed top-0 w-full z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center">
           <div class="flex-shrink-0">
-            <img class="h-16 w-16" src="../../../assets/images/logo.png" alt="Workflow">
+                                
+          <img class="h-16 w-16" src="<?php echo '../../'.$branding->images[0]  ?? '../../../assets/images/logo.png' ?>" alt="Workflow">
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-2">
@@ -77,7 +88,7 @@
         </div>
         <div class="hidden md:block">
           <div class="ml-4 flex items-center md:ml-6">
-            <button type="button" class="bg-blue-700 p-1 rounded-full text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+            <button type="button" class="bg-purple-700 p-1 rounded-full text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
               <span class="sr-only">View notifications</span>
               <!-- Heroicon name: outline/bell -->
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -98,7 +109,7 @@
                 <!-- Active: "bg-gray-100", Not Active: "" -->
                 <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
 
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
+                <a href="javascript:void(0)" class="block px-4 py-2 text-sm text-gray-700 toggle-menu" data-toggle="#settingsModal" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
 
                 <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
               </div>
@@ -184,7 +195,7 @@
         <div class="mt-3 px-2 space-y-1 hidden" id="userMenuMobile">
           <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-white hover:bg-blue-800">Your Profile</a>
 
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-white hover:bg-blue-800">Settings</a>
+          <a href="javascript:void(0)" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-white hover:bg-blue-800 toggle-menu" data-toggle="#settingsModal">Settings</a>
 
           <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-white hover:bg-blue-800">Sign out</a>
         </div>
@@ -192,3 +203,6 @@
     </div>
   </nav>
 </div>
+<?php
+	include_once('./views/admin/modals/settings.php');
+?>

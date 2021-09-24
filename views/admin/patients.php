@@ -67,7 +67,7 @@
                           <div class="text-sm text-gray-500"><?php echo $patient['apt_address']; ?></div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <a href="#" class="text-indigo-600 rounded py-1 px-4 bg-indigo-50 hover:text-indigo-900 hover:bg-indigo-200">Edit</a>
+                          <a href="#" class="text-indigo-600 rounded py-2 px-4 bg-indigo-50 hover:text-indigo-900 hover:bg-indigo-200">Edit</a>
                         </td>
                       </tr>
                       <?php } ?>

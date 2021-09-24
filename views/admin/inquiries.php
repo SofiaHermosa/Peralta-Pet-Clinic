@@ -67,8 +67,8 @@
                         <?php echo $inquiry['created_at']; ?> 
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <a href="#" class="text-indigo-600 rounded py-1 px-4 bg-indigo-100 hover:text-indigo-900 hover:bg-indigo-200">Reply</a>
-                          <a href="#" class="text-red-600 rounded py-1 px-4 bg-red-100 hover:text-red-900 hover:bg-red-200">Archaive</a>
+                          <a href="#" class="text-indigo-600 rounded py-2 px-4 bg-indigo-100 hover:text-indigo-900 hover:bg-indigo-200">Reply</a>
+                          <a href="#" class="text-red-600 rounded py-2 px-4 bg-red-100 hover:text-red-900 hover:bg-red-200">Archaive</a>
                         </td>
                       </tr>
                       <?php } ?> 

@@ -1,8 +1,3 @@
-<?php 
-    
-    require './class/cms.php';
-    $cms = new CMS;
-?>    
 <?php
 	include_once('layout/header.php');
 ?>
