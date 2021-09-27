@@ -15,9 +15,15 @@
 ?>
 
 <?php
-    require './class/cms.php';
+    require_once('./class/cms.php');
+    require_once('./class/inquiry.php');
+    require_once('./class/appointment.php');
+
     $cms = new CMS;
+    $inquiryClass = new Inquiry;
+    $appointmentClass = new Appointment;
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,8 +39,11 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../../../assets/css/custom.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.79/theme-default.min.css"/>
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-	
+  <link rel="stylesheet" href="../../../assets/tooltipster/dist/css/tooltipster.bundle.min.css"/>
+  <link rel="stylesheet" href="../../../assets/tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-borderless.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
+  <link rel="stylesheet" type="text/css" href="../../../assets/css/datatable.css">
+  <link rel="shortcut icon" type="image/jpg" href="<?php echo '//'.$_SERVER['SERVER_NAME']."/".$branding->images[0] ?>"/>
 </head>
 <body>
 <div>
@@ -56,21 +65,78 @@
               <span class="md:hidden lg:inline-block align-middle">Dashboard<span>
               </a>
 
-              <a href="../res/appointment" class="<?php echo $navs['appointment']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium space-x-1">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
-              </svg>
-              <span class="md:hidden lg:inline-block align-middle">Appointment</span> 
-              <span class="py-1 text-xs px-2 ml-1 bg-red-500 rounded-lg text-white">10</span>
-              </a>
+          
 
-              <a href=../res/inquiries class="<?php echo $navs['inquiries']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium space-x-1">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-              </svg>
-              <span class="md:hidden lg:inline-block align-middle">Inquiries</span> 
-              <span class="py-1 text-xs px-2 ml-1 bg-red-500 rounded-lg text-white">10</span></a>
+              <div class="ml-3 relative">
+                <div id="apt_notif">
+                  <button id="apt_notif_cont" type="button" class="<?php echo $navs['appointment']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium space-x-1 toggle-menu" data-toggle="#aptMenuDesktop" aria-expanded="false" aria-haspopup="true">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+                      </svg>
+                      <span class="md:hidden lg:inline-block align-middle">Appointment</span> 
+                      <?php if(!empty($appointmentClass->getAppointment()->appointment)){ ?>
+                      <span id="apt_notif" class="py-1 text-xs px-2 ml-1 bg-red-500 rounded-lg text-white"><?php echo number_format(count($appointmentClass->getAppointment()->appointment)); ?></span>
+                      <?php } ?>
+                  </button>
+                </div>
 
+                <div class="origin-top-right absolute right-0 transform translate-x-4 mt-4 w-52 rounded shadow-2xl py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" id="aptMenuDesktop" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                  <!-- Active: "bg-gray-100", Not Active: "" -->
+                  <a href="../res/appointment" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-0">
+                      <span class="align-middle">Pending</span> 
+                      <?php if(!empty($appointmentClass->getAppointment(1)->appointment)){ ?>
+                      <span id="apt_notif" class="py-1 text-xs px-2 ml-1 bg-gray-200 rounded-lg text-gray-600 font-semibold float-right"><?php echo number_format(count($appointmentClass->getAppointment(1)->appointment)); ?></span>
+                      <?php } ?>
+                  </a>
+
+                  <a href="../res/appointment" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                      <span class="align-middle">Approved</span> 
+                      <?php if(!empty($appointmentClass->getAppointment(2)->appointment)){ ?>
+                      <span id="apt_notif" class="py-1 text-xs px-2 ml-1 bg-gray-200 rounded-lg text-gray-600 font-semibold float-right"><?php echo number_format(count($appointmentClass->getAppointment(2)->appointment)); ?></span>
+                      <?php } ?>
+                  </a>
+
+                  <a href="../res/appointment" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-2">
+                      <span class="align-middle">Declined</span> 
+                      <?php if(!empty($appointmentClass->getAppointment(3)->appointment)){ ?>
+                      <span id="apt_notif" class="py-1 text-xs px-2 ml-1 bg-gray-200 rounded-lg text-gray-600 font-semibold float-right"><?php echo number_format(count($appointmentClass->getAppointment(3)->appointment)); ?></span>
+                      <?php } ?>
+                  </a>
+                </div>
+              </div>
+
+              <div class="ml-3 relative">
+                <div id="inq_notif">
+                  <button id="inq_notif_cont" type="button" class="<?php echo $navs['inquiries']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium space-x-1 toggle-menu" data-toggle="#inqMenuDesktop" aria-expanded="false" aria-haspopup="true">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                      </svg>
+                      <span class="md:hidden lg:inline-block align-middle">Inquiries</span> 
+                      <?php if(!empty($inquiryClass->getInquiries())){ ?>
+                      <span class="py-1 text-xs px-2 ml-1 bg-red-500 rounded-lg text-white"><?php echo number_format(count($inquiryClass->getInquiries())); ?></span>
+                      <?php } ?>
+                      </a>
+                  </button>
+                </div>
+
+                <div class="origin-top-right absolute right-0 transform translate-x-4 mt-4 w-52 rounded shadow-2xl py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" id="inqMenuDesktop" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                  <!-- Active: "bg-gray-100", Not Active: "" -->
+                  <a href="../res/inquiries" class="w-full block px-4 py-2 text-sm text-gray-700 space-x-1 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-0">
+                      <span class="align-middle">Unread</span> 
+                      <?php if(!empty($inquiryClass->getInquiries(2))){ ?>
+                      <span id="apt_notif" class="py-1 text-xs px-2 ml-1 bg-gray-200 rounded-lg text-gray-600 font-semibold float-right"><?php echo number_format(count($inquiryClass->getInquiries(2))); ?></span>
+                      <?php } ?>
+                  </a>
+
+                  <a href="../res/inquiries" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-2">
+                      <span class="align-middle">Read</span> 
+                      <?php if(!empty($inquiryClass->getInquiries(1))){ ?>
+                      <span id="apt_notif" class="py-1 text-xs px-2 ml-1 bg-gray-200 rounded-lg text-gray-600 font-semibold float-right"><?php echo number_format(count($inquiryClass->getInquiries(1))); ?></span>
+                      <?php } ?>
+                  </a>
+                </div>
+              </div>
+              
               <a href="../res/patients" class="<?php echo $navs['patients']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium space-x-1">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -135,8 +201,8 @@
 
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="hidden" id="mobile-menu">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-      
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 w-full">
+        <div id="mobile_notif">
         <a href="../res/" class="<?php echo $navs['dashboard']; ?> text-white block px-3 py-2 rounded-md text-base font-medium space-x-1">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
@@ -150,7 +216,9 @@
           <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
         </svg>
         <span class="inline-block align-middle">Appointment</span> 
-        <span class="py-1 text-xs px-2 ml-1 bg-red-500 rounded-lg text-white float-right">10</span>
+        <?php if(!empty($appointmentClass->getAppointment()->appointment)){ ?>
+        <span class="py-1 text-xs px-2 ml-1 bg-red-500 rounded-lg text-white float-right"><?php echo number_format(count($appointmentClass->getAppointment()->appointment)); ?></span>
+        <?php } ?>
         </a>
 
         <a href="../res/inquiries" class="<?php echo $navs['inquiries']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium space-x-1">
@@ -158,7 +226,9 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
         </svg>
         <span class="inline-block align-middle">Inquiries</span> 
-        <span class="py-1 text-xs px-2 ml-1 bg-red-500 rounded-lg text-white float-right">10</span>
+        <?php if(!empty($inquiryClass->getInquiries())){ ?>
+        <span class="py-1 text-xs px-2 ml-1 bg-red-500 rounded-lg text-white float-right"><?php echo number_format(count($inquiryClass->getInquiries())); ?></span>
+        <?php } ?>
         </a>
 
         <a href="../res/patients" class="<?php echo $navs['patients']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium space-x-1">
@@ -174,6 +244,7 @@
         </svg>
         <span class="inline-block align-middle">Content Management</span>
         </a>
+        </div>
       </div>
       <div class="pt-4 pb-3 border-t border-gray-700">
         <div class="flex items-center px-5 toggle-menu" data-toggle="#userMenuMobile">

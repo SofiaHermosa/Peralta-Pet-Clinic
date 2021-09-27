@@ -1,10 +1,4 @@
-<?php
-    require_once('./class/inquiry.php');
 
-    $class = new Inquiry;
-
-    $inquiries = $class->getInquiries();
-?>
 
 <?php
 	include_once('layout/header.php');
@@ -21,12 +15,12 @@
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">   
       <div class="px-4 py-6 sm:px-0 h-full grid grid-rows gap-14">
           <!-- This example requires Tailwind CSS v2.0+ -->
-          <div class="flex flex-col bg-gray-50">
+          <div class="flex flex-col"> 
             <div class="-my-2 overflow-hidden sm:-mx-6 lg:-mx-8">
               <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                  <table class="w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
+                <div class="overflow-hidden">
+                  <table id="datatable" cellspaing="5" class="w-full divide-y divide-gray-200">
+                    <thead>
                       <tr>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                           Name
@@ -34,7 +28,7 @@
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                           Content
                         </th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                           Date
                         </th>
                         <th scope="col" class="relative px-6 py-3">
@@ -42,49 +36,22 @@
                         </th>
                       </tr>
                     </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
-                      <?php foreach($inquiries as $inquiry){ ?>
-                      <tr>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="flex items-center">
-                            <div class="flex-shrink-0 h-10 w-10">
-                              <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
-                            </div>
-                            <div class="ml-4">
-                              <div class="text-sm font-medium text-gray-900">
-                                <?php echo $inquiry['name']; ?> 
-                              </div>
-                              <div class="text-sm text-gray-500">
-                              <?php echo $inquiry['email']; ?> 
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="text-sm text-gray-900"> <?php echo base64_decode($inquiry['content']); ?> </div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        <?php echo $inquiry['created_at']; ?> 
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <a href="#" class="text-indigo-600 rounded py-2 px-4 bg-indigo-100 hover:text-indigo-900 hover:bg-indigo-200">Reply</a>
-                          <a href="#" class="text-red-600 rounded py-2 px-4 bg-red-100 hover:text-red-900 hover:bg-red-200">Archaive</a>
-                        </td>
-                      </tr>
-                      <?php } ?> 
-                      <!-- More people... -->
-                    </tbody>
                   </table>
                 </div>
               </div>
-            </div>
+            </div>      
           </div>
 
       </div>
     </div>
   </main>
 
-		
+<?php
+	include_once('./views/admin/modals/inquiry-reply.php');
+?>
+<script>
+  window.url='/res/inquiries/table'
+</script>
 <?php
 	include_once('layout/footer.php');
 ?>

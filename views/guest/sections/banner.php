@@ -28,7 +28,7 @@
       $content = $cms->getContent('banner')[0]['content'];
       foreach(json_decode($content)->images as $image){
     ?>
-        <img class="h-80 object-cover w-full sm:h-72 md:h-96 lg:w-full lg:h-full" src="<?php echo "./$image" ?>" alt="">
+        <img class="h-80 object-cover w-full sm:h-72 md:h-96 lg:w-full lg:h-full" src="<?php echo '//'.$_SERVER['SERVER_NAME']."/$image" ?>" alt="">
     <?php } ?>
   </div>
   <div class="custom-shape-divider-bottom-1630387629">

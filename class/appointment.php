@@ -20,14 +20,18 @@
             $this->config     = $config['services'];
         } 
 
-        public function getAppointment(){
+        public function getAppointment($filter = null){
             $json = array();
             $date = $_REQUEST['date'] ?? null;
             
             $sqlQuery = "SELECT apt_time, end_time FROM tbl_appointment WHERE apt_time LIKE '%$date' ORDER BY apt_id";
 
             if($date == null){
-                $sqlQuery = "SELECT apt_time, end_time FROM tbl_appointment WHERE apt_time ORDER BY apt_id";
+                $sqlQuery = "SELECT apt_time, end_time FROM tbl_appointment ORDER BY apt_id";
+            }
+            
+            if($filter != null){
+                $sqlQuery = "SELECT apt_time, end_time FROM tbl_appointment WHERE status='$filter' ORDER BY apt_id";
             }
 
             $result = mysqli_query($this->connection, $sqlQuery);
@@ -37,8 +41,8 @@
                 array_push($eventArray, ['apt_time' => $row['apt_time'], 'end_time' => $row['end_time']]);
             }
 
-            mysqli_free_result($result);
-            mysqli_close($this->connection);
+            // mysqli_free_result($result);
+            // mysqli_close($this->connection);
 
             $this->appointment = $eventArray;
 
@@ -99,6 +103,10 @@
 
                 return true;
             }
+        }
+
+        function toPercentage($current, $base){
+            return ($current / $base) * 100;
         }
 
     }

@@ -1,0 +1,44 @@
+<?php
+	include_once('layout/header.php');
+?>
+
+  <header class="bg-white shadow mt-16">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold text-gray-900">
+        Content Management
+      </h1>
+    </div>
+  </header>
+  <main>
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8"> 
+        <div class="grid grid-cols-2 gap-6">
+            <div class="col-span-2 overflow-hidden z-10 p-10 bg-gray-50 rounded-md shadow-lg object-cover">
+                <?php
+                    include('./views/guest/layout/header.php');
+                ?>
+            </div>
+
+            <div class="col-span-2 overflow-hidden z-10 p-10 bg-gray-50 rounded-md shadow-lg object-cover">
+                <?php
+                    include_once('./views/guest/sections/services.php');
+                ?>
+            </div>    
+
+            <div class="col-span-2 overflow-hidden z-10 p-10 bg-gray-50 rounded-md shadow-lg object-cover">
+                <?php
+                    include_once('./views/guest/sections/doctors.php');
+                ?>  
+            </div>
+            
+            <div class="col-span-2 overflow-hidden z-10 p-10 bg-gray-50 rounded-md shadow-lg object-cover">
+                <?php
+                    include_once('./views/guest/sections/about.php');
+                ?> 
+            </div>
+        </div>
+    </div>
+  </main>
+		
+<?php
+	include_once('layout/footer.php');
+?>

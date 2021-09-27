@@ -1,10 +1,8 @@
 <?php
-    require_once('./mailer/mailer.php');
-
-    $mail = new Mailer;
-
-    $replyToInquiry = $mail->mail()->send();
+    require_once('./class/inquiry.php');
     
-    return $replyToInquiry;
-
+    $class = new Inquiry;
+    $inquiry_reply = $class->replyInquiry();
+    
+    return $inquiry_reply;
 ?>

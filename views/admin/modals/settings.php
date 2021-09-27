@@ -1,5 +1,5 @@
 <div class="w-full z-1 h-screen fixed top-0 left-0 frosted hidden" id="settingsModal">
-    <div class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 margin-auto w-1/2 bg-white rounded-lg shadow-lg py-10 px-20">
+    <div class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 margin-auto w-11/12 md:w-1/2 bg-white rounded-lg shadow-lg p-10 md:py-10 md:px-20">
         <div class="w-full py-2 text-2xl text-gray-700 font-bold mb-6">
             <h1>Settings</h1>
         </div>

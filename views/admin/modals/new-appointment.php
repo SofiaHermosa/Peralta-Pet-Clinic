@@ -51,21 +51,25 @@
                   <h1 class="block my-4 text-lg text-gray-600 font-semibold text-center">Appointment Details</h1>
                   <div class="grid grid-cols-2 gap-2">
                       <div class="col-span-1">
-                          <label class="form_label">Type of patient</label>
-                          <select type="text" name="patient_type" class="form_input" id ="patient_type">
+                          <label class="form_label">Reason of visit</label>
+                          <select name="visit_reason" class="form_input" id ="visit_reason">
                               <option></option>
-                              <option value="Existing">Existing</option>
-                              <option value="New">New</option>
+                              <?php
+                                  foreach($services as $key => $service){
+                                      $desc = $service['desc'];
+                                      echo "<option value='$desc'>$desc</option>";
+                                  }
+                              ?>
                           </select>
                       </div>
                       <div class="col-span-1">
                           <label class="form_label">Time</label>
                           <input type="text" name="time" class="form_input" id="time">
                       </div>
-                      <div class="col-span-2">
+                      <!-- <div class="col-span-2">
                           <label class="form_label">Reason of Visit</label>
                           <textarea name="visit_reason" rows="3" class="form_input" id="visit_reason"></textarea>
-                      </div>
+                      </div> -->
                       <div class="col-span-2">
                           <label class="form_label">Confirm Transaction: </label>
                           <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="saveappointment">Save Appointment</button>
@@ -79,33 +83,3 @@
     </div>
   </div>
 </div> 
-
-<script>
-    $(document).ready(function(){
-    $("#saveappointment").click(function(){
-      var apt_id = $('#apt_id').val();
-      var fname = $('#fname').val();
-      var lname = $('#lname').val();
-      var minit = $('#minit').val();
-      var contactno = $('#contact_no').val();
-      var address = $('#address').val();
-      var get_patient_type = document.getElementById("patient_type");
-      var patient_type = get_patient_type.options[get_patient_type.selectedIndex].text;
-      var createdate =  document.getElementById("appointmentDateTitle").innerHTML;
-      var updatedate =  $("#apt_date").val();
-      var time = $('#time').val();
-      var visit_reason = $('#visit_reason').val();
-      $.ajax({
-            url:"/res/submitappointment",    //the page containing php script
-            type: "post",    //request type,
-            dataType: 'json',
-            data: {apt_id: apt_id, first_name: fname, last_name: lname, middle_init: minit,
-            contact_no: contactno, address: address, patient_type: patient_type, time: time, createdate: createdate, updatedate: updatedate, visit_reason: visit_reason},
-            success:function(result){ 
-              alert(result); 
-              location.replace("/res/appointment"); 
-            }
-        });
-    });
-  }); 
-</script>

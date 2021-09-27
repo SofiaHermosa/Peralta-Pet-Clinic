@@ -43,16 +43,16 @@ DELETE FROM `tbl_appointment`;
 INSERT INTO `tbl_appointment` (`apt_id`, `apt_fname`, `apt_lname`, `apt_minit`, `email`, `apt_contactno`, `apt_address`, `apt_patient_type`, `apt_time`, `end_time`, `apt_visit_reason`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(26, 'Jeffrey', 'Lozada', '0', NULL, '09123123123', 'Fatima Extension, Dasmarinas', 'Existing', '2021-09-22 11:15', '2021-09-22 12:15', 'checkup', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
 	(27, 'Didz', 'Arcilla', 'O', NULL, '0931231', 'Area C', 'Existing', '2021-09-16 09:15', '2021-09-16 10:15', 'Inquiry of Products', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
-	(28, 'Juan', 'John', 'J', NULL, '09312312', 'Laguna', 'Existing', '2021-09-16 08:00', '2021-09-16 08:30', 'Cat Checkup', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
-	(30, 'Anna', 'Anne', 'A', NULL, '09321312', 'Batangas City', 'New', '2021-09-22 09:20', '2021-09-22 10:20', 'Check up Dogs and Cats', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
+	(28, 'Juan', 'John', 'J', NULL, '09312312', 'Laguna', 'Existing', '2021-09-16 08:00', '2021-09-16 08:30', 'Cat Checkup', '2', '2021-09-20 21:07:06', '2021-09-26 20:55:14', NULL),
+	(30, 'Anna', 'Anne', 'A', NULL, '09321312', 'Batangas City', 'New', '2021-09-22 09:20', '2021-09-22 10:20', 'Check up Dogs and Cats', '2', '2021-09-20 21:07:06', '2021-09-26 20:55:18', NULL),
 	(31, 'Luffy', 'Monkey', 'D', NULL, '092312312', 'One Piece', 'Existing', '2021-09-22 09:15', '2021-09-22 10:15', 'One Piece', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
 	(32, 'Marco', 'Phoenix', 'D', NULL, '09312312', 'Whitebeard Pirates', 'New', '2021-09-14 11:11', '2021-09-14 12:11', 'Whitebeard visit', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
-	(33, 'STUDENTD', '2D', 'AD', NULL, '092312311', 'AAAAAAD', 'Existing', '2021-09-17 12:18', '2021-09-17 13:18', 'REASON SAMPLEDD', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
+	(33, 'STUDENTD', '2D', 'AD', NULL, '092312311', 'AAAAAAD', 'Existing', '2021-09-17 12:18', '2021-09-17 13:18', 'REASON SAMPLEDD', '2', '2021-09-20 21:07:06', '2021-09-26 20:55:21', NULL),
 	(34, 'Employee', 'Peralta', 'O', NULL, '092312312', 'Dasmarinas Pet Clinic', 'Existing', '2021-09-19 11:00', '2021-09-19 12:00', 'HOLIDAY', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
-	(35, 'Employee 11', 'Peralta 1', 'O', NULL, '0912312312', 'PERALTA CLINIC 1', 'Existing', '2021-09-28 11:00', '2021-09-28 12:00', 'BIRTHDAY 11', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
+	(35, 'Employee 11', 'Peralta 1', 'O', NULL, '0912312312', 'PERALTA CLINIC 1', 'Existing', '2021-09-28 11:00', '2021-09-28 12:00', 'BIRTHDAY 11', '3', '2021-09-20 21:07:06', '2021-09-26 20:55:23', NULL),
 	(40, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasdasdasd', 'New', '2021-09-23 16:30', '2021-09-22 17:30', 'Consultation', '1', '2021-09-20 21:07:06', '2021-09-23 20:26:09', NULL),
 	(48, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasdasd', 'New', '2021-09-23 16:40', '2021-09-22 17:40', 'Vaccination', '1', '2021-09-20 21:07:06', '2021-09-23 20:26:06', NULL),
-	(49, 'joshua', 'blando', 'H', NULL, '09988619866', 'asddwewrwrewwr', 'New', '2021-09-16 16:00', '2021-09-16 17:00', 'Veterinary Surgery', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
+	(49, 'joshua', 'blando', 'H', NULL, '09988619866', 'asddwewrwrewwr', 'New', '2021-09-16 16:00', '2021-09-16 17:00', 'Veterinary Surgery', '3', '2021-09-20 21:07:06', '2021-09-26 20:55:27', NULL),
 	(50, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasd', 'New', '2021-09-16 14:00', '2021-09-16 15:00', 'Veterinary Surgery', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL);
 /*!40000 ALTER TABLE `tbl_appointment` ENABLE KEYS */;
 
@@ -71,7 +71,7 @@ INSERT INTO `tbl_cms` (`section`, `content`, `updated_at`) VALUES
 	('services', NULL, '2021-09-19 20:50:02'),
 	('our_teams', NULL, '2021-09-19 20:50:23'),
 	('about_us', '{"images": ["uploads/cms/61484f797f77e.jpg", "uploads/cms/61484f797fa97.jpg", "uploads/cms/61484f797fc7f.jpg", "uploads/cms/61484f797fe4d.jpg", "uploads/cms/61484f79800b3.jpg"], "history": "SXQgaXMgYSBsb25nIGVzdGFibGlzaGVkIGZhY3QgdGhhdCBhIHJlYWRlciB3aWxsIGJlIGRpc3RyYWN0ZWQgYnkgdGhlIHJlYWRhYmxlIGNvbnRlbnQgb2YgYSBwYWdlIHdoZW4gbG9va2luZyBhdCBpdHMgbGF5b3V0LiBUaGUgcG9pbnQgb2YgdXNpbmcgTG9yZW0gSXBzdW0gaXMgdGhhdCBpdCBoYXMgYSBtb3JlLW9yLWxlc3Mgbm9ybWFsIGRpc3RyaWJ1dGlvbiBvZiBsZXR0ZXJzLCBhcyBvcHBvc2VkIHRvIHVzaW5nICdDb250ZW50IGhlcmUsIGNvbnRlbnQgaGVyZScsIG1ha2luZyBpdCBsb29rIGxpa2UgcmVhZGFibGUgRW5nbGlzaC4gTWFueSBkZXNrdG9wIHB1Ymxpc2hpbmcgcGFja2FnZXMgYW5kIHdlYiBwYWdlIGVkaXRvcnMgbm93IHVzZSBMb3JlbSBJcHN1bSBhcyB0aGVpciBkZWZhdWx0IG1vZGVsIHRleHQsIGFuZCBhIHNlYXJjaCBmb3IgJ2xvcmVtIGlwc3VtJyB3aWxsIHVuY292ZXIgbWFueSB3ZWIgc2l0ZXMgc3RpbGwgaW4gdGhlaXIgaW5mYW5jeS4gVmFyaW91cyB2ZXJzaW9ucyBoYXZlIGV2b2x2ZWQgb3ZlciB0aGUgeWVhcnMsIHNvbWV0aW1lcyBieSBhY2NpZGVudCwgc29tZXRpbWVzIG9uIHB1cnBvc2UgKGluamVjdGVkIGh1bW91ciBhbmQgdGhlIGxpa2UpLg=="}', '2021-09-20 02:08:09'),
-	('settings', '{"images": ["uploads/cms/614d8907dde42.png"], "comp_no": "09095020288", "comp_name": "Peralta Dog and Cat Clinic", "comp_email": "hermosasofia@gmail.com", "comp_address": "NjggQ2FtZXJpbm8gQXZlLCBEYW1hcmnDsWFzIENpdHksIDQxMTQgQ2F2aXRl"}', '2021-09-24 01:38:41');
+	('settings', '{"images": ["uploads/cms/61511073e9c7a.png"], "comp_no": "09095020288", "comp_name": "Peralta Dog and Cat Clinic", "comp_email": "hermosasofia@gmail.com", "comp_address": "NjggQ2FtZXJpbm8gQXZlLCBEYW1hcmnDsWFzIENpdHksIDQxMTQgQ2F2aXRl"}', '2021-09-26 17:29:39');
 /*!40000 ALTER TABLE `tbl_cms` ENABLE KEYS */;
 
 -- Dumping structure for table db_peralta.tbl_inquiries
@@ -83,13 +83,16 @@ CREATE TABLE IF NOT EXISTS `tbl_inquiries` (
   `content` longtext,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `replied_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   KEY `id` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_peralta.tbl_inquiries: 0 rows
+-- Dumping data for table db_peralta.tbl_inquiries: 1 rows
 DELETE FROM `tbl_inquiries`;
 /*!40000 ALTER TABLE `tbl_inquiries` DISABLE KEYS */;
+INSERT INTO `tbl_inquiries` (`id`, `name`, `email`, `contact_no`, `content`, `created_at`, `updated_at`, `replied_at`, `deleted_at`) VALUES
+	(1, 'Jane Doe ', 'janedoe@gmail.com', '029423423423', 'SXQgaXMgYSBsb25nIGVzdGFibGlzaGVkIGZhY3QgdGhhdCBhIHJlYWRlciB3aWxsIGJlIGRpc3RyYWN0ZWQgYnkgdGhlIHJlYWRhYmxlIGNvbnRlbnQgb2YgYSBwYWdlIHdoZW4gbG9va2luZyBhdCBpdHMgbGF5b3V0LiBUaGUgcG9pbnQgb2YgdXNpbmcgTG9yZW0gSXBzdW0gaXMgdGhhdCBpdCBoYXMgYSBtb3JlLW9yLWxlc3Mgbm9ybWFsIGRpc3RyaWJ1dGlvbiBvZiBsZXR0ZXJzLCBhcyBvcHBvc2VkIHRvIHVzaW5nICdDb250ZW50IGhlcmUsIGNvbnRlbnQgaGVyZScsIG1ha2luZyBpdCBsb29rIGxpa2UgcmVhZGFibGUgRW5nbGlzaC4gTWFueSBkZXNrdG9wIHB1Ymxpc2hpbmcgcGFja2FnZXMgYW5kIHdlYiBwYWdlIGVkaXRvcnMgbm93IHVzZSBMb3JlbSBJcHN1bSBhcyB0aGVpciBkZWZhdWx0IG1vZGVsIHRleHQsIGFuZCBhIHNlYXJjaCBmb3IgJ2xvcmVtIGlwc3VtJyB3aWxsIHVuY292ZXIgbWFueSB3ZWIgc2l0ZXMgc3RpbGwgaW4gdGhlaXIgaW5mYW5jeS4gVmFyaW91cyB2ZXJzaW9ucyBoYXZlIGV2b2x2ZWQgb3ZlciB0aGUgeWVhcnMsIHNvbWV0aW1lcyBieSBhY2NpZGVudCwgc29tZXRpbWVzIG9uIHB1cnBvc2UgKGluamVjdGVkIGh1bW91ciBhbmQgdGhlIGxpa2UpLgoK', '2021-09-25 14:13:53', '2021-09-25 15:21:54', '2021-09-25 15:21:54', NULL);
 /*!40000 ALTER TABLE `tbl_inquiries` ENABLE KEYS */;
 
 -- Dumping structure for table db_peralta.tbl_users

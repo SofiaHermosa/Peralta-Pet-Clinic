@@ -29,7 +29,19 @@ post('/available/slots', 'controller/appointment/bookappointment.php');
 
 post('/send/inquiry', 'controller/inquiries/inquiry.php');
 
-get('/reply/inquiry', 'controller/inquiries/reply.php');
+post('/reply/inquiry', 'controller/inquiries/reply.php');
+
+
+
+// Data tables
+get('/res/inquiries/table', 'controller/inquiries/table.php');
+
+get('/res/patients/table', 'controller/patients/table.php');
+
+
+
+
+
 
 // Dynamic GET. Example with 2 variables
 // The $name will be available in user.php

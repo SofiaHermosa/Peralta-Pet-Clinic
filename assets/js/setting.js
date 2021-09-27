@@ -50,34 +50,6 @@ function saveSettings() {
     })
 }
 
-function sendRequest(url) {
-    var name = $('input[name="comp_name"]');
-    var contact = $('input[name="comp_no"]');
-    var email = $('input[name="comp_email"]');
-    var address = $('textarea[name="comp_address"]');
-
-    var data = {
-        section: 'settings',
-        comp_name: name.val(),
-        comp_no: contact.val(),
-        comp_email: email.val(),
-        comp_address: address.val()
-    };
-
-    $.post('settings', data).done(function() {
-        Swal.fire({
-            icon: 'success',
-            text: 'Settings has succesfully applied',
-            showCancelButton: false,
-            confirmButtonText: 'ok',
-            customClass: {
-                confirmButton: 'bg-indigo-700',
-                container: 'bg-white backdrop-filter backdrop-blur-md bg-opacity-20'
-            },
-        })
-    });
-}
-
 $('#logo-upload').on('change', function() {
     var file = $("#logo-upload").get(0).files[0];
 

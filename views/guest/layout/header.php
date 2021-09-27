@@ -1,5 +1,5 @@
 <?php
-    require './class/cms.php';
+    require_once('./class/cms.php');
     $cms = new CMS;
 
     $branding = $cms->getContent('settings')[0]['content'];
@@ -17,12 +17,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.79/theme-default.min.css"/>
 	<link rel="stylesheet" type="text/css" href="../../../assets/css/custom.css">
   <link rel="stylesheet" type="text/css" href="../../../assets/css/custom-guest.css">
-	
+	<link rel="shortcut icon" type="image/jpg" href="<?php echo '//'.$_SERVER['SERVER_NAME']."/".json_decode($cms->getContent('settings')[0]['content'])->images[0] ?>"/>
 </head>
 <body>
-
-<?php include_once('./views/admin/login.php');  ?>
-<?php include_once('./views/guest/layout/navbar.php');  ?>
 
 <div class="relative backdrop-filter backdrop-blur-md bg-opacity-40 md:bg-indigo-700 z-50 overflow-hidden">
   <div id="banner" class="max-w-7xl mx-auto lg:h-screen sm:h-120">

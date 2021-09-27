@@ -31,7 +31,7 @@
 
           <!-- START CARDS SECTION --> 
           <div data-aos="fade-up" data-aos-duration="1000" class="d-flex grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-10 z-0">
-              <div class="rounded-lg bg-gray-50 shadow transition transform duration-300 hover:-translate-y-2 hover:shadow-xl py-4 px-2 z-50">
+              <div class="rounded-tr-lg rounded-tl-lg  overflow-hidden bg-gray-50 shadow transition transform duration-300 hover:-translate-y-2 hover:shadow-xl py-4 px-2 z-50">
                    <div class="grid grid-cols-4">
                       <div class="d-flex col-span-1 px-4 py-6">
                         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current text-white stroke-2 bg-indigo-300 p-2 rounded-xl md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -40,12 +40,20 @@
                       </div>
                       <div class="col-span-3 text-left p-4">
                           <p class="text-md d-flex font-semibold text-gray-600">Appointments<p>
-                          <h1 class="d-flex text-2xl font-bold text-gray-900"><?php echo number_format(count($appointments)); ?></h1>
+                          <h1 id="apt_card" class="d-flex text-2xl font-bold text-gray-900"><?php echo number_format(count($appointments)); ?></h1>
+                      </div>
+                      <div class="col-span-4 flex space-0 w-full left-0 absolute bottom-0">
+                        <div class="bg-gray-400 text-gray-800 text-center font-semibold text-xs font-semibold tooltip" style="width: <?php echo $appointmentClass->toPercentage(count($appointmentClass->getAppointment(1)->appointment), count($appointmentClass->getAppointment()->appointment)); ?>% !important; padding:2px 0 !important;" title="PENDING: <?php echo number_format(count($appointmentClass->getAppointment(1)->appointment)); ?>">
+                        </div>
+                        <div class="bg-green-400 text-green-800 font-semibold text-center text-xs tooltip" style="width: <?php echo $appointmentClass->toPercentage(count($appointmentClass->getAppointment(2)->appointment), count($appointmentClass->getAppointment()->appointment)); ?>% !important; padding:2px 0 !important;"  title="APPROVED: <?php echo number_format(count($appointmentClass->getAppointment(2)->appointment)); ?>">
+                        </div>
+                        <div class="bg-red-400 text-red-800 font-semibold text-center text-xs font-semibold tooltip" style="width: <?php echo $appointmentClass->toPercentage(count($appointmentClass->getAppointment(3)->appointment), count($appointmentClass->getAppointment()->appointment)); ?>% !important; padding:2px 0 !important;"  title="DECLINED: <?php echo number_format(count($appointmentClass->getAppointment(3)->appointment)); ?>">
+                        </div>
                       </div>
                   </div>
               </div>
 
-              <div class="rounded-lg bg-gray-50 shadow transition transform duration-300 hover:-translate-y-2 hover:shadow-xl py-4 px-2 z-50">
+              <div class="rounded-tr-lg rounded-tl-lg bg-gray-50 overflow-hidden shadow transition transform duration-300 hover:-translate-y-2 hover:shadow-xl py-4 px-2 z-50">
                   <div class="grid grid-cols-4">
                       <div class="d-flex col-span-1 px-4 py-6">
                         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current text-white stroke-2 bg-green-300 p-2 rounded-xl md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -54,7 +62,15 @@
                       </div>
                       <div class="col-span-3 text-left p-4">
                           <p class="text-md d-flex font-semibold text-gray-600">Inquiries<p>
-                          <h1 class="d-flex text-2xl font-bold text-gray-900"><?php echo number_format(count($inquiries)); ?></h1>
+                          <h1 id="inq_card" class="d-flex text-2xl font-bold text-gray-900"><?php echo number_format(count($inquiries)); ?></h1>
+                      </div>
+                      <div class="col-span-4 flex space-0 w-full left-0 absolute bottom-0">
+                        <div class="bg-gray-400 text-gray-800 text-center font-semibold text-xs font-semibold tooltip" style="width:<?php echo $appointmentClass->toPercentage(count($inquiryClass->getInquiries(2)), count($inquiryClass->getInquiries())); ?>% !important;padding:2px 0 !important;" title="UNREAD: <?php echo number_format(count($inquiryClass->getInquiries(2))); ?>">
+                          
+                        </div>
+                        <div class="bg-green-400 text-green-800 font-semibold text-center text-xs tooltip" style="width:<?php echo $appointmentClass->toPercentage(count($inquiryClass->getInquiries(1)), count($inquiryClass->getInquiries())); ?>% !important;padding:2px 0 !important;" title="READ: <?php echo number_format(count($inquiryClass->getInquiries(1))); ?>">
+                          
+                        </div>
                       </div>
                   </div>
               </div>
@@ -68,7 +84,7 @@
                       </div>
                       <div class="col-span-3 text-left p-4">
                           <p class="text-md d-flex font-semibold text-gray-600">Patients<p>
-                          <h1 class="d-flex text-2xl font-bold text-gray-900"><?php echo number_format(count($patients)); ?></h1>
+                          <h1 id="pt_card" class="d-flex text-2xl font-bold text-gray-900"><?php echo number_format(count($patients)); ?></h1>
                       </div>
                   </div>
               </div>

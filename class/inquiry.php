@@ -31,8 +31,16 @@
             return $this;
         }
 
-        public function getInquiries(){
-            $sqlQuery = "SELECT * FROM tbl_inquiries ORDER BY created_at DESC";
+        public function getInquiries($filter=null){
+            $sqlQuery = "SELECT * FROM tbl_inquiries WHERE deleted_at IS NULL ORDER BY created_at DESC";
+
+            if($filter == 1){
+                $sqlQuery = "SELECT * FROM tbl_inquiries WHERE deleted_at IS NULL AND replied_at IS NOT NULL ORDER BY created_at DESC";
+            }
+
+            if($filter == 2){
+                $sqlQuery = "SELECT * FROM tbl_inquiries WHERE deleted_at IS NULL AND replied_at IS NULL ORDER BY created_at DESC";
+            }
 
             $result = mysqli_query($this->connection, $sqlQuery);
             $inquiryArray = array();
@@ -41,8 +49,8 @@
                 array_push($inquiryArray, $row);
             }
 
-            mysqli_free_result($result);
-            mysqli_close($this->connection);
+            // mysqli_free_result($result);
+            // mysqli_close($this->connection);
 
             return $inquiryArray;
         }
@@ -60,6 +68,24 @@
             $replyToInquiry = $this->mail->mail()->send($recepient, $subject, $view, $data);
 
             echo $replyToInquiry;
+        }
+
+        public function replyInquiry(){
+            $id = $_POST['inq_id'];
+            $result = mysqli_query($this->connection,"UPDATE tbl_inquiries SET replied_at=now() WHERE id= '$id' ");
+
+            $recepient = $_POST['inq_email'];
+            $subject   = $_POST['inq_subject'];
+            $view      = './views/mail/reply-inquiry.php';
+            $data      = array(
+                'inquirer'  => 'Peral Dog and Cat Clinic',
+                'name'      => $_POST['inq_name'],
+                'content'   => base64_encode($_POST['reply_content'])
+            );
+
+            $replyToInquiry = $this->mail->mail()->send($recepient, $subject, $view, $data);
+
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
         }
     }
 ?>    
