@@ -108,3 +108,31 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     appointmentCalendar.render();
 });
+
+
+$(document).on('click', '.aptUpdtStatus', function(){
+    var action =['', '','Approve', 'Decline'];
+    var data = $(this).data('apt');
+    data = jQuery.parseJSON(atob(data));
+    var status = $(this).data('status');
+    
+
+    Swal.fire({
+        icon: 'warning',
+        title: 'Are you sure?',
+        text: `${action[status]} this appointment`,
+        showCancelButton: true,
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes',
+        customClass: {
+            confirmButton: 'bg-indigo-700',
+            container: 'bg-white backdrop-filter backdrop-blur-md bg-opacity-20'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.post('/res/update/appointment/status', {status:status, id:data.apt_id}).done(function(){
+                location.reload();
+            });
+        }
+    })
+});

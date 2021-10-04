@@ -9,17 +9,23 @@ get('/res', 'views/admin/index.php');
 
 get('/res/appointment', 'views/admin/appointment.php');
 
+get('/res/appointment/$status', 'views/admin/appointment.php');
+
 get('/res/inquiries', 'views/admin/inquiries.php');
 
 get('/res/patients', 'views/admin/patients.php');
 
 get('/res/services', 'views/admin/services.php');
 
-get('/res/content-management', 'views/admin/cms.php');
+get('/res/cms/$section', 'views/admin/cms.php');
 
 post('/res/content-management', 'controller/cms/edit.php');
 
+post('/res/services', 'controller/services/update-create-services.php');
+
 post('/res/settings', 'controller/cms/settings.php');
+
+post('/res/update/appointment/status', 'controller/appointment/appointmentstatus.php');
 
 get('/login', 'views/admin/login.php');
 
@@ -37,6 +43,8 @@ post('/reply/inquiry', 'controller/inquiries/reply.php');
 get('/res/inquiries/table', 'controller/inquiries/table.php');
 
 get('/res/patients/table', 'controller/patients/table.php');
+
+get('/res/table/appointment', 'controller/appointment/table.php');
 
 
 

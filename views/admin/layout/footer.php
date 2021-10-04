@@ -13,6 +13,7 @@
 <script src="../../../assets/js/app.js"></script>
 <script src="../../../assets/js/config.js"></script>
 <script src="../../../assets/js/setting.js"></script>
+<script src="../../../assets/js/services.js"></script>
 <script src="../../../assets/js/reply-inquiry.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script type="text/javascript">

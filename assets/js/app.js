@@ -9,13 +9,18 @@
         });
     });
 
-    $(window).click(function() {
-        $('.toggle-cont').filter(":visible").fadeOut("easing");
+    $(window).click(function(e) {
+        $('.toggle-cont').filter(":visible").filter('div[role="menu"]').fadeOut("easing");
+    });
+    $(document).on('click', '.close-modal', function(e) {
+        var menu = $(this).data('toggle');
+        var menuTarget = $(menu);
+        menuTarget.fadeOut("easing");
     });
 
     $(document).on('click', '.toggle-menu', function(e) {
+        $('.toggle-cont').filter(":visible").fadeOut("easing");
         e.stopPropagation();
-        $('.toggle-cont').fadeOut("easing");
         var menu = $(this).data('toggle');
         var menuTarget = $(menu);
         var ifModal = $(this).data('modal');

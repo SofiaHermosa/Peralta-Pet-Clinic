@@ -10,11 +10,11 @@
         $content = base64_decode($inquiry['content']);
 
         $array = [
-            $inquiry['name'],
+            $inquiry['name']."<span class='block text-md text-gray-400'>".$inquiry['email']."</span>",
             strlen($content) > 60 ? substr($content,0,60)."..." : $content,
             $inquiry['created_at'],
-            '<center><a data-inquiry="'.$json.'" href="javascript:void(0)" class="reply-btn text-indigo-600 rounded py-2 px-4 bg-indigo-100 hover:text-indigo-900 hover:bg-indigo-200 toggle-menu" data-toggle="#replyInquiryModal">Reply</a>
-            <a href="#" class="text-red-600 rounded py-2 px-4 bg-red-100 hover:text-red-900 hover:bg-red-200">Archive</a></center>'
+            '<center><a data-inquiry="'.$json.'" href="javascript:void(0)" class="reply-btn text-white rounded py-2 px-4 bg-blue-500 hover:bg-blue-400 toggle-menu" data-toggle="#replyInquiryModal">Reply</a>
+            <a href="#" class="text-white rounded py-2 px-4 bg-red-500 hover:bg-red-400">Archive</a></center>'
         ];
 
         array_push($data['data'], $array);

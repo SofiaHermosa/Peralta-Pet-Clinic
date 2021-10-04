@@ -1,5 +1,5 @@
 <?php 
-    $routes = ['/res/', '/res/appointment', '/res/inquiries', '/res/patients', '/res/services', '/res/content-management'];
+    $routes = ['/res/', '/res/appointment/1', '/res/inquiries', '/res/patients', '/res/services', '/res/content-management'];
     $pages  = ['dashboard', 'appointment', 'inquiries', 'patients', 'services', 'content-management'];
     $index  = array_search($_SERVER['REQUEST_URI'], $routes);
     $navs   = [
@@ -18,10 +18,12 @@
     require_once('./class/cms.php');
     require_once('./class/inquiry.php');
     require_once('./class/appointment.php');
+    require_once('./class/services.php');
 
     $cms = new CMS;
     $inquiryClass = new Inquiry;
     $appointmentClass = new Appointment;
+    $servicesClass = new Services;
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +59,7 @@
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-2">
-              <a href="../res/" class="<?php echo $navs['dashboard']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium space-x-1">
+              <a href="/res/" class="<?php echo $navs['dashboard']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium space-x-1">
                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
@@ -82,21 +84,21 @@
 
                 <div class="origin-top-right absolute right-0 transform translate-x-4 mt-4 w-52 rounded shadow-2xl py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" id="aptMenuDesktop" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                   <!-- Active: "bg-gray-100", Not Active: "" -->
-                  <a href="../res/appointment" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-0">
+                  <a href="/res/appointment/1" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-0">
                       <span class="align-middle">Pending</span> 
                       <?php if(!empty($appointmentClass->getAppointment(1)->appointment)){ ?>
                       <span id="apt_notif" class="py-1 text-xs px-2 ml-1 bg-gray-200 rounded-lg text-gray-600 font-semibold float-right"><?php echo number_format(count($appointmentClass->getAppointment(1)->appointment)); ?></span>
                       <?php } ?>
                   </a>
 
-                  <a href="../res/appointment" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <a href="/res/appointment/2" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                       <span class="align-middle">Approved</span> 
                       <?php if(!empty($appointmentClass->getAppointment(2)->appointment)){ ?>
                       <span id="apt_notif" class="py-1 text-xs px-2 ml-1 bg-gray-200 rounded-lg text-gray-600 font-semibold float-right"><?php echo number_format(count($appointmentClass->getAppointment(2)->appointment)); ?></span>
                       <?php } ?>
                   </a>
 
-                  <a href="../res/appointment" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-2">
+                  <a href="/res/appointment/3" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-2">
                       <span class="align-middle">Declined</span> 
                       <?php if(!empty($appointmentClass->getAppointment(3)->appointment)){ ?>
                       <span id="apt_notif" class="py-1 text-xs px-2 ml-1 bg-gray-200 rounded-lg text-gray-600 font-semibold float-right"><?php echo number_format(count($appointmentClass->getAppointment(3)->appointment)); ?></span>
@@ -121,14 +123,14 @@
 
                 <div class="origin-top-right absolute right-0 transform translate-x-4 mt-4 w-52 rounded shadow-2xl py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" id="inqMenuDesktop" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                   <!-- Active: "bg-gray-100", Not Active: "" -->
-                  <a href="../res/inquiries" class="w-full block px-4 py-2 text-sm text-gray-700 space-x-1 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-0">
+                  <a href="/res/inquiries" class="w-full block px-4 py-2 text-sm text-gray-700 space-x-1 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-0">
                       <span class="align-middle">Unread</span> 
                       <?php if(!empty($inquiryClass->getInquiries(2))){ ?>
                       <span id="apt_notif" class="py-1 text-xs px-2 ml-1 bg-gray-200 rounded-lg text-gray-600 font-semibold float-right"><?php echo number_format(count($inquiryClass->getInquiries(2))); ?></span>
                       <?php } ?>
                   </a>
 
-                  <a href="../res/inquiries" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-2">
+                  <a href="/res/inquiries" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-2">
                       <span class="align-middle">Read</span> 
                       <?php if(!empty($inquiryClass->getInquiries(1))){ ?>
                       <span id="apt_notif" class="py-1 text-xs px-2 ml-1 bg-gray-200 rounded-lg text-gray-600 font-semibold float-right"><?php echo number_format(count($inquiryClass->getInquiries(1))); ?></span>
@@ -137,18 +139,36 @@
                 </div>
               </div>
               
-              <a href="../res/patients" class="<?php echo $navs['patients']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium space-x-1">
+              <a href="/res/patients" class="<?php echo $navs['patients']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium space-x-1">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
               <span class="md:hidden lg:inline-block align-middle">Patients</span>
               </a>
-              <a href="../res/content-management" class="<?php echo $navs['content-management']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium space-x-1">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-              </svg>
-              <span class="md:hidden lg:inline-block align-middle">Content Management</span>
-              </a>
+
+              <div class="ml-3 relative">
+                <button type="button" class="<?php echo $navs['content-management']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium space-x-1 toggle-menu" data-toggle="#serMenuDesktop" aria-expanded="false" aria-haspopup="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                </svg>
+                <span class="md:hidden lg:inline-block align-middle">Content Management</span>
+                </button>
+
+                <div class="origin-top-right absolute right-0 transform translate-x-4 mt-4 w-52 rounded shadow-2xl py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" id="serMenuDesktop" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                  <!-- Active: "bg-gray-100", Not Active: "" -->
+                  <a href="/res/cms/banner" class="w-full block px-4 py-2 text-sm text-gray-700 space-x-1 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-0">
+                      <span class="align-middle">Banner</span> 
+                  </a>
+
+                  <a href="/res/cms/history" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-2">
+                      <span class="align-middle">History</span> 
+                  </a>
+
+                  <a href="/res/cms/services" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-2">
+                      <span class="align-middle">Services</span> 
+                  </a>
+                </div>      
+              </div>  
             </div>
           </div>
         </div>
@@ -203,7 +223,7 @@
     <div class="hidden" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 w-full">
         <div id="mobile_notif">
-        <a href="../res/" class="<?php echo $navs['dashboard']; ?> text-white block px-3 py-2 rounded-md text-base font-medium space-x-1">
+        <a href="/res/" class="<?php echo $navs['dashboard']; ?> text-white block px-3 py-2 rounded-md text-base font-medium space-x-1">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
@@ -211,7 +231,7 @@
           <span class="inline-block align-middle">Dashboard<span>
         </a>
 
-        <a href="../res/appointment" class="<?php echo $navs['appointment']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium space-x-1">
+        <a href="/res/appointment" class="<?php echo $navs['appointment']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium space-x-1">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
         </svg>
@@ -221,7 +241,7 @@
         <?php } ?>
         </a>
 
-        <a href="../res/inquiries" class="<?php echo $navs['inquiries']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium space-x-1">
+        <a href="/res/inquiries" class="<?php echo $navs['inquiries']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium space-x-1">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
         </svg>
@@ -231,14 +251,14 @@
         <?php } ?>
         </a>
 
-        <a href="../res/patients" class="<?php echo $navs['patients']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium space-x-1">
+        <a href="/res/patients" class="<?php echo $navs['patients']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium space-x-1">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
         <span class="inline-block align-middle">Patients</span>
         </a>
 
-        <a href="../res/content-management" class="<?php echo $navs['content-management']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium space-x-1">
+        <a href="/res/content-management" class="<?php echo $navs['content-management']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium space-x-1">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
         </svg>

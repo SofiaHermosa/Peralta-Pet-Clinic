@@ -49,6 +49,35 @@
             return $this;
         }
 
+        public function updateAppointmentStatus(){
+            $status = $_POST['status'] ?? 1;
+            $id     = $_POST['id'] ?? '';
+            $result = mysqli_query($this->connection,"UPDATE tbl_appointment SET status='$status' WHERE apt_id='$id'")
+                    or die ("failed to query update in the appointment table");
+
+            return $this;        
+        }
+
+        public function getAppointmentPerStatus($filter = null){
+            $sqlQuery = "SELECT * FROM tbl_appointment WHERE deleted_at IS NULL ORDER BY updated_at DESC";
+
+            if($filter != null){
+                $sqlQuery = "SELECT * FROM tbl_appointment WHERE deleted_at IS NULL AND status='$filter' ORDER BY updated_at DESC";
+            }
+
+            $result = mysqli_query($this->connection, $sqlQuery);
+            $appointmentArray = array();
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                array_push($appointmentArray, $row);
+            }
+
+            // mysqli_free_result($result);
+            // mysqli_close($this->connection);
+
+            return $appointmentArray;
+        }
+
         public function slotAvailable(){
             $schedule = [
                 'start' => $this->date.' 08:00:00',

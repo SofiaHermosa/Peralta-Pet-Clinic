@@ -1,12 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer components {
-  .form_input {
-    @apply shadow-sm p-2 text-base focus:ring-indigo-100 focus:border-indigo-100 duration-300 mt-1 block w-full sm:text-sm border-2 border-gray-300 rounded-md;
-  }
-  .form_label{
-  	@apply block text-sm font-medium text-gray-700;
-  }
+    .form_input {
+        @apply shadow-sm p-2 text-base focus:ring-indigo-100 focus:border-indigo-100 duration-300 mt-1 block w-full sm:text-sm border-2 border-gray-300 rounded-md;
+    }
+    .form_label {
+        @apply block text-sm font-medium text-gray-700;
+    }
+    .svg__cont svg {
+        @apply w-14 stroke-current stroke-0 text-indigo-700;
+    }
 }

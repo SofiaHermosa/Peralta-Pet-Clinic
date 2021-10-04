@@ -4,19 +4,36 @@
 
   <header class="bg-white shadow mt-16">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold text-gray-900">
-        Content Management
+      <h1 class="text-3xl font-bold text-gray-900 inline-block">
+        <?php 
+            if($section == 'banner'){
+                echo 'Banner';
+            }else if($section == 'history'){
+                echo 'About Us';
+            }else if($section == 'services'){
+                echo 'Services';
+            }
+        ?>
       </h1>
+      <?php if($section == 'services'){ ?>
+      <div class="float-right inline-block align-middle space-2">
+          <button class="align-middle px-4 py-2 bg-blue-500 text-white rounded shadow toggle-menu" data-toggle="#editServicesModal">      
+          <svg xmlns="http://www.w3.org/2000/svg" class="inline-block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+          </svg>
+          <span class="inline-block">Service</span>
+          </button>
+      </div>
+      <?php } ?>
     </div>
   </header>
   <main>
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">   
         <div class="px-4 py-6 sm:px-0 h-full grid grid-rows gap-14">
-        
-        <h1 class="pt-4 text-3xl text-center">Banner</h1>
-        <form method="POST" action="content-management" enctype='multipart/form-data'>
+            <?php if($section == 'banner'){ ?>
+            <form method="POST" action="/res/content-management" enctype='multipart/form-data'>
                 <input type="hidden" name="section" value="banner">
-                <div class="grid grid-cols-2 gap-2">
+                <div class="grid grid-cols-2 gap-2 mt-10">
                     <div class="col-span-1s">
                         <label class="mt-1 flex justify-center px-6 py-20 border-2 border-gray-300 border-dashed rounded-md">
                             <div class="space-y-1 text-center">
@@ -50,9 +67,10 @@
                 <button class="py-2 my-4 float-right px-4 bg-indigo-700 text-white rounded" name="submit">Save</button>
            
             </form>
+            <?php } ?>
 
-            <h1 class="pt-4 text-3xl text-center">About Us</h1>
-            <form method="POST" action="content-management" enctype='multipart/form-data'>
+            <?php if($section == 'history'){ ?>
+            <form method="POST" action="/res/content-management" enctype='multipart/form-data'>
                 <input type="hidden" name="section" value="about_us">
                 <div for="file-upload" class="grid grid-cols-2 gap-2">
                     <div class="col-span-1">
@@ -99,6 +117,13 @@
                 <button class="py-2 my-4 float-right px-4 bg-indigo-700 text-white rounded" name="submit">Save</button>
            
             </form>
+            <?php } ?>
+
+            <?php if($section == 'services'){ ?>
+                <?php
+                    include_once('./views/admin/services.php');
+                ?>
+            <?php } ?>    
         </div>
     </div>
   </main>
