@@ -35,7 +35,7 @@
 
     </div>
     <div class="justify-self-end hidden lg:block flex-grow">
-      <a href="javascript:void(0)" class="float-right font-medium text-indigo-600 hover:text-indigo-500 px-4 py-2 bg-white rounded-sm toggle-menu" data-toggle="#loginForm" data-modal="true">Log in</a>
+      <a href="/sign-up" class="float-right font-medium text-indigo-600 hover:text-indigo-500 px-4 py-2 bg-white rounded-sm" data-toggle="#loginForm" data-modal="true">Log in</a>
   </div>
   </nav>
 </div>

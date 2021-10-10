@@ -40,5 +40,14 @@
 
             return $this;
         }
+
+        public function archiveServices(){
+            $id = $_POST['id'] ?? null ;
+
+            $result = mysqli_query($this->connection,"UPDATE tbl_services SET deleted_at=now() WHERE id = '$id' ")
+                    or die ("failed to query update in the services table");
+
+            return $this;        
+        }
     }
 ?>    

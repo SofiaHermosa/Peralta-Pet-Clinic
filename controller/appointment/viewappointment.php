@@ -6,7 +6,7 @@
 
     require_once($_SERVER['DOCUMENT_ROOT'] . '/controller/connection/conn.php');
     $json = array();
-    $sqlQuery = "SELECT * FROM tbl_appointment ORDER BY apt_id";
+    $sqlQuery = "SELECT * FROM tbl_appointment ORDER BY id";
 
     $result = mysqli_query($conn, $sqlQuery);
     $eventArray = array();

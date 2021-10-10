@@ -24,14 +24,14 @@
             $json = array();
             $date = $_REQUEST['date'] ?? null;
             
-            $sqlQuery = "SELECT apt_time, end_time FROM tbl_appointment WHERE apt_time LIKE '%$date' ORDER BY apt_id";
+            $sqlQuery = "SELECT apt_time, end_time FROM tbl_appointment WHERE apt_time LIKE '%$date' ORDER BY id";
 
             if($date == null){
-                $sqlQuery = "SELECT apt_time, end_time FROM tbl_appointment ORDER BY apt_id";
+                $sqlQuery = "SELECT apt_time, end_time FROM tbl_appointment ORDER BY id";
             }
             
             if($filter != null){
-                $sqlQuery = "SELECT apt_time, end_time FROM tbl_appointment WHERE status='$filter' ORDER BY apt_id";
+                $sqlQuery = "SELECT apt_time, end_time FROM tbl_appointment WHERE status='$filter' ORDER BY id";
             }
 
             $result = mysqli_query($this->connection, $sqlQuery);
@@ -52,7 +52,7 @@
         public function updateAppointmentStatus(){
             $status = $_POST['status'] ?? 1;
             $id     = $_POST['id'] ?? '';
-            $result = mysqli_query($this->connection,"UPDATE tbl_appointment SET status='$status' WHERE apt_id='$id'")
+            $result = mysqli_query($this->connection,"UPDATE tbl_appointment SET status='$status' WHERE id='$id'")
                     or die ("failed to query update in the appointment table");
 
             return $this;        
@@ -136,6 +136,15 @@
 
         function toPercentage($current, $base){
             return ($current / $base) * 100;
+        }
+
+        public function archiveAppointment(){
+            $id = $_POST['id'] ?? null ;
+
+            $result = mysqli_query($this->connection,"UPDATE tbl_appointment SET deleted_at=now() WHERE id = '$id' ")
+                    or die ("failed to query update in the appointment table");
+
+            return $this;        
         }
 
     }

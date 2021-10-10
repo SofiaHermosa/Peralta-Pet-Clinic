@@ -7,7 +7,7 @@
   <header class="bg-white shadow mt-16">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
       <h1 class="text-3xl font-bold text-gray-900">
-        Patients
+        Users
       </h1>
     </div>
   </header>
@@ -26,10 +26,13 @@
                           Patient
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Contact No.
+                          Email
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Address
+                          Contact No.
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <center>Status</center>
                         </th>
                         <th scope="col" class="relative px-6 py-3">
                           <span class="sr-only">Edit</span>
@@ -45,6 +48,9 @@
       </div>
     </div>
   </main>
+<?php
+	include_once('./views/admin/modals/edit-user.php');
+?>
 
 <script>
   window.url='/res/patients/table'

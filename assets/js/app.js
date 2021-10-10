@@ -50,3 +50,40 @@ setInterval(function() {
     $("#apt_notif").load(location.href + " #apt_notif_cont");
     $("#inq_notif").load(location.href + " #inq_notif_cont");
 }, 5000);
+
+$(document).on('click', '.archive', function(){
+    var id    = $(this).data('id');
+    var url   = $(this).data('url');
+    var title = $(this).data('type');
+
+    Swal.fire({
+        icon: 'warning',
+        title: 'Are you sure?',
+        text: 'this record will be archived',
+        showCancelButton: true,
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes',
+        customClass: {
+            confirmButton: 'bg-indigo-700',
+            container: 'bg-white backdrop-filter backdrop-blur-md bg-opacity-20'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.post(url, {id:id}).done(function(){
+                var table = $("#datatable").DataTable();
+                table.ajax.reload();
+
+                Swal.fire({
+                    icon: 'success',
+                    text: `${title} successfully archived`,
+                    showCancelButton: false,
+                    confirmButtonText: 'ok',
+                    customClass: {
+                        confirmButton: 'bg-indigo-700',
+                        container: 'bg-white backdrop-filter backdrop-blur-md bg-opacity-20'
+                    },
+                });
+            });
+        }
+    });        
+});

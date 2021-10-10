@@ -10,18 +10,18 @@
 
     foreach($appointments as $appointment){
         $json = base64_encode(json_encode($appointment));
-        $status ="<span class='text-xs font-medium p-2 rounded bg-gray-200 text-gray-800 shadow'>PENDING</span>";
+        $status ="<center><span class='text-xs font-medium p-2 rounded bg-gray-200 text-gray-800 shadow'>PENDING</span></center>";
         $button='<center><a data-apt="'.$json.'" href="javascript:void(0)" class="text-white rounded py-2 px-4 bg-blue-500 hover:bg-blue-400 aptUpdtStatus" data-status="2">Approve</a>
-        <a data-apt="'.$json.'" href="javascript:void(0)" class="text-white rounded py-2 px-4 bg-red-500 hover:bg-red-400 aptUpdtStatus" data-status="3">Declined</a></center>';
+        <a data-apt="'.$json.'" href="javascript:void(0)" class="text-white rounded py-2 px-4 bg-yellow-600 hover:bg-yellow-500 aptUpdtStatus" data-status="3">Decline</a> <a href="javascript:void(0)" class="text-white rounded py-2 px-4 bg-red-500 hover:bg-red-400 archive" data-id="'.$appointment['id'].'" data-type="Appointment" data-url="/archive/appointment">Archive</a></center>';
 
         if($appointment['status'] == 2){
-             $status ="<span class='text-xs font-medium p-2 rounded bg-green-100 text-green-800 shadow'>APPROVED</span>"; 
-             $button='<center><a data-apt="'.$json.'" href="javascript:void(0)" class="text-white rounded py-2 px-4 bg-red-500 hover:bg-red-400 aptUpdtStatus" data-status="3">Declined</a></center>'; 
+             $status ="<center><span class='text-xs font-medium p-2 rounded bg-green-100 text-green-800 shadow'>APPROVED</span></center>"; 
+             $button='<center><a data-apt="'.$json.'" href="javascript:void(0)" class="text-white rounded py-2 px-4 bg-yellow-600 hover:bg-yellow-500 aptUpdtStatus" data-status="3">Decline</a> <a href="javascript:void(0)" class="text-white rounded py-2 px-4 bg-red-500 hover:bg-red-400 archive" data-id="'.$appointment['id'].'" data-type="Appointment" data-url="/archive/appointment">Archive</a></center>'; 
         }
 
         if($appointment['status'] == 3){
-            $status ="<span class='text-xs font-medium p-2 rounded bg-red-100 text-red-800 shadow'>DECLINED</span>";  
-            $button='<center><a data-apt="'.$json.'" href="javascript:void(0)" class="text-white rounded py-2 px-4 bg-red-500 hover:bg-red-400">Archaive</a></center>'; 
+            $status ="<center><span class='text-xs font-medium p-2 rounded bg-red-100 text-red-800 shadow'>DECLINED</span></center>";  
+            $button='<center><a href="javascript:void(0)" class="text-white rounded py-2 px-4 bg-red-500 hover:bg-red-400 archive" data-id="'.$appointment['id'].'" data-type="Appointment" data-url="/archive/appointment">Archive</a></center>'; 
 
         }
 

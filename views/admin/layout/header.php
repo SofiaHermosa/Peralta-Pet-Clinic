@@ -1,12 +1,12 @@
 <?php 
-    $routes = ['/res/', '/res/appointment/1', '/res/inquiries', '/res/patients', '/res/services', '/res/content-management'];
-    $pages  = ['dashboard', 'appointment', 'inquiries', 'patients', 'services', 'content-management'];
+    $routes = ['/res/', '/res/appointment/1', '/res/inquiries', '/res/users', '/res/services', '/res/content-management'];
+    $pages  = ['dashboard', 'appointment', 'inquiries', 'users', 'services', 'content-management'];
     $index  = array_search($_SERVER['REQUEST_URI'], $routes);
     $navs   = [
         'dashboard'             => '',
         'appointment'           => '',
         'inquiries'             => '',
-        'patients'              => '',
+        'users'              => '',
         'services'              => '',
         'content-management'    => ''   
     ];
@@ -139,11 +139,11 @@
                 </div>
               </div>
               
-              <a href="/res/patients" class="<?php echo $navs['patients']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium space-x-1">
+              <a href="/res/users" class="<?php echo $navs['users']; ?> text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium space-x-1">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
-              <span class="md:hidden lg:inline-block align-middle">Patients</span>
+              <span class="md:hidden lg:inline-block align-middle">Users</span>
               </a>
 
               <div class="ml-3 relative">
@@ -156,6 +156,10 @@
 
                 <div class="origin-top-right absolute right-0 transform translate-x-4 mt-4 w-52 rounded shadow-2xl py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" id="serMenuDesktop" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                   <!-- Active: "bg-gray-100", Not Active: "" -->
+                  <a href="/res/cms/branding" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-2">
+                      <span class="align-middle">Branding</span> 
+                  </a>
+
                   <a href="/res/cms/banner" class="w-full block px-4 py-2 text-sm text-gray-700 space-x-1 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-0">
                       <span class="align-middle">Banner</span> 
                   </a>
@@ -194,9 +198,6 @@
               <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" id="userMenuDesktop" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                 <!-- Active: "bg-gray-100", Not Active: "" -->
                 <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-
-                <a href="javascript:void(0)" class="block px-4 py-2 text-sm text-gray-700 toggle-menu" data-toggle="#settingsModal" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-
                 <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
               </div>
             </div>
@@ -251,11 +252,11 @@
         <?php } ?>
         </a>
 
-        <a href="/res/patients" class="<?php echo $navs['patients']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium space-x-1">
+        <a href="/res/users" class="<?php echo $navs['users']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium space-x-1">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
-        <span class="inline-block align-middle">Patients</span>
+        <span class="inline-block align-middle">Users</span>
         </a>
 
         <a href="/res/content-management" class="<?php echo $navs['content-management']; ?> text-white hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium space-x-1">
@@ -285,15 +286,9 @@
         </div>
         <div class="mt-3 px-2 space-y-1 hidden" id="userMenuMobile">
           <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-white hover:bg-blue-800">Your Profile</a>
-
-          <a href="javascript:void(0)" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-white hover:bg-blue-800 toggle-menu" data-toggle="#settingsModal">Settings</a>
-
           <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-white hover:bg-blue-800">Sign out</a>
         </div>
       </div>
     </div>
   </nav>
 </div>
-<?php
-	include_once('./views/admin/modals/settings.php');
-?>

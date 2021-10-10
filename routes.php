@@ -13,7 +13,7 @@ get('/res/appointment/$status', 'views/admin/appointment.php');
 
 get('/res/inquiries', 'views/admin/inquiries.php');
 
-get('/res/patients', 'views/admin/patients.php');
+get('/res/users', 'views/admin/patients.php');
 
 get('/res/services', 'views/admin/services.php');
 
@@ -31,9 +31,17 @@ get('/login', 'views/admin/login.php');
 
 get('/appointment', 'views/guest/appointment.php');
 
+get('/sign-up', 'views/guest/registration.php');
+
 post('/available/slots', 'controller/appointment/bookappointment.php');
 
 post('/send/inquiry', 'controller/inquiries/inquiry.php');
+
+get('/validate/duplicates', 'controller/registration/validation.php');
+
+post('/register', 'controller/registration/register.php');
+
+post('/login', 'controller/auth/login.php');
 
 post('/reply/inquiry', 'controller/inquiries/reply.php');
 
@@ -45,6 +53,15 @@ get('/res/inquiries/table', 'controller/inquiries/table.php');
 get('/res/patients/table', 'controller/patients/table.php');
 
 get('/res/table/appointment', 'controller/appointment/table.php');
+
+post('/archive/user', 'controller/patients/delete.php');
+
+post('/archive/inquiry', 'controller/inquiries/delete.php');
+
+post('/archive/appointment', 'controller/appointment/delete.php');
+
+post('/archive/service', 'controller/services/delete.php');
+
 
 
 

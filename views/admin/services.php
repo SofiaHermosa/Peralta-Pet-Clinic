@@ -1,8 +1,12 @@
 
 <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6 px-0 md:px-10 content-center">
   <?php foreach($servicesClass->getServices()->services as $service_card){ ?>
-  <div data-aos="fade-up" data-aos-duration="1000" class="animate-svg transition transform duration-300 hover:-translate-y-2 py-10 rounded-md shadow-lg border-solid border-4 border-light-gray-50">
-    <button class="editService absolute top-2 right-2 bg-indigo-500 text-sm text-white py-1 px-4 rounded shadow" data-service="<?php echo base64_encode(json_encode($service_card)) ?>">Edit</button>
+  <div data-aos="fade-up" data-aos-duration="1000" class="animate-svg transition transform duration-300 hover:-translate-y-2 py-10 pb-20 rounded-md shadow-lg border-solid border-4 border-light-gray-50">
+    <div class="w-full p-4 absolute bottom-0 left-0 space-2 text-right z-50">
+      <button class="editService inline-block  bg-indigo-500 text-sm text-white py-1 px-4 rounded shadow" data-service="<?php echo base64_encode(json_encode($service_card)) ?>">Edit</button>
+      <button class="archive inline-block bg-red-500 text-sm text-white py-1 px-4 rounded shadow" data-type="Service" data-url="/archive/service" data-id="<?php echo $service_card['id'] ?>">Archive</button>
+    </div>
+    
     <div class="grid justify-items-center svg__cont">
         <?php echo $service_card['logo']; ?>
     </div>

@@ -9,7 +9,7 @@
         }
 
         public function getPatients(){
-            $sqlQuery = "SELECT * FROM tbl_appointment WHERE status = 1 GROUP BY apt_contactno, email ORDER BY apt_id";
+            $sqlQuery = "SELECT * FROM tbl_users WHERE deleted_at IS NULL";
 
             $result = mysqli_query($this->connection, $sqlQuery);
             $patientsArray = array();
@@ -24,6 +24,15 @@
             $this->patients = $patientsArray;
 
             return $this->patients;
+        }
+
+        public function archivePatient(){
+            $id = $_POST['id'] ?? null ;
+
+            $result = mysqli_query($this->connection,"UPDATE tbl_users SET deleted_at=now() WHERE id = '$id' ")
+                    or die ("failed to query update in the users table");
+
+            return $this;        
         }
     }
 ?>        

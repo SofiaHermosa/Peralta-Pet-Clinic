@@ -14,7 +14,7 @@
             strlen($content) > 60 ? substr($content,0,60)."..." : $content,
             $inquiry['created_at'],
             '<center><a data-inquiry="'.$json.'" href="javascript:void(0)" class="reply-btn text-white rounded py-2 px-4 bg-blue-500 hover:bg-blue-400 toggle-menu" data-toggle="#replyInquiryModal">Reply</a>
-            <a href="#" class="text-white rounded py-2 px-4 bg-red-500 hover:bg-red-400">Archive</a></center>'
+            <a href="javascript:void(0)" data-id="'.$inquiry['id'].'" data-type="Inquiry" data-url="/archive/inquiry" class="text-white rounded py-2 px-4 bg-red-500 hover:bg-red-400 archive">Archive</a></center>'
         ];
 
         array_push($data['data'], $array);

@@ -2,6 +2,14 @@
     $config           = require_once('./config.php');
     $services         = $config['services'];
 ?>
+
+<?php
+    require_once('./class/auth.php');
+
+    $auth = new Auth;
+
+    $auth->authCheck();
+?>
 <!DOCTYPE html>
 <html>
 <head>

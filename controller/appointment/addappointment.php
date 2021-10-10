@@ -45,7 +45,7 @@
         $result = mysqli_query($conn,"UPDATE tbl_appointment SET apt_fname = '$fname', apt_lname = '$lname', apt_minit = '$minit',
                                      apt_contactno = '$contact_no', apt_address = '$address', apt_patient_type = '$patient_type', 
                                      apt_time = '$datetime', end_time = '$endtime', apt_visit_reason = '$visit_reason' 
-                                                WHERE apt_id = '$apt_id' ")
+                                                WHERE id = '$apt_id' ")
                 or die ("failed to query update in the appointment table". mysqli_error());
         $response = "Appointment Updated Successfully";
         exit(json_encode($response));

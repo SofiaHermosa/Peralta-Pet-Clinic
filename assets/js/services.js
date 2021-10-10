@@ -17,7 +17,7 @@ $("#formServices").validate({
 
 $('.updateService').on('click', function() {
     if ($("#formServices").valid()) {
-        saveSettings();
+        saveServices();
     }
 });
 
@@ -32,14 +32,7 @@ $(document).on('click', '.editService', function() {
     $('#editServicesModal').fadeIn();
 });
 
-$('.saveSettings').on('click', function() {
-    if ($("#formSettings").valid()) {
-        saveSettings();
-    }
-});
-
-
-function saveSettings() {
+function saveServices() {
     Swal.fire({
         icon: 'warning',
         title: 'Are you sure?',

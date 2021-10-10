@@ -12,6 +12,8 @@
                 echo 'About Us';
             }else if($section == 'services'){
                 echo 'Services';
+            }else if($section == 'branding'){
+                echo 'Branding';
             }
         ?>
       </h1>
@@ -122,6 +124,12 @@
             <?php if($section == 'services'){ ?>
                 <?php
                     include_once('./views/admin/services.php');
+                ?>
+            <?php } ?>    
+
+            <?php if($section == 'branding'){ ?>
+                <?php
+                    include_once('./views/admin/modals/settings.php');
                 ?>
             <?php } ?>    
         </div>

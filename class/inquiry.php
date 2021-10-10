@@ -87,5 +87,14 @@
 
             header('Location: ' . $_SERVER['HTTP_REFERER']);
         }
+
+        public function archiveInquiry(){
+            $id = $_POST['id'] ?? null ;
+
+            $result = mysqli_query($this->connection,"UPDATE tbl_inquiries SET deleted_at=now() WHERE id = '$id' ")
+                    or die ("failed to query update in the inquiries table");
+
+            return $this;        
+        }
     }
 ?>    
