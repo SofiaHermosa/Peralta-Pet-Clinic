@@ -5,6 +5,16 @@
 
     $auth->redirectIfLogin('/res', '1');
 ?>
+
+<?php
+    require_once('./class/cms.php');
+
+    $cms = new CMS;
+
+    $branding = $cms->getContent('settings')[0]['content'];
+    $branding = json_decode($branding);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +26,14 @@
 </head>
 <body>
 	<div class="bg-gray-100 w-full h-screen">
-		<img src="../../../assets/images/logo.png" class="w-28 fixed top-28 left-1/2 transform -translate-x-1/2" alt="">
-		<div class="w-2/6 h-96 p-10 mt-20 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+		<img src="<?php echo '../../'.$branding->images[0]  ?? '../../../assets/images/logo.png' ?>" class="w-28 fixed top-28 left-1/2 transform -translate-x-1/2" alt="">
+		<div class="w-2/6 h-96 p-10 mt-6 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
 			<form action="/login/1" method="POST">
 			<div class="grid grid-cols-1 gap-6">
+				<div class="col-span-1 text-center mb-4">
+					<h1 class="text-xl font-extrabold text-indigo-700"><?php echo $branding->comp_name ?? 'Peralta Dog and Cat Clinic' ?></h1>
+					<h1 class="text-md mt-2 font-bold text-gray-500 block">Login as Administrator</h1>
+				</div>
 				<div class="col-span-1">
 					<label class="form_label">Email</label>
 					<input type="text" name="email" class="form_input bg-white bg-opacity-60 focus:ring-indigo-100 focus:border-indigo-100 duration-300" id="uname">
