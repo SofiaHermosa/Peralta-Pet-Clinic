@@ -2,10 +2,6 @@
 	include_once('layout/header.php');
 ?>
 
-<?php 
-  include_once('./views/admin/login.php');  
-?>
-
 <?php
   include_once('./views/guest/layout/navbar.php');  
 ?>
