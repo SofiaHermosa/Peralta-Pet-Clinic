@@ -8,7 +8,7 @@
 
     $auth = new Auth;
 
-    $auth->authCheck();
+    $auth->authCheck('/sign-up');
 ?>
 <!DOCTYPE html>
 <html>

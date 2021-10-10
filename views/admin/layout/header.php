@@ -15,6 +15,14 @@
 ?>
 
 <?php
+    require_once('./class/auth.php');
+
+    $auth = new Auth;
+
+    $auth->authCheck('/login');
+?>
+
+<?php
     require_once('./class/cms.php');
     require_once('./class/inquiry.php');
     require_once('./class/appointment.php');
@@ -198,7 +206,7 @@
               <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" id="userMenuDesktop" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                 <!-- Active: "bg-gray-100", Not Active: "" -->
                 <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+                <a href="/logout/1" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
               </div>
             </div>
           </div>

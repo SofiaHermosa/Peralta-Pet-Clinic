@@ -12,20 +12,28 @@
             
         } 
 
-        public function authCheck(){
+        public function authCheck($referer){
             
             if(isset($_SESSION['auth']) && !empty($_SESSION['auth'])){
                 return $this;
             }else{
-                header("Location: /sign-up");
+                header("Location: ".$referer);
                 exit();
             }
         }
 
+        public function logout($user_type){
+            $referer = $user_type == 1 ? '/login' : '/sign-up';
+            session_unset();
+
+            header("Location: ".$referer);
+            exit();
+        }
+
         public function login($referer="/", $user_type = 2){
-            if ($this->stmt = $this->connection->prepare('SELECT id, password, activated FROM tbl_users WHERE email = ?')) {
+            if ($this->stmt = $this->connection->prepare('SELECT id, password, activated FROM tbl_users WHERE email = ? AND user_type = ?')) {
                 // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
-                $this->stmt->bind_param('s', $this->email);
+                $this->stmt->bind_param('ss', $this->email, $user_type);
                 $this->stmt->execute();
                 // Store the result so we can check if the account exists in the database.
                 $this->stmt->store_result();
@@ -50,9 +58,14 @@
                     $_SESSION['loggedin'] = TRUE;
                     $_SESSION['auth'] = $user;
                     $referer = $referer ?? $_SERVER['HTTP_REFERER'];
-                    header("Location:/");
-                    exit();
 
+                    if($user_type == 1){
+                        header("Location:/res");
+                        exit();    
+                    }else{
+                        header("Location:/");
+                        exit();    
+                    }
                 } else {
                    
                     $_SESSION['error'] = 'Incorrect email and/or password!';
@@ -60,7 +73,7 @@
                 }
             } else {
                 // Incorrect username
-                $_SESSION['error'] = 'Incorrect email and/or password!';
+                $_SESSION['error'] = "Credentails does'nt exist.";
                 header('Location: ' . $_SERVER['HTTP_REFERER']);
             }
         }

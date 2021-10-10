@@ -3,8 +3,8 @@
 
     $class = new Auth;
 
-    $login = $class->login('', $type ?? null);
+    $logout = $class->logout($type ?? null);
 
-    return $login;
+    return $logout;
 
 ?>

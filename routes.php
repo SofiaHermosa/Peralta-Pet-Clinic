@@ -41,7 +41,9 @@ get('/validate/duplicates', 'controller/registration/validation.php');
 
 post('/register', 'controller/registration/register.php');
 
-post('/login', 'controller/auth/login.php');
+post('/login/$type', 'controller/auth/login.php');
+
+get('/logout/$type', 'controller/auth/logout.php');
 
 post('/reply/inquiry', 'controller/inquiries/reply.php');
 

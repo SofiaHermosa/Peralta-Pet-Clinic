@@ -147,7 +147,8 @@ DELETE FROM `tbl_users`;
 INSERT INTO `tbl_users` (`id`, `first_name`, `last_name`, `middle_name`, `address`, `gender`, `profile`, `email`, `contact_no`, `uname`, `password`, `activated`, `user_type`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(1, 'joshua', 'blando', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBhc2Rhc2Rhc2Q=', 'Male', NULL, 'jblando1996@gmail.com', '09988619866', 'jblando', '$2y$10$vdXViJx2RW9fuQOLnFL4buLCHM.ZEMenD9vqXoeZ/.uo.nj7rfBl.', 0, 2, '2021-10-08 01:49:53', '2021-10-09 21:09:14', NULL),
 	(2, 'Employee 11', 'Peralta 1', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBhc2Rhc2RhZGFzZA==', 'Male', NULL, 'hermosasofia1118@gmail.com', '09988619866', 'sofiaH', '$2y$10$bwAfJyE0ab1qSaH/a5GN1.h8gjZoB1UaVu5J0KWwtrLELQuvWT4kC', 1, 2, '2021-10-08 03:34:28', '2021-10-09 21:09:18', NULL),
-	(3, 'Jeffrey', 'Lozada', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnaGZoZmhmZ2Rmc2dkZHNkZ3Nkc2dkZnNkcw==', 'Male', NULL, 'janedoe@gmail.com', '09123123123', 'test_user', '$2y$10$FmcyKsYDBhRvVKzVjSPinusjpQGwoaoDZwMZ.fRMD3Mv66k4Me8t6', 1, 2, '2021-10-08 11:56:38', '2021-10-09 21:09:22', NULL);
+	(3, 'Jeffrey', 'Lozada', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnaGZoZmhmZ2Rmc2dkZHNkZ3Nkc2dkZnNkcw==', 'Male', NULL, 'janedoe@gmail.com', '09123123123', 'test_user', '$2y$10$FmcyKsYDBhRvVKzVjSPinusjpQGwoaoDZwMZ.fRMD3Mv66k4Me8t6', 1, 2, '2021-10-08 11:56:38', '2021-10-09 21:09:22', NULL),
+	(4, 'Peralta', 'Administrator', NULL, 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnaGZoZmhmZ2Rmc2dkZHNkZ3Nkc2dkZnNkcw==', 'Male', NULL, 'peralta.admin@gmail.com', '09319949704', 'admin', '$2y$10$FmcyKsYDBhRvVKzVjSPinusjpQGwoaoDZwMZ.fRMD3Mv66k4Me8t6', 1, 1, '2021-10-10 10:06:30', '2021-10-10 10:11:32', NULL);
 /*!40000 ALTER TABLE `tbl_users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

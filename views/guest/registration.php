@@ -128,7 +128,7 @@
 			        <h3 class="text-center block text-md font-bold text-white">Peralta Pet Clinic Login form</h3>
                 </div>
 
-                <form action="/login" method="POST">
+                <form action="/login/2" method="POST">
                 <div class="col-span-1">
                     <label class="form_label text-white">Email</label>
                     <input type="text" name="email" class="form_input bg-white bg-opacity-60 focus:ring-indigo-100 focus:border-indigo-100 duration-300" id="email">

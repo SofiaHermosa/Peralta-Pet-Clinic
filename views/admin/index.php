@@ -83,7 +83,7 @@
                         </svg>
                       </div>
                       <div class="col-span-3 text-left p-4">
-                          <p class="text-md d-flex font-semibold text-gray-600">Patients<p>
+                          <p class="text-md d-flex font-semibold text-gray-600">Users<p>
                           <h1 id="pt_card" class="d-flex text-2xl font-bold text-gray-900"><?php echo number_format(count($patients)); ?></h1>
                       </div>
                   </div>
