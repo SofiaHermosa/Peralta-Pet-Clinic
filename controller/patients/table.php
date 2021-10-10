@@ -19,7 +19,7 @@
             $patient['email'],
             $patient['contact_no'],
             $status,
-            '<center><a data-patient="'.$json.'" href="javascript:void(0)" class="text-white rounded py-2 px-4 bg-blue-500 hover:bg-blue-400 toggle-menu" data-toggle="#editUserModal">Edit</a>
+            '<center><a data-patient="'.$json.'" href="javascript:void(0)" class="text-white rounded py-2 px-4 bg-blue-500 hover:bg-blue-400 editUserBtn">Edit</a>
             <a href="javascript:void(0)" data-type="User" data-url="/archive/user" data-id="'.$patient['id'].'" class="archive text-white rounded py-2 px-4 bg-red-500 hover:bg-red-400">Archive</a></center>'
         ];
 

@@ -11,7 +11,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
-        <form method="POST" id="formUpdateUser" action="/res/user/edit" enctype='multipart/form-data'>
+        <form method="POST" id="formUpdateUser" action="/registration" enctype='multipart/form-data'>
         <input type="hidden" name="id">
         <div class="grid grid-cols-3 gap-4">
             <div class="col-span-2">
@@ -87,7 +87,7 @@
         </div>
 
         <div class="w-full py-4">
-            <button type="button" class="updateUser text-indigo-600 float-right font-bold rounded py-2 px-4 bg-indigo-200 hover:text-indigo-900 hover:bg-indigo-200">Save</button>
+            <button type="button" class="updateUserBtn text-indigo-600 float-right font-bold rounded py-2 px-4 bg-indigo-200 hover:text-indigo-900 hover:bg-indigo-200">Save</button>
         </div>
         </form>
     </div>

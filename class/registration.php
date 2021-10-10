@@ -44,13 +44,19 @@
             $uname      = $_POST['username'];
             $gender     = $_POST['gender'];
             $address    = base64_encode($_POST['address']);
-            $password   = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $password   = !empty($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : null;
             $id         = $_POST['id'] ?? null;
 
 
             if(!empty($id)){
-                $result = mysqli_query($this->connection,"UPDATE tbl_users SET first_name='$fname', last_name='$lname', address='$address', middle_name='$mname', contact_no='$contact', email='$email', uname='$uname', gender='$gender', password='$password' WHERE id = '$id' ")
+                if(!empty($password)){
+                    $result = mysqli_query($this->connection,"UPDATE tbl_users SET first_name='$fname', last_name='$lname', address='$address', middle_name='$mname', contact_no='$contact', email='$email', uname='$uname', gender='$gender', password='$password' WHERE id = '$id' ")
                     or die ("failed to query update in the users table");
+                }else{
+                    $result = mysqli_query($this->connection,"UPDATE tbl_users SET first_name='$fname', last_name='$lname', address='$address', middle_name='$mname', contact_no='$contact', email='$email', uname='$uname', gender='$gender' WHERE id = '$id' ")
+                    or die ("failed to query update in the users table");
+                }
+                
                 $this->method = 'update';    
             }else{
                 $result = mysqli_query($this->connection,"INSERT INTO tbl_users (first_name, last_name, middle_name, address, gender, email, contact_no, uname, password) VALUES ('$fname', '$lname', '$mname', '$address', '$gender', '$email', '$contact', '$uname', '$password')")

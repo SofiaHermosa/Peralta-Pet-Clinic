@@ -71,7 +71,7 @@ INSERT INTO `tbl_cms` (`section`, `content`, `updated_at`) VALUES
 	('services', NULL, '2021-09-19 20:50:02'),
 	('our_teams', NULL, '2021-09-19 20:50:23'),
 	('about_us', '{"images": ["uploads/cms/61484f797f77e.jpg", "uploads/cms/61484f797fa97.jpg", "uploads/cms/61484f797fc7f.jpg", "uploads/cms/61484f797fe4d.jpg", "uploads/cms/61484f79800b3.jpg"], "history": "SXQgaXMgYSBsb25nIGVzdGFibGlzaGVkIGZhY3QgdGhhdCBhIHJlYWRlciB3aWxsIGJlIGRpc3RyYWN0ZWQgYnkgdGhlIHJlYWRhYmxlIGNvbnRlbnQgb2YgYSBwYWdlIHdoZW4gbG9va2luZyBhdCBpdHMgbGF5b3V0LiBUaGUgcG9pbnQgb2YgdXNpbmcgTG9yZW0gSXBzdW0gaXMgdGhhdCBpdCBoYXMgYSBtb3JlLW9yLWxlc3Mgbm9ybWFsIGRpc3RyaWJ1dGlvbiBvZiBsZXR0ZXJzLCBhcyBvcHBvc2VkIHRvIHVzaW5nICdDb250ZW50IGhlcmUsIGNvbnRlbnQgaGVyZScsIG1ha2luZyBpdCBsb29rIGxpa2UgcmVhZGFibGUgRW5nbGlzaC4gTWFueSBkZXNrdG9wIHB1Ymxpc2hpbmcgcGFja2FnZXMgYW5kIHdlYiBwYWdlIGVkaXRvcnMgbm93IHVzZSBMb3JlbSBJcHN1bSBhcyB0aGVpciBkZWZhdWx0IG1vZGVsIHRleHQsIGFuZCBhIHNlYXJjaCBmb3IgJ2xvcmVtIGlwc3VtJyB3aWxsIHVuY292ZXIgbWFueSB3ZWIgc2l0ZXMgc3RpbGwgaW4gdGhlaXIgaW5mYW5jeS4gVmFyaW91cyB2ZXJzaW9ucyBoYXZlIGV2b2x2ZWQgb3ZlciB0aGUgeWVhcnMsIHNvbWV0aW1lcyBieSBhY2NpZGVudCwgc29tZXRpbWVzIG9uIHB1cnBvc2UgKGluamVjdGVkIGh1bW91ciBhbmQgdGhlIGxpa2UpLg=="}', '2021-09-20 02:08:09'),
-	('settings', '{"images": ["uploads/cms/61511073e9c7a.png"], "comp_no": "09319949704", "comp_name": "Peralta Dog and Cat Clinic", "comp_email": "hermosasofia@gmail.com", "comp_address": "NjggQ2FtZXJpbm8gQXZlLCBEYW1hcmnDsWFzIENpdHksIDQxMTQgQ2F2aXRl"}', '2021-10-09 19:20:09');
+	('settings', '{"images": ["uploads/cms/61511073e9c7a.png"], "comp_no": "09319949704", "comp_name": "Peralta Dog and Cat Clinic", "comp_email": "hermosasofia@gmail.com", "comp_address": "NjggQ2FtZXJpbm8gQXZlLCBEYW1hcmnDsWFzIENpdHksIDQxMTQgQ2F2aXRl"}', '2021-10-10 10:51:04');
 /*!40000 ALTER TABLE `tbl_cms` ENABLE KEYS */;
 
 -- Dumping structure for table db_peralta.tbl_inquiries
@@ -141,14 +141,14 @@ CREATE TABLE IF NOT EXISTS `tbl_users` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_peralta.tbl_users: 3 rows
+-- Dumping data for table db_peralta.tbl_users: 4 rows
 DELETE FROM `tbl_users`;
 /*!40000 ALTER TABLE `tbl_users` DISABLE KEYS */;
 INSERT INTO `tbl_users` (`id`, `first_name`, `last_name`, `middle_name`, `address`, `gender`, `profile`, `email`, `contact_no`, `uname`, `password`, `activated`, `user_type`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(1, 'joshua', 'blando', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBhc2Rhc2Rhc2Q=', 'Male', NULL, 'jblando1996@gmail.com', '09988619866', 'jblando', '$2y$10$vdXViJx2RW9fuQOLnFL4buLCHM.ZEMenD9vqXoeZ/.uo.nj7rfBl.', 0, 2, '2021-10-08 01:49:53', '2021-10-09 21:09:14', NULL),
-	(2, 'Employee 11', 'Peralta 1', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBhc2Rhc2RhZGFzZA==', 'Male', NULL, 'hermosasofia1118@gmail.com', '09988619866', 'sofiaH', '$2y$10$bwAfJyE0ab1qSaH/a5GN1.h8gjZoB1UaVu5J0KWwtrLELQuvWT4kC', 1, 2, '2021-10-08 03:34:28', '2021-10-09 21:09:18', NULL),
-	(3, 'Jeffrey', 'Lozada', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnaGZoZmhmZ2Rmc2dkZHNkZ3Nkc2dkZnNkcw==', 'Male', NULL, 'janedoe@gmail.com', '09123123123', 'test_user', '$2y$10$FmcyKsYDBhRvVKzVjSPinusjpQGwoaoDZwMZ.fRMD3Mv66k4Me8t6', 1, 2, '2021-10-08 11:56:38', '2021-10-09 21:09:22', NULL),
-	(4, 'Peralta', 'Administrator', NULL, 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnaGZoZmhmZ2Rmc2dkZHNkZ3Nkc2dkZnNkcw==', 'Male', NULL, 'peralta.admin@gmail.com', '09319949704', 'admin', '$2y$10$FmcyKsYDBhRvVKzVjSPinusjpQGwoaoDZwMZ.fRMD3Mv66k4Me8t6', 1, 1, '2021-10-10 10:06:30', '2021-10-10 10:11:32', NULL);
+	(2, 'Employee 11', 'Peralta ', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBhc2Rhc2RhZGFzZA==', 'Male', NULL, 'hermosasofia1118@gmail.com', '09988619866', 'sofiaH', '$2y$10$bwAfJyE0ab1qSaH/a5GN1.h8gjZoB1UaVu5J0KWwtrLELQuvWT4kC', 1, 2, '2021-10-08 03:34:28', '2021-10-10 12:00:05', NULL),
+	(3, 'Jeffrey', 'Lozada', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnaGZoZmhmZ2Rmc2dkZHNkZ3Nkc2dkZnNkcw==', 'Male', NULL, 'janedoe@gmail.com', '09123123123', 'test_user', '$2y$10$foKKJcRYWBdaKvOH4WUZWe4NidRrdcCiQGs.5mfws/d0HjuD6LiTG', 1, 2, '2021-10-08 11:56:38', '2021-10-10 12:00:38', NULL),
+	(4, 'Peralta', 'Administrator', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnaGZoZmhmZ2Rmc2dkZHNkZ3Nkc2dkZnNkcw==', 'Male', NULL, 'peralta.admin@gmail.com', '09319949704', 'admin', '$2y$10$CP6lgj3bCUuBBCG7Lrv/UO4/b9xzPBvn5BUcSG2xT.yGajxiLCXna', 1, 1, '2021-10-10 10:06:30', '2021-10-10 12:09:00', NULL);
 /*!40000 ALTER TABLE `tbl_users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

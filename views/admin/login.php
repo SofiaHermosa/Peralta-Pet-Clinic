@@ -47,19 +47,18 @@
 				<div class="col-span-1 mt-4">
 					<button type="submit" class="p-2 mt-4 mb-20 w-full bg-indigo-700 text-white font-bold rounded-md shadow-md hover:bg-indigo-500">Login</button>
                 </div>
-
-				<?php if(isset($_SESSION['error'])){ ?>
-                <div class="col-span-1">
-                    <div class="py-2 px-4 rounded shadow w-full bg-red-400 text-white">
-                        <p><?php echo $_SESSION['error'] ?></p>
-                    </div>
-                </div>
-                <?php } 
-                unset($_SESSION['error']);
-                ?>
 			</div>
 			</form>
 		</div>
+		<?php if(isset($_SESSION['error'])){ ?>
+		<div class="col-span-1 absolute bottom-10 left-1/2 transform -translate-x-1/2">
+			<div class="py-2 px-4 rounded shadow w-full bg-red-400 text-white">
+				<p><?php echo $_SESSION['error'] ?></p>
+			</div>
+		</div>
+		<?php } 
+		unset($_SESSION['error']);
+		?>
 	</div>
 </body>
 </html>

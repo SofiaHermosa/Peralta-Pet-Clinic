@@ -15,6 +15,7 @@
 <script src="../../../assets/js/setting.js"></script>
 <script src="../../../assets/js/services.js"></script>
 <script src="../../../assets/js/reply-inquiry.js"></script>
+<script src="../../../assets/js/users-management.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script type="text/javascript">
 	AOS.init();
