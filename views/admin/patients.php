@@ -32,7 +32,7 @@
                           Contact No.
                         </th>
                         <th scope="col" class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          <center>Status</center>
+                          <center>User Type</center>
                         </th>
                         <th scope="col" class="relative px-6 py-3">
                           <span class="sr-only">Edit</span>

@@ -3,15 +3,15 @@
 
     $class = new Patients;
     $patients = $class->getPatients();
-    $status ="<center><span class='text-xs font-medium p-2 rounded bg-gray-200 text-gray-800 shadow'>PENDING ACTIVATION</span></center>";
+    $status ="<center><span class='text-xs font-medium p-2 rounded bg-purple-200 text-purple-800 shadow'>CLIENT</span></center>";
 
     $data['data'] = [];
 
     foreach($patients as $patient){
         $json = base64_encode(json_encode($patient));
 
-        if($patient['activated'] == 1){
-            $status ="<center><span class='text-xs font-medium p-2 rounded bg-green-100 text-green-800 shadow'>ACTIVATED</span></center>";
+        if($patient['user_type'] == 1){
+            $status ="<center><span class='text-xs font-medium p-2 rounded bg-blue-100 text-blue-800 shadow'>ADMINISTRATOR</span></center>";
         }
         
         $array = [
