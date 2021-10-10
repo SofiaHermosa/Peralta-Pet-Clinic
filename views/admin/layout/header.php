@@ -19,7 +19,7 @@
 
     $auth = new Auth;
 
-    $auth->authCheck('/login');
+    $auth->authCheck('/login', '1');
 ?>
 
 <?php

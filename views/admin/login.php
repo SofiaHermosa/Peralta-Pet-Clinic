@@ -1,3 +1,10 @@
+<?php
+    require_once('./class/auth.php');
+
+    $auth = new Auth;
+
+    $auth->redirectIfLogin('/res', '1');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

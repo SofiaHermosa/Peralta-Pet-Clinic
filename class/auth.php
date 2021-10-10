@@ -12,13 +12,22 @@
             
         } 
 
-        public function authCheck($referer){
+        public function authCheck($referer, $type = 2){
             
-            if(isset($_SESSION['auth']) && !empty($_SESSION['auth'])){
+            if(isset($_SESSION['auth']) && !empty($_SESSION['auth']) && $_SESSION['auth']['user_type'] == $type){
                 return $this;
             }else{
                 header("Location: ".$referer);
                 exit();
+            }
+        }
+
+        public function redirectIfLogin($referer, $type = 2){
+            if(isset($_SESSION['auth']) && !empty($_SESSION['auth']) && $_SESSION['auth']['user_type'] == $type){
+                header("Location: ".$referer);
+                exit();
+            }else{
+               return $this;
             }
         }
 
