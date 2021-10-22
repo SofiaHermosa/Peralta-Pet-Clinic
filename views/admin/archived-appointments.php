@@ -9,7 +9,7 @@
   <header class="bg-white shadow mt-16">
     <div class="w-full mx-auto py-6 px-4 sm:px-6 lg:px-8">
       <h1 class="text-3xl font-bold text-gray-900 inline-block">
-        Appointment
+        Appointments Archive
       </h1>
 
       <div class="float-right inline-block align-middle space-2">
