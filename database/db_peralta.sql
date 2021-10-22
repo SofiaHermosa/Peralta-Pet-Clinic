@@ -35,9 +35,9 @@ CREATE TABLE IF NOT EXISTS `tbl_appointment` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_peralta.tbl_appointment: ~13 rows (approximately)
+-- Dumping data for table db_peralta.tbl_appointment: ~14 rows (approximately)
 DELETE FROM `tbl_appointment`;
 /*!40000 ALTER TABLE `tbl_appointment` DISABLE KEYS */;
 INSERT INTO `tbl_appointment` (`id`, `apt_fname`, `apt_lname`, `apt_minit`, `email`, `apt_contactno`, `apt_address`, `apt_patient_type`, `apt_time`, `end_time`, `apt_visit_reason`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -53,7 +53,8 @@ INSERT INTO `tbl_appointment` (`id`, `apt_fname`, `apt_lname`, `apt_minit`, `ema
 	(40, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasdasdasd', 'New', '2021-09-23 16:30', '2021-09-22 17:30', 'Consultation', '1', '2021-09-20 21:07:06', '2021-09-23 20:26:09', NULL),
 	(48, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasdasd', 'New', '2021-09-23 16:40', '2021-09-22 17:40', 'Vaccination', '1', '2021-09-20 21:07:06', '2021-09-23 20:26:06', NULL),
 	(49, 'joshua', 'blando', 'H', NULL, '09988619866', 'asddwewrwrewwr', 'New', '2021-09-16 16:00', '2021-09-16 17:00', 'Veterinary Surgery', '3', '2021-09-20 21:07:06', '2021-10-09 21:21:46', '2021-10-09 21:21:46'),
-	(50, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasd', 'New', '2021-09-16 14:00', '2021-09-16 15:00', 'Veterinary Surgery', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL);
+	(50, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasd', 'New', '2021-09-16 14:00', '2021-09-16 15:00', 'Veterinary Surgery', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
+	(51, 'joshua', 'blando', '', NULL, '09988619866', '                                            asdasdasd', 'Existing', '2021-10-13 14:30', '2021-10-13 15:30', 'General Checkup', '2', '2021-10-14 20:59:59', '2021-10-14 20:59:59', NULL);
 /*!40000 ALTER TABLE `tbl_appointment` ENABLE KEYS */;
 
 -- Dumping structure for table db_peralta.tbl_cms
@@ -120,6 +121,26 @@ INSERT INTO `tbl_services` (`id`, `logo`, `name`, `description`, `created_at`, `
 	(10, '<svg stroke="currentColor" fill="currentColor" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g id="048---Herbal-Remedy"><path id="Shape" d="m53.849 23.386c1.563-7.113-.616-14.363-.713-14.681-.1320298-.44285971-.5528835-.73546507-1.014-.705-.537.03-13.222.852-18.935 9.079-.6248159.9239977-1.1541974 1.9090495-1.58 2.94-.532-.008-1.064-.019-1.607-.019-14.543 0-30 3.154-30 9 0 10.495 7.805 19.5 18.829 23.2-1.8836152.5823738-3.0592215 2.4534914-2.7665105 4.4032313.2927109 1.9497399 1.9659242 3.3931693 3.9375105 3.3967687h20c1.9715863-.0035994 3.6447996-1.4470288 3.9375105-3.3967687.292711-1.9497399-.8828953-3.8208575-2.7665105-4.4032313 11.029-3.7 18.829-12.705 18.829-23.2 0-2.179-2.086-4.062-6.151-5.614zm-3.255 7.024c1.4719228.4041668 2.9057101.9361905 4.285 1.59-2.9998757 1.3596111-6.1764793 2.2894309-9.436 2.762 1.9760061-1.1129638 3.7237137-2.5895749 5.151-4.352zm7.406-1.41c-.1119422.7338778-.5322527 1.3849041-1.155 1.789-1.5885327-.8940711-3.2763799-1.5988791-5.029-2.1.6246799-1.0630375 1.1307138-2.1914697 1.509-3.365 2.94 1.15 4.675 2.496 4.675 3.676zm-6.566-18.925c1.425 5.738 1.682 14.113-2 18.61-2.885 4-7.83 6.011-11.513 7-1.078.085-2.148.152-3.2.2 2.243-3.227 3.595-5.174 4.447-6.4.969.019 4.086.077 3.984.077.5522847.0052467 1.0042533-.4382153 1.0095-.9905s-.4382153-1.0042533-.9905-1.0095l-2.634-.051c.4-.576.245-.359 2.185-3.15.969.018 4.093.076 3.99.076.5522847.0055228 1.0044772-.4377153 1.01-.99s-.4377153-1.0044772-.99-1.01l-2.638-.051c.966-1.389 2.232-3.211 3.924-5.643.3156307-.4553588.2023588-1.0803692-.253-1.396-.4553588-.3156307-1.0803693-.2023588-1.396.253l-3.919 5.637-.963-2.437c-.1311165-.3324356-.4296254-.569669-.7830813-.6223367-.353456-.0526676-.7081606.087232-.9305.3670001-.2223395.279768-.2785352.656901-.1474187.9893366l1.451 3.682c-1.843 2.653-1.753 2.526-2.186 3.153l-.964-2.444c-.2026885-.5141771-.7838229-.7666885-1.298-.564s-.7666885.7838229-.564 1.298l1.455 3.687-4.833 6.954c-1.138-5.637-1.127-12.348 2.144-17.078 4.378-6.305 13.796-7.822 16.603-8.147zm-20.645 25.918c-7.26.059-19.176-.8-25.655-3.993 6.32-3.119 17.848-4 24.89-4-.054358 2.6849294.2023515 5.3671235.765 7.993zm-.789-13.993c.3 0 .589.009.885.012-.3640085 1.3046227-.6099985 2.6393276-.735 3.988-7.517 0-20.524.944-26.987 4.794-.62623095-.4043182-1.04952534-1.0572762-1.163-1.794 0-2.923 10.652-7 28-7zm10 32c1.1045695 0 2 .8954305 2 2s-.8954305 2-2 2h-20c-1.1045695 0-2-.8954305-2-2s.8954305-2 2-2zm-10-2c-13.909 0-25.476-8.374-27.634-19.306 6.386 4.537 21.8 5.473 29.623 5.278.809.043 6.277-.311 6.408-.344 5.663-.468 14.625-1.657 19.237-4.935-2.158 10.933-13.725 19.307-27.634 19.307z"/><path id="Shape" d="m16.551 15.106c-.4940187.2485281-.6930281.8504813-.4445 1.3445s.8504813.6930281 1.3445.4445c.182-.095 4.549-2.318 4.549-5.895 0-3.547-4-3.762-4-6 0-2.176 3.213-3.022 3.245-3.03.5357162-.13448134.8609813-.67778379.7265-1.2135-.1344813-.53571621-.6777838-.86098134-1.2135-.7265-.195.048-4.758 1.232-4.758 4.97 0 3.547 4 3.762 4 6 0 1.941-2.489 3.622-3.449 4.106z"/><path id="Shape" d="m27.551 15.106c-.4940187.2485281-.6930281.8504813-.4445 1.3445s.8504813.6930281 1.3445.4445c.182-.095 4.549-2.318 4.549-5.895 0-3.547-4-3.762-4-6 0-2.176 3.213-3.022 3.245-3.03.5357162-.13448134.8609813-.67778379.7265-1.2135-.1344813-.5357162-.6777838-.86098133-1.2135-.7265-.195.048-4.758 1.232-4.758 4.97 0 3.547 4 3.762 4 6 0 1.941-2.489 3.622-3.449 4.106z"/></g></svg>', 'Food Therapy', 'SXQgaXMgYSBsb25nIGVzdGFibGlzaGVkIGZhY3QgdGhhdCBhIHJlYWRlciB3aWxsIGJlIGRpc3RyYWN0ZWQgYnkgdGhlIHJlYWRhYmxlIGNvbnRlbnQgb2YgYSBwYWdlIHdoZW4gbG9va2luZyBhdCBpdHMgbGF5b3V0Lg==', '2021-10-09 19:20:49', '2021-10-09 21:33:11', '2021-10-09 21:33:11');
 /*!40000 ALTER TABLE `tbl_services` ENABLE KEYS */;
 
+-- Dumping structure for table db_peralta.tbl_teams
+CREATE TABLE IF NOT EXISTS `tbl_teams` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `profile` varchar(191) DEFAULT NULL,
+  `name` varchar(191) DEFAULT NULL,
+  `description` longtext,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table db_peralta.tbl_teams: 1 rows
+DELETE FROM `tbl_teams`;
+/*!40000 ALTER TABLE `tbl_teams` DISABLE KEYS */;
+INSERT INTO `tbl_teams` (`id`, `profile`, `name`, `description`, `created_at`, `updated_at`, `deleted_at`) VALUES
+	(1, 'uploads/teams/61690dee8ae08.png', 'sample 123', 'ICAgICAgICAgICAgICAgIGFzZGFzZGFzZGFzZA==', '2021-10-14 21:43:39', '2021-10-14 22:17:32', '2021-10-14 22:17:32'),
+	(3, 'uploads/teams/61691d2adc566.jpg', 'Lorem Ipsum', 'SXQgaXMgYSBsb25nIGVzdGFibGlzaGVkIGZhY3QgdGhhdCBhIHJlYWRlciB3aWxsIGJlIGRpc3RyYWN0ZWQgYnkgdGhlIHJlYWRhYmxlIGNvbnRlbnQgb2YgYSBwYWdlIHdoZW4gbG9va2luZyBhdCBpdHMgbGF5b3V0LiAgIA==', '2021-10-14 23:18:18', '2021-10-14 23:18:52', NULL);
+/*!40000 ALTER TABLE `tbl_teams` ENABLE KEYS */;
+
 -- Dumping structure for table db_peralta.tbl_users
 CREATE TABLE IF NOT EXISTS `tbl_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -139,13 +160,13 @@ CREATE TABLE IF NOT EXISTS `tbl_users` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table db_peralta.tbl_users: 4 rows
 DELETE FROM `tbl_users`;
 /*!40000 ALTER TABLE `tbl_users` DISABLE KEYS */;
 INSERT INTO `tbl_users` (`id`, `first_name`, `last_name`, `middle_name`, `address`, `gender`, `profile`, `email`, `contact_no`, `uname`, `password`, `activated`, `user_type`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(1, 'joshua', 'blando', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBhc2Rhc2Rhc2Q=', 'Male', NULL, 'jblando1996@gmail.com', '09988619866', 'jblando', '$2y$10$vdXViJx2RW9fuQOLnFL4buLCHM.ZEMenD9vqXoeZ/.uo.nj7rfBl.', 0, 2, '2021-10-08 01:49:53', '2021-10-09 21:09:14', NULL),
+	(1, 'joshua', 'blando', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBhc2Rhc2Rhc2Q=', 'Male', NULL, 'jblando1996@gmail.com', '09988619866', 'jblando', '$2y$10$vdXViJx2RW9fuQOLnFL4buLCHM.ZEMenD9vqXoeZ/.uo.nj7rfBl.', 1, 2, '2021-10-08 01:49:53', '2021-10-14 20:50:04', NULL),
 	(2, 'Employee 11', 'Peralta ', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBhc2Rhc2RhZGFzZA==', 'Male', NULL, 'hermosasofia1118@gmail.com', '09988619866', 'sofiaH', '$2y$10$bwAfJyE0ab1qSaH/a5GN1.h8gjZoB1UaVu5J0KWwtrLELQuvWT4kC', 1, 2, '2021-10-08 03:34:28', '2021-10-10 12:00:05', NULL),
 	(3, 'Jeffrey', 'Lozada', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnaGZoZmhmZ2Rmc2dkZHNkZ3Nkc2dkZnNkcw==', 'Male', NULL, 'janedoe@gmail.com', '09123123123', 'test_user', '$2y$10$foKKJcRYWBdaKvOH4WUZWe4NidRrdcCiQGs.5mfws/d0HjuD6LiTG', 1, 2, '2021-10-08 11:56:38', '2021-10-10 12:00:38', NULL),
 	(4, 'Peralta', 'Administrator', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnaGZoZmhmZ2Rmc2dkZHNkZ3Nkc2dkZnNkcw==', 'Male', NULL, 'peralta.admin@gmail.com', '09319949704', 'admin', '$2y$10$CP6lgj3bCUuBBCG7Lrv/UO4/b9xzPBvn5BUcSG2xT.yGajxiLCXna', 1, 1, '2021-10-10 10:06:30', '2021-10-10 12:09:00', NULL);

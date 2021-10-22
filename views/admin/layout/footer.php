@@ -8,12 +8,16 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
 <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>
 <script src="../../../assets/tooltipster/dist/js/tooltipster.bundle.min.js"></script>
+<script src="../../../assets/summernote/summernote.min.js"></script>
+<script src="../../../assets/popper-js/umd/popper.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../../../assets/js/bootstrap.min.js"></script>
 <script src="../../../assets/js/tables.js"></script>
 <script src="../../../assets/js/app.js"></script>
 <script src="../../../assets/js/config.js"></script>
 <script src="../../../assets/js/setting.js"></script>
 <script src="../../../assets/js/services.js"></script>
+<script src="../../../assets/js/teams.js"></script>
 <script src="../../../assets/js/reply-inquiry.js"></script>
 <script src="../../../assets/js/users-management.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

@@ -1,6 +1,7 @@
 <?php
 	include_once('layout/header.php');
 ?>
+<link rel="stylesheet" href="../../assets/css/bootstrap.css"/>
 
   <header class="bg-white shadow mt-16">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -14,6 +15,8 @@
                 echo 'Services';
             }else if($section == 'branding'){
                 echo 'Branding';
+            }else if($section == 'teams'){
+                echo 'Teams';
             }
         ?>
       </h1>
@@ -24,6 +27,17 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
           </svg>
           <span class="inline-block">Service</span>
+          </button>
+      </div>
+      <?php } ?>
+
+      <?php if($section == 'teams'){ ?>
+      <div class="float-right inline-block align-middle space-2">
+          <button class="align-middle px-4 py-2 bg-blue-500 text-white rounded shadow toggle-menu" data-toggle="#editTeamsModal">      
+          <svg xmlns="http://www.w3.org/2000/svg" class="inline-block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+          </svg>
+          <span class="inline-block">Team</span>
           </button>
       </div>
       <?php } ?>
@@ -107,7 +121,7 @@
                     </div>
 
                     <div class="col-span-2">
-                        <textarea class="form_input" name="history" rows="10">
+                        <textarea class="form_input summernote" name="history" rows="10">
                             <?php 
                                 $content = $cms->getContent('about_us')[0]['content'];
                                 echo base64_decode(json_decode($content)->history);
@@ -131,7 +145,13 @@
                 <?php
                     include_once('./views/admin/modals/settings.php');
                 ?>
-            <?php } ?>    
+            <?php } ?>   
+            
+            <?php if($section == 'teams'){ ?>
+                <?php
+                    include_once('./views/admin/teams.php');
+                ?>
+            <?php } ?>   
         </div>
     </div>
   </main>

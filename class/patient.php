@@ -8,8 +8,12 @@
             $this->connection = $conn;
         }
 
-        public function getPatients(){
+        public function getPatients($type = 1){
             $sqlQuery = "SELECT * FROM tbl_users WHERE deleted_at IS NULL";
+
+            if($type == 0){
+                $sqlQuery = "SELECT * FROM tbl_users WHERE deleted_at IS NOT NULL";
+            }
 
             $result = mysqli_query($this->connection, $sqlQuery);
             $patientsArray = array();

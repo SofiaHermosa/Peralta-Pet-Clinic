@@ -19,8 +19,8 @@
         $visit_reason = $_POST["visit_reason"];
         $response = "";
     
-        $result = mysqli_query($conn,"INSERT INTO tbl_appointment (apt_fname, apt_lname, apt_minit, apt_contactno, apt_address, apt_patient_type, apt_time, end_time ,apt_visit_reason) 
-                VALUES ('$fname', '$lname', '$minit', '$contact_no', '$address', '$patient_type', '$datetime', '$endtime', '$visit_reason')")
+        $result = mysqli_query($conn,"INSERT INTO tbl_appointment (apt_fname, apt_lname, apt_minit, apt_contactno, apt_address, apt_patient_type, apt_time, end_time ,apt_visit_reason, status) 
+                VALUES ('$fname', '$lname', '$minit', '$contact_no', '$address', '$patient_type', '$datetime', '$endtime', '$visit_reason', '2')")
                 or die ("failed to query insertion in the appointment table". mysqli_error());
     
         if($result){

@@ -27,11 +27,13 @@
     require_once('./class/inquiry.php');
     require_once('./class/appointment.php');
     require_once('./class/services.php');
+    require_once('./class/teams.php');
 
     $cms = new CMS;
     $inquiryClass = new Inquiry;
     $appointmentClass = new Appointment;
     $servicesClass = new Services;
+    $teamsClass = new Teams;
 ?>
 
 <!DOCTYPE html>
@@ -49,6 +51,7 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../../../assets/css/custom.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.79/theme-default.min.css"/>
+  <link rel="stylesheet" href="../../../assets/summernote/summernote.min.css"/>
   <link rel="stylesheet" href="../../../assets/tooltipster/dist/css/tooltipster.bundle.min.css"/>
   <link rel="stylesheet" href="../../../assets/tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-borderless.min.css"/>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
@@ -92,13 +95,6 @@
 
                 <div class="origin-top-right absolute right-0 transform translate-x-4 mt-4 w-52 rounded shadow-2xl py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" id="aptMenuDesktop" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                   <!-- Active: "bg-gray-100", Not Active: "" -->
-                  <a href="/res/appointment/1" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-0">
-                      <span class="align-middle">Pending</span> 
-                      <?php if(!empty($appointmentClass->getAppointment(1)->appointment)){ ?>
-                      <span id="apt_notif" class="py-1 text-xs px-2 ml-1 bg-gray-200 rounded-lg text-gray-600 font-semibold float-right"><?php echo number_format(count($appointmentClass->getAppointment(1)->appointment)); ?></span>
-                      <?php } ?>
-                  </a>
-
                   <a href="/res/appointment/2" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                       <span class="align-middle">Approved</span> 
                       <?php if(!empty($appointmentClass->getAppointment(2)->appointment)){ ?>
@@ -178,6 +174,10 @@
 
                   <a href="/res/cms/services" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-2">
                       <span class="align-middle">Services</span> 
+                  </a>
+
+                  <a href="/res/cms/teams" class="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-2">
+                      <span class="align-middle">Teams</span> 
                   </a>
                 </div>      
               </div>  

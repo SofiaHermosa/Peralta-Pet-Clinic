@@ -1,8 +1,10 @@
 <?php
     require_once('./class/cms.php');
     require_once('./class/services.php');
+    require_once('./class/teams.php');
 
     $servicesClass = new Services;
+    $teamsClass = new Teams;
     $cms = new CMS;
 
     $branding = $cms->getContent('settings')[0]['content'];

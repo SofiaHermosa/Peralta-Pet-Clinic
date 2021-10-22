@@ -23,6 +23,8 @@ post('/res/content-management', 'controller/cms/edit.php');
 
 post('/res/services', 'controller/services/update-create-services.php');
 
+post('/res/teams', 'controller/teams/update-create-teams.php');
+
 post('/res/settings', 'controller/cms/settings.php');
 
 post('/res/update/appointment/status', 'controller/appointment/appointmentstatus.php');
@@ -52,7 +54,7 @@ post('/reply/inquiry', 'controller/inquiries/reply.php');
 // Data tables
 get('/res/inquiries/table', 'controller/inquiries/table.php');
 
-get('/res/patients/table', 'controller/patients/table.php');
+get('/res/patients/table/$type', 'controller/patients/table.php');
 
 get('/res/table/appointment', 'controller/appointment/table.php');
 
@@ -64,8 +66,12 @@ post('/archive/appointment', 'controller/appointment/delete.php');
 
 post('/archive/service', 'controller/services/delete.php');
 
+post('/archive/team', 'controller/teams/delete.php');
 
 
+get('/res/archive/users', 'views/admin/archived-patients.php');
+
+get('/res/archive/appointments', 'views/admin/archived-appointments.php');
 
 
 

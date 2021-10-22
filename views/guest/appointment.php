@@ -36,11 +36,11 @@
                         <div class="step-tab-panel" data-step="step1">
                             <h1 class="flex text-right px-4 py-3 text-3xl text-gray-700">Appointment Details</h1>
                             <div class="grid grid-cols-2 gap-2 py-4 px-10">
-                                <div class="col-span-2">
+                                <div class="col-span-2 hidden">
                                     <label class="form_label">Type of patient</label>
                                     <select type="text" name="patient_type" class="form_input bg-white bg-opacity-60" id ="patient_type">
                                         <option></option>
-                                        <option value="Existing">Existing</option>
+                                        <option value="Existing" selected>Existing</option>
                                         <option value="New">New</option>
                                     </select>
                                 </div>
@@ -70,23 +70,23 @@
                             <div class="grid grid-cols-2 gap-2 py-4 px-10">
                                 <div class="col-span-1">
                                     <label class="form_label">First name</label>
-                                    <input type="text" name="fname" class="form_input bg-white bg-opacity-60 focus:ring-indigo-100 focus:border-indigo-100 duration-300" id="fname">
+                                    <input type="text" name="fname" class="form_input bg-white bg-opacity-60 focus:ring-indigo-100 focus:border-indigo-100 duration-300" value="<?php echo $_SESSION['auth']['first_name'] ?? '' ?>" id="fname">
                                 </div>
                                 <div class="col-span-1">
                                     <label class="form_label">Last name</label>
-                                    <input type="text" name="lname" class="form_input bg-white bg-opacity-60" id="lname">
+                                    <input type="text" name="lname" class="form_input bg-white bg-opacity-60" value="<?php echo $_SESSION['auth']['last_name'] ?? '' ?>" id="lname">
                                 </div>
                                 <div class="col-span-1">
                                     <label class="form_label">Middle initial</label>
-                                    <input type="text" name="minit" class="form_input bg-white bg-opacity-60" id="minit">
+                                    <input type="text" name="minit" class="form_input bg-white bg-opacity-60" value="<?php echo $_SESSION['auth']['middle_name'] ?? '' ?>" id="minit">
                                 </div>
                                 <div class="col-span-1">
                                     <label class="form_label">Contact No.</label>
-                                    <input type="text" name="contact_no" class="form_input bg-white bg-opacity-60" id="contact_no">
+                                    <input type="text" name="contact_no" class="form_input bg-white bg-opacity-60" value="<?php echo $_SESSION['auth']['contact_no'] ?? '' ?>" id="contact_no">
                                 </div>
                                 <div class="col-span-2">
                                     <label class="form_label">Address</label>
-                                    <textarea name="address" class="form_input bg-white bg-opacity-60" id="address"></textarea>
+                                    <textarea name="address" class="form_input bg-white bg-opacity-60" id="address"><?php echo base64_decode($_SESSION['auth']['address']) ?? '' ?></textarea>
                                 </div>
                             </div>
                         </div>

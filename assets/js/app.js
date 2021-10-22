@@ -1,12 +1,14 @@
 (function() {
     $(document).ready(function() {
-        $('.tooltip').tooltipster({
-            trigger: 'hover',
-            animation: 'fade',
-            delay: 50,
-            theme: 'tooltipster-borderless',
-            position: 'bottom'
-        });
+        // $('.tooltip').tooltipster({
+        //     trigger: 'hover',
+        //     animation: 'fade',
+        //     delay: 50,
+        //     theme: 'tooltipster-borderless',
+        //     position: 'bottom'
+        // });
+
+         
     });
 
     $(window).click(function(e) {
@@ -87,3 +89,6 @@ $(document).on('click', '.archive', function(){
         }
     });        
 });
+
+$('.summernote').summernote();
+    

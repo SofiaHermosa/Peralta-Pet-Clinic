@@ -12,6 +12,14 @@
         Appointment
       </h1>
 
+      <div class="float-right inline-block align-middle space-2">
+          <button onclick="window.location.href='/res/archive/appointments'" class="align-middle text-indigo-600 p-2 hover:bg-gray-200 rounded">      
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+          </svg>
+          </button>
+      </div>
+
       <!-- <div class="float-right space-0 rounded-lg bg-gray-200 shadow-md inline-block align-middle overflow-hidden">
           <button class="inline-block align-middle px-4 py-2 bg-indigo-300 text-white toggle-tab" data-target="#aptListLayout">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-1 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -52,6 +60,11 @@
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   <center>Status</center>
                 </th>
+                <?php if($status == 3){ ?>
+                  <th width="20%" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Declined Reason
+                  </th>
+                <?php } ?>  
                 <th scope="col" class="relative px-6 py-3">
                   <span class="sr-only">Reply</span>
                 </th>
@@ -64,7 +77,7 @@
   </main>
 
 <script>
-  window.url='/res/table/appointment?status=<?php echo $status ?? null ?>';
+  window.url='/res/table/appointment?status=<?php echo $status ?? null ?>&type=1';
   console.log(window.url);
 </script>
 

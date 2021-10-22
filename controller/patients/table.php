@@ -2,7 +2,7 @@
     require_once('./class/patient.php');
 
     $class = new Patients;
-    $patients = $class->getPatients();
+    $patients = $class->getPatients($type);
     $status ="<center><span class='text-xs font-medium p-2 rounded bg-purple-200 text-purple-800 shadow'>CLIENT</span></center>";
 
     $data['data'] = [];
@@ -19,9 +19,12 @@
             $patient['email'],
             $patient['contact_no'],
             $status,
-            '<center><a data-patient="'.$json.'" href="javascript:void(0)" class="text-white rounded py-2 px-4 bg-blue-500 hover:bg-blue-400 editUserBtn">Edit</a>
-            <a href="javascript:void(0)" data-type="User" data-url="/archive/user" data-id="'.$patient['id'].'" class="archive text-white rounded py-2 px-4 bg-red-500 hover:bg-red-400">Archive</a></center>'
         ];
+
+        if($type == 1){
+            $array[] = '<center><a data-patient="'.$json.'" href="javascript:void(0)" class="text-white rounded py-2 px-4 bg-blue-500 hover:bg-blue-400 editUserBtn">Edit</a>
+            <a href="javascript:void(0)" data-type="User" data-url="/archive/user" data-id="'.$patient['id'].'" class="archive text-white rounded py-2 px-4 bg-red-500 hover:bg-red-400">Archive</a></center>';
+        }
 
         array_push($data['data'], $array);
     }

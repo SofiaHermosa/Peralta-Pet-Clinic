@@ -52,17 +52,23 @@
         public function updateAppointmentStatus(){
             $status = $_POST['status'] ?? 1;
             $id     = $_POST['id'] ?? '';
-            $result = mysqli_query($this->connection,"UPDATE tbl_appointment SET status='$status' WHERE id='$id'")
+            $reason = base64_encode($_POST['reason']) ?? '';
+
+            $result = mysqli_query($this->connection,"UPDATE tbl_appointment SET status='$status', decline_reason='$reason' WHERE id='$id'")
                     or die ("failed to query update in the appointment table");
 
             return $this;        
         }
 
-        public function getAppointmentPerStatus($filter = null){
+        public function getAppointmentPerStatus($filter = null, $type = 1){
             $sqlQuery = "SELECT * FROM tbl_appointment WHERE deleted_at IS NULL ORDER BY updated_at DESC";
 
             if($filter != null){
                 $sqlQuery = "SELECT * FROM tbl_appointment WHERE deleted_at IS NULL AND status='$filter' ORDER BY updated_at DESC";
+            }
+
+            if($type == 0){
+                $sqlQuery = "SELECT * FROM tbl_appointment WHERE deleted_at IS NOT NULL";
             }
 
             $result = mysqli_query($this->connection, $sqlQuery);

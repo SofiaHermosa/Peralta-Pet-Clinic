@@ -116,11 +116,15 @@ $(document).on('click', '.aptUpdtStatus', function(){
     data = jQuery.parseJSON(atob(data));
     var status = $(this).data('status');
     
-
     Swal.fire({
         icon: 'warning',
         title: 'Are you sure?',
         text: `${action[status]} this appointment`,
+        input: 'textarea',
+        inputAttributes: {
+            autocapitalize: 'off',
+            placeholder: 'Reason for declining ....'
+        },
         showCancelButton: true,
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes',
@@ -130,7 +134,7 @@ $(document).on('click', '.aptUpdtStatus', function(){
         }
     }).then((result) => {
         if (result.isConfirmed) {
-            $.post('/res/update/appointment/status', {status:status, id:data.apt_id}).done(function(){
+            $.post('/res/update/appointment/status', {status:status, id:data.id, reason:result.value}).done(function(){
                 location.reload();
             });
         }

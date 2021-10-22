@@ -6,9 +6,16 @@
 
   <header class="bg-white shadow mt-16">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold text-gray-900">
+      <h1 class="text-3xl font-bold text-gray-900 inline-block">
         Users
       </h1>
+      <div class="float-right inline-block align-middle space-2">
+          <button onclick="window.location.href='/res/archive/users'" class="align-middle text-indigo-600 p-2 hover:bg-gray-200 rounded">      
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+          </svg>
+          </button>
+      </div>
     </div>
   </header>
   <main>
@@ -53,7 +60,7 @@
 ?>
 
 <script>
-  window.url='/res/patients/table'
+  window.url='/res/patients/table/1'
 </script>	
 		
 <?php
