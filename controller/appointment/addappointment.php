@@ -6,6 +6,7 @@
     
     $apt_id = $_POST["apt_id"];
     if($apt_id === ""){
+        $user_id = $_POST["user_id"];
         $fname = $_POST["first_name"];
         $lname = $_POST["last_name"];
         $minit = $_POST["middle_init"];
@@ -19,8 +20,8 @@
         $visit_reason = $_POST["visit_reason"];
         $response = "";
     
-        $result = mysqli_query($conn,"INSERT INTO tbl_appointment (apt_fname, apt_lname, apt_minit, apt_contactno, apt_address, apt_patient_type, apt_time, end_time ,apt_visit_reason, status) 
-                VALUES ('$fname', '$lname', '$minit', '$contact_no', '$address', '$patient_type', '$datetime', '$endtime', '$visit_reason', '2')")
+        $result = mysqli_query($conn,"INSERT INTO tbl_appointment (user_id, apt_fname, apt_lname, apt_minit, apt_contactno, apt_address, apt_patient_type, apt_time, end_time ,apt_visit_reason, status) 
+                VALUES ('$user_id', '$fname', '$lname', '$minit', '$contact_no', '$address', '$patient_type', '$datetime', '$endtime', '$visit_reason', '2')")
                 or die ("failed to query insertion in the appointment table". mysqli_error());
     
         if($result){

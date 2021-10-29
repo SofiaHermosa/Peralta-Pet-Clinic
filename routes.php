@@ -73,6 +73,10 @@ get('/res/archive/users', 'views/admin/archived-patients.php');
 
 get('/res/archive/appointments', 'views/admin/archived-appointments.php');
 
+get('/my-appointment', 'views/guest/appointment/index.php');
+
+get('/my-appointment/table', 'controller/appointment/client-appointment-table.php');
+
 
 
 

@@ -10,6 +10,20 @@
 
     $auth->authCheck('/sign-up', 2);
 ?>
+
+<?php
+    require_once('./class/cms.php');
+    require_once('./class/services.php');
+    require_once('./class/teams.php');
+
+    $servicesClass = new Services;
+    $teamsClass = new Teams;
+    $cms = new CMS;
+
+    $branding = $cms->getContent('settings')[0]['content'];
+    $branding = json_decode($branding);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +35,9 @@
     <link rel="stylesheet" type="text/css" href="../../../assets/css/custom-appointment.css">
 </head>
 <body>
-
+<?php
+    include_once('./views/guest/layout/auth-nav.php');  
+?>
 <div class="relative top-0 w-full p-0">
     <div class="w-full md:w-3/4 h-screen px-20 m-auto pt-32"> 
         <div class="z-50 relative grid grid-cols-1 gap-6">
@@ -68,6 +84,7 @@
                         <div class="step-tab-panel" data-step="step2">
                             <h1 class="flex text-right px-4 py-3 text-3xl text-gray-700">Patient Details</h1>
                             <div class="grid grid-cols-2 gap-2 py-4 px-10">
+                                <input type="hidden" name="user_id" id="userId" value="<?php echo $_SESSION['auth']['id']; ?>">
                                 <div class="col-span-1">
                                     <label class="form_label">First name</label>
                                     <input type="text" name="fname" class="form_input bg-white bg-opacity-60 focus:ring-indigo-100 focus:border-indigo-100 duration-300" value="<?php echo $_SESSION['auth']['first_name'] ?? '' ?>" id="fname">
@@ -120,7 +137,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.js"></script>
+<script src="../../../assets/summernote/summernote.min.js"></script>
 <script src="./assets/js/book-appointment.js"></script>
+<script src="../../../assets/js/app.js"></script>
 <script type="text/javascript">
 	AOS.init();
 </script>

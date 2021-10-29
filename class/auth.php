@@ -32,7 +32,7 @@
         }
 
         public function logout($user_type){
-            $referer = $user_type == 1 ? '/login' : '/sign-up';
+            $referer = $user_type == 1 ? '/login' : '/';
             session_unset();
 
             header("Location: ".$referer);
@@ -72,7 +72,7 @@
                         header("Location:/res");
                         exit();    
                     }else{
-                        header("Location:/");
+                        header("Location:/my-appointment");
                         exit();    
                     }
                 } else {

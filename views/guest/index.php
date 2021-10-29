@@ -3,6 +3,10 @@
 ?>
 
 <?php
+  include('sections/banner.php');
+?>
+
+<?php
   include_once('./views/guest/layout/navbar.php');  
 ?>
 

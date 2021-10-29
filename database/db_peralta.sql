@@ -20,6 +20,7 @@ USE `db_peralta`;
 -- Dumping structure for table db_peralta.tbl_appointment
 CREATE TABLE IF NOT EXISTS `tbl_appointment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT '0',
   `apt_fname` varchar(255) NOT NULL,
   `apt_lname` varchar(255) NOT NULL,
   `apt_minit` varchar(255) NOT NULL,
@@ -30,31 +31,34 @@ CREATE TABLE IF NOT EXISTS `tbl_appointment` (
   `apt_time` varchar(255) NOT NULL,
   `end_time` varchar(255) DEFAULT NULL,
   `apt_visit_reason` varchar(255) NOT NULL,
+  `decline_reason` longtext,
   `status` varchar(255) DEFAULT '1',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table db_peralta.tbl_appointment: ~14 rows (approximately)
 DELETE FROM `tbl_appointment`;
 /*!40000 ALTER TABLE `tbl_appointment` DISABLE KEYS */;
-INSERT INTO `tbl_appointment` (`id`, `apt_fname`, `apt_lname`, `apt_minit`, `email`, `apt_contactno`, `apt_address`, `apt_patient_type`, `apt_time`, `end_time`, `apt_visit_reason`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(26, 'Jeffrey', 'Lozada', '0', NULL, '09123123123', 'Fatima Extension, Dasmarinas', 'Existing', '2021-09-22 11:15', '2021-09-22 12:15', 'checkup', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
-	(27, 'Didz', 'Arcilla', 'O', NULL, '0931231', 'Area C', 'Existing', '2021-09-16 09:15', '2021-09-16 10:15', 'Inquiry of Products', '2', '2021-09-20 21:07:06', '2021-10-02 22:39:27', NULL),
-	(28, 'Juan', 'John', 'J', NULL, '09312312', 'Laguna', 'Existing', '2021-09-16 08:00', '2021-09-16 08:30', 'Cat Checkup', '2', '2021-09-20 21:07:06', '2021-09-26 20:55:14', NULL),
-	(30, 'Anna', 'Anne', 'A', NULL, '09321312', 'Batangas City', 'New', '2021-09-22 09:20', '2021-09-22 10:20', 'Check up Dogs and Cats', '2', '2021-09-20 21:07:06', '2021-09-26 20:55:18', NULL),
-	(31, 'Luffy', 'Monkey', 'D', NULL, '092312312', 'One Piece', 'Existing', '2021-09-22 09:15', '2021-09-22 10:15', 'One Piece', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
-	(32, 'Marco', 'Phoenix', 'D', NULL, '09312312', 'Whitebeard Pirates', 'New', '2021-09-14 11:11', '2021-09-14 12:11', 'Whitebeard visit', '3', '2021-09-20 21:07:06', '2021-10-02 22:40:15', NULL),
-	(33, 'STUDENTD', '2D', 'AD', NULL, '092312311', 'AAAAAAD', 'Existing', '2021-09-17 12:18', '2021-09-17 13:18', 'REASON SAMPLEDD', '3', '2021-09-20 21:07:06', '2021-10-09 21:22:27', '2021-10-09 21:22:27'),
-	(34, 'Employee', 'Peralta', 'O', NULL, '092312312', 'Dasmarinas Pet Clinic', 'Existing', '2021-09-19 11:00', '2021-09-19 12:00', 'HOLIDAY', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
-	(35, 'Employee 11', 'Peralta 1', 'O', NULL, '0912312312', 'PERALTA CLINIC 1', 'Existing', '2021-09-28 11:00', '2021-09-28 12:00', 'BIRTHDAY 11', '3', '2021-09-20 21:07:06', '2021-10-02 22:46:26', NULL),
-	(40, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasdasdasd', 'New', '2021-09-23 16:30', '2021-09-22 17:30', 'Consultation', '1', '2021-09-20 21:07:06', '2021-09-23 20:26:09', NULL),
-	(48, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasdasd', 'New', '2021-09-23 16:40', '2021-09-22 17:40', 'Vaccination', '1', '2021-09-20 21:07:06', '2021-09-23 20:26:06', NULL),
-	(49, 'joshua', 'blando', 'H', NULL, '09988619866', 'asddwewrwrewwr', 'New', '2021-09-16 16:00', '2021-09-16 17:00', 'Veterinary Surgery', '3', '2021-09-20 21:07:06', '2021-10-09 21:21:46', '2021-10-09 21:21:46'),
-	(50, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasd', 'New', '2021-09-16 14:00', '2021-09-16 15:00', 'Veterinary Surgery', '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
-	(51, 'joshua', 'blando', '', NULL, '09988619866', '                                            asdasdasd', 'Existing', '2021-10-13 14:30', '2021-10-13 15:30', 'General Checkup', '2', '2021-10-14 20:59:59', '2021-10-14 20:59:59', NULL);
+INSERT INTO `tbl_appointment` (`id`, `user_id`, `apt_fname`, `apt_lname`, `apt_minit`, `email`, `apt_contactno`, `apt_address`, `apt_patient_type`, `apt_time`, `end_time`, `apt_visit_reason`, `decline_reason`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+	(26, 0, 'Jeffrey', 'Lozada', '0', NULL, '09123123123', 'Fatima Extension, Dasmarinas', 'Existing', '2021-09-22 11:15', '2021-09-22 12:15', 'checkup', NULL, '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
+	(27, 0, 'Didz', 'Arcilla', 'O', NULL, '0931231', 'Area C', 'Existing', '2021-09-16 09:15', '2021-09-16 10:15', 'Inquiry of Products', NULL, '2', '2021-09-20 21:07:06', '2021-10-02 22:39:27', NULL),
+	(28, 1, 'Juan', 'John', 'J', NULL, '09312312', 'Laguna', 'Existing', '2021-09-16 08:00', '2021-09-16 08:30', 'Cat Checkup', 'SXQgaXMgYSBsb25nIGVzdGFibGlzaGVkIGZhY3QgdGhhdCBhIHJlYWRlciB3aWxsIGJlIGRpc3RyYWN0ZWQgYnkgdGhlIHJlYWRhYmxlIGNvbnRlbnQgb2YgYSBwYWdlIHdoZW4gbG9va2luZyBhdCBpdHMgbGF5b3V0LiBUaGUgcG9pbnQgb2YgdXNpbmcgTG9yZW0gSXBzdW0=', '3', '2021-09-20 21:07:06', '2021-10-28 20:46:40', NULL),
+	(30, 0, 'Anna', 'Anne', 'A', NULL, '09321312', 'Batangas City', 'New', '2021-09-22 09:20', '2021-09-22 10:20', 'Check up Dogs and Cats', NULL, '2', '2021-09-20 21:07:06', '2021-09-26 20:55:18', NULL),
+	(31, 0, 'Luffy', 'Monkey', 'D', NULL, '092312312', 'One Piece', 'Existing', '2021-09-22 09:15', '2021-09-22 10:15', 'One Piece', NULL, '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
+	(32, 1, 'Marco', 'Phoenix', 'D', NULL, '09312312', 'Whitebeard Pirates', 'New', '2021-09-14 11:11', '2021-09-14 12:11', 'Whitebeard visit', NULL, '3', '2021-09-20 21:07:06', '2021-10-28 20:40:08', NULL),
+	(33, 0, 'STUDENTD', '2D', 'AD', NULL, '092312311', 'AAAAAAD', 'Existing', '2021-09-17 12:18', '2021-09-17 13:18', 'REASON SAMPLEDD', NULL, '3', '2021-09-20 21:07:06', '2021-10-09 21:22:27', '2021-10-09 21:22:27'),
+	(34, 0, 'Employee', 'Peralta', 'O', NULL, '092312312', 'Dasmarinas Pet Clinic', 'Existing', '2021-09-19 11:00', '2021-09-19 12:00', 'HOLIDAY', NULL, '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
+	(35, 0, 'Employee 11', 'Peralta 1', 'O', NULL, '0912312312', 'PERALTA CLINIC 1', 'Existing', '2021-09-28 11:00', '2021-09-28 12:00', 'BIRTHDAY 11', NULL, '3', '2021-09-20 21:07:06', '2021-10-21 22:50:00', '2021-10-21 22:50:00'),
+	(40, 0, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasdasdasd', 'New', '2021-09-23 16:30', '2021-09-22 17:30', 'Consultation', NULL, '1', '2021-09-20 21:07:06', '2021-09-23 20:26:09', NULL),
+	(48, 1, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasdasd', 'New', '2021-09-23 16:40', '2021-09-22 17:40', 'Vaccination', NULL, '1', '2021-09-20 21:07:06', '2021-10-28 20:40:12', NULL),
+	(49, 0, 'joshua', 'blando', 'H', NULL, '09988619866', 'asddwewrwrewwr', 'New', '2021-09-16 16:00', '2021-09-16 17:00', 'Veterinary Surgery', NULL, '3', '2021-09-20 21:07:06', '2021-10-09 21:21:46', '2021-10-09 21:21:46'),
+	(50, 0, 'joshua', 'blando', 'H', NULL, '09988619866', 'asdasd', 'New', '2021-09-16 14:00', '2021-09-16 15:00', 'Veterinary Surgery', NULL, '1', '2021-09-20 21:07:06', '2021-09-20 21:07:06', NULL),
+	(51, 0, 'joshua', 'blando', '', NULL, '09988619866', '                                            asdasdasd', 'Existing', '2021-10-13 14:30', '2021-10-13 15:30', 'General Checkup', NULL, '2', '2021-10-14 20:59:59', '2021-10-14 20:59:59', NULL),
+	(52, 1, 'joshua', 'blando', '', NULL, '09988619866', '                                            asdasdasd', 'Existing', '2021-10-12 16:00', '2021-10-12 17:00', 'Veterinary Surgery', NULL, '2', '2021-10-28 21:13:39', '2021-10-28 21:14:20', NULL),
+	(53, 1, 'joshua', 'blando', '', NULL, '09988619866', '                                            asdasdasd', 'Existing', '2021-10-14 11:00', '2021-10-14 12:00', 'Vaccination', NULL, '2', '2021-10-28 21:30:44', '2021-10-28 21:30:44', NULL);
 /*!40000 ALTER TABLE `tbl_appointment` ENABLE KEYS */;
 
 -- Dumping structure for table db_peralta.tbl_cms
@@ -133,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `tbl_teams` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_peralta.tbl_teams: 1 rows
+-- Dumping data for table db_peralta.tbl_teams: 2 rows
 DELETE FROM `tbl_teams`;
 /*!40000 ALTER TABLE `tbl_teams` DISABLE KEYS */;
 INSERT INTO `tbl_teams` (`id`, `profile`, `name`, `description`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -167,7 +171,7 @@ DELETE FROM `tbl_users`;
 /*!40000 ALTER TABLE `tbl_users` DISABLE KEYS */;
 INSERT INTO `tbl_users` (`id`, `first_name`, `last_name`, `middle_name`, `address`, `gender`, `profile`, `email`, `contact_no`, `uname`, `password`, `activated`, `user_type`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(1, 'joshua', 'blando', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBhc2Rhc2Rhc2Q=', 'Male', NULL, 'jblando1996@gmail.com', '09988619866', 'jblando', '$2y$10$vdXViJx2RW9fuQOLnFL4buLCHM.ZEMenD9vqXoeZ/.uo.nj7rfBl.', 1, 2, '2021-10-08 01:49:53', '2021-10-14 20:50:04', NULL),
-	(2, 'Employee 11', 'Peralta ', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBhc2Rhc2RhZGFzZA==', 'Male', NULL, 'hermosasofia1118@gmail.com', '09988619866', 'sofiaH', '$2y$10$bwAfJyE0ab1qSaH/a5GN1.h8gjZoB1UaVu5J0KWwtrLELQuvWT4kC', 1, 2, '2021-10-08 03:34:28', '2021-10-10 12:00:05', NULL),
+	(2, 'Employee 11', 'Peralta ', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBhc2Rhc2RhZGFzZA==', 'Male', NULL, 'hermosasofia1118@gmail.com', '09988619866', 'sofiaH', '$2y$10$bwAfJyE0ab1qSaH/a5GN1.h8gjZoB1UaVu5J0KWwtrLELQuvWT4kC', 1, 2, '2021-10-08 03:34:28', '2021-10-21 21:23:08', '2021-10-21 21:23:08'),
 	(3, 'Jeffrey', 'Lozada', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnaGZoZmhmZ2Rmc2dkZHNkZ3Nkc2dkZnNkcw==', 'Male', NULL, 'janedoe@gmail.com', '09123123123', 'test_user', '$2y$10$foKKJcRYWBdaKvOH4WUZWe4NidRrdcCiQGs.5mfws/d0HjuD6LiTG', 1, 2, '2021-10-08 11:56:38', '2021-10-10 12:00:38', NULL),
 	(4, 'Peralta', 'Administrator', '', 'ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnaGZoZmhmZ2Rmc2dkZHNkZ3Nkc2dkZnNkcw==', 'Male', NULL, 'peralta.admin@gmail.com', '09319949704', 'admin', '$2y$10$CP6lgj3bCUuBBCG7Lrv/UO4/b9xzPBvn5BUcSG2xT.yGajxiLCXna', 1, 1, '2021-10-10 10:06:30', '2021-10-10 12:09:00', NULL);
 /*!40000 ALTER TABLE `tbl_users` ENABLE KEYS */;

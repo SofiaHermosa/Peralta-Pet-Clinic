@@ -69,7 +69,3 @@
           </nav>
         </div>
       </div>
-		  
-      <?php
-        include('./views/guest/sections/banner.php');
-      ?>

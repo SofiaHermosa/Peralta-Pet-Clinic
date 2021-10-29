@@ -60,7 +60,7 @@
             return $this;        
         }
 
-        public function getAppointmentPerStatus($filter = null, $type = 1){
+        public function getAppointmentPerStatus($filter = null, $type = 1, $user=null){
             $sqlQuery = "SELECT * FROM tbl_appointment WHERE deleted_at IS NULL ORDER BY updated_at DESC";
 
             if($filter != null){
@@ -69,6 +69,10 @@
 
             if($type == 0){
                 $sqlQuery = "SELECT * FROM tbl_appointment WHERE deleted_at IS NOT NULL";
+            }
+
+            if($user != null){
+                $sqlQuery = "SELECT * FROM tbl_appointment WHERE user_id='$user' ORDER BY id DESC";
             }
 
             $result = mysqli_query($this->connection, $sqlQuery);

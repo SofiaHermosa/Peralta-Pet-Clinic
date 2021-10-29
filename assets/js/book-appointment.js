@@ -14,6 +14,7 @@ $('#appointment').steps({
 
 
 function sendAppointment() {
+    var userId = $('#userId').val();
     var fname = $('#fname').val();
     var lname = $('#lname').val();
     var minit = $('#minit').val();
@@ -31,6 +32,7 @@ function sendAppointment() {
         dataType: 'json',
         data: {
             apt_id: '',
+            user_id: userId,
             first_name: fname,
             last_name: lname,
             middle_init: minit,
