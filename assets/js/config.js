@@ -1,1 +1,1 @@
-const baseUrl = "//local.petclinic";
+const baseUrl = "//peralta-dogandcat-clinic.com/res/";

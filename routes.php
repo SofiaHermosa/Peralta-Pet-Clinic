@@ -1,4 +1,5 @@
 <?php
+ob_start();
 
 require_once("{$_SERVER['DOCUMENT_ROOT']}/router.php");
 
@@ -6,6 +7,8 @@ require_once("{$_SERVER['DOCUMENT_ROOT']}/router.php");
 get('/', 'views/guest/index.php');
 
 get('/res', 'views/admin/index.php');
+
+get('/res/reports', 'views/admin/reports.php');
 
 get('/res/appointment', 'views/admin/appointment.php');
 
@@ -20,6 +23,8 @@ get('/res/services', 'views/admin/services.php');
 get('/res/cms/$section', 'views/admin/cms.php');
 
 post('/res/content-management', 'controller/cms/edit.php');
+
+get('/res/reports/data', 'controller/reports/data.php');
 
 post('/res/services', 'controller/services/update-create-services.php');
 
@@ -49,6 +54,10 @@ get('/logout/$type', 'controller/auth/logout.php');
 
 post('/reply/inquiry', 'controller/inquiries/reply.php');
 
+// dashboard
+
+post('/res/dashboard/data', 'controller/dashboard/monthlyData.php');
+
 
 
 // Data tables
@@ -76,6 +85,10 @@ get('/res/archive/appointments', 'views/admin/archived-appointments.php');
 get('/my-appointment', 'views/guest/appointment/index.php');
 
 get('/my-appointment/table', 'controller/appointment/client-appointment-table.php');
+
+get('/confirm-account', 'controller/registration/confirm-account.php');
+
+
 
 
 

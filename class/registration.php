@@ -43,17 +43,28 @@
             $email      = $_POST['email'];
             $uname      = $_POST['username'];
             $gender     = $_POST['gender'];
+            $user_type  = $_POST['user_type'] ?? '';
             $address    = base64_encode($_POST['address']);
             $password   = !empty($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : null;
             $id         = $_POST['id'] ?? null;
+            $profile    = null;
 
+            if(isset($_FILES['imgs'])){
+                $storedFile = $this->storeToFolder('imgs');      
+                $profile = $storedFile[0];
+            }
 
             if(!empty($id)){
                 if(!empty($password)){
-                    $result = mysqli_query($this->connection,"UPDATE tbl_users SET first_name='$fname', last_name='$lname', address='$address', middle_name='$mname', contact_no='$contact', email='$email', uname='$uname', gender='$gender', password='$password' WHERE id = '$id' ")
+                    $result = mysqli_query($this->connection,"UPDATE tbl_users SET first_name='$fname', last_name='$lname', profile='$profile',address='$address', middle_name='$mname', contact_no='$contact', email='$email', uname='$uname', gender='$gender', password='$password' WHERE id = '$id' ")
                     or die ("failed to query update in the users table");
                 }else{
-                    $result = mysqli_query($this->connection,"UPDATE tbl_users SET first_name='$fname', last_name='$lname', address='$address', middle_name='$mname', contact_no='$contact', email='$email', uname='$uname', gender='$gender' WHERE id = '$id' ")
+                    $result = mysqli_query($this->connection,"UPDATE tbl_users SET first_name='$fname', last_name='$lname', profile='$profile', address='$address', middle_name='$mname', contact_no='$contact', email='$email', uname='$uname', gender='$gender' WHERE id = '$id' ")
+                    or die ("failed to query update in the users table");
+                }
+                
+                if(isset($_POST['user_type'])){
+                    $result = mysqli_query($this->connection,"UPDATE tbl_users SET user_type='$user_type' WHERE id = '$id' ")
                     or die ("failed to query update in the users table");
                 }
                 
@@ -64,6 +75,14 @@
                 $this->method = 'create';    
                 $this->email  = $email;
                 $this->name   = $fname;
+            }
+
+            if(isset($_POST['edit_profile'])){
+                $sqlQuery = "SELECT * FROM tbl_users WHERE id='$id' AND deleted_at IS NULL";
+                $result = mysqli_query($this->connection, $sqlQuery);
+                $row = mysqli_fetch_assoc($result);
+
+                $_SESSION['auth'] = $row;
             }
 
             return $this;
@@ -77,13 +96,64 @@
                 $data      = array(
                     'recepient'                => $this->name,
                     'name'                     => 'Peralta Clinic Admin',
-                    'confirmation-link'       => "http://" . $_SERVER['SERVER_NAME'].'/confirm-account/'.base64_encode($this->email)
+                    'confirmation-link'       => "https://" . $_SERVER['SERVER_NAME'].'/confirm-account?token='.base64_encode($this->email)
                 );
     
                 $replyToInquiry = $this->mail->mail()->send($recepient, $subject, $view, $data);
     
                 echo $replyToInquiry;
             }
+        }
+
+        public function getContent($id){
+            $sqlQuery = "SELECT * FROM tbl_users WHERE id = '$id'";
+
+            $result = mysqli_query($this->connection, $sqlQuery);
+            $contentArray = array();
+            
+            while ($row = mysqli_fetch_assoc($result)) {
+                array_push($contentArray, $row['profile']);
+            }
+
+            return $contentArray;
+        }
+
+        public function storeToFolder($name){
+            
+            $key = 0;
+            $files = array();
+            
+            if (array_sum($_FILES[$name]['error']) > 0)
+            {
+                $images = $this->getContent($_POST['id']);
+                return $images;
+            }else{
+                
+                foreach ($_FILES[$name]['name'] as $filename) 
+                {
+                    $info = pathinfo($filename);
+                    $ext = $info['extension'];
+                    $newname = uniqid().".".$ext; 
+
+                    $target = 'uploads/profile/'.$newname;
+                    move_uploaded_file($_FILES[$name]['tmp_name'][$key], $target);
+
+                    $key++;
+
+                    array_push($files, $target);
+                } 
+
+                return $files;
+            }
+        }
+
+        public function activateAccount($email){
+            $email = base64_decode($email);
+
+            $result = mysqli_query($this->connection,"UPDATE tbl_users SET activated = 1 WHERE email = '$email' ")
+                    or die ("failed to query to activate account");
+
+            return $result;        
         }
     }
 ?>        

@@ -7,11 +7,23 @@ $("#formServices").validate({
         description: {
             required: true,
         },
+        interval: {
+            required: true,
+        },
+        price: {
+            required: true,
+            number:true
+        },
     },
     messages: {
         logo: "Please enter your service logo as svg",
         name: "Please enter your service name",
-        description: "Please enter service description"
+        description: "Please enter service description",
+        interval: "Please enter service time interval",
+        price: {
+            required: "Please enter service price",
+            number: "Please enter valid amount for service price"
+        },
     },
 });
 
@@ -24,12 +36,25 @@ $('.updateService').on('click', function() {
 $(document).on('click', '.editService', function() {
     var data = jQuery.parseJSON(atob($(this).data('service')));
 
-    $('#editServicesModal').find('textarea[name="id"]').val(data['id']);
-    $('#editServicesModal').find('textarea[name="logo"]').val(data['logo']);
+    $('#editServicesModal').find('input[name="id"]').val(data['id']);
+    $('#editServicesModal').find('#logo-prev').attr('src', `../../${data['logo']}`);
     $('#editServicesModal').find('input[name="name"]').val(data['name']);
+    $('#editServicesModal').find('input[name="interval"]').val(data['time_interval']);
+    $('#editServicesModal').find('input[name="price"]').val(data['price']);
+    $('#editServicesModal').find('select[name="type"]').val(data['type']);
     $('#editServicesModal').find('textarea[name="description"]').val(atob(data['description']));
 
     $('#editServicesModal').fadeIn();
+});
+
+$(document).on('click', '.toggle-menu', function() {
+    $('#editServicesModal').find('input[name="id"]').val('');
+    $('#editServicesModal').find('#logo-prev').attr('src', `../../assets/images/default.jpg`);
+    $('#editServicesModal').find('input[name="name"]').val('');
+    $('#editServicesModal').find('input[name="interval"]').val('');
+    $('#editServicesModal').find('input[name="price"]').val('');
+    $('#editServicesModal').find('textarea[name="description"]').val('');
+    $('#editServicesModal').find('select[name="type"]').val('');
 });
 
 function saveServices() {
@@ -48,5 +73,10 @@ function saveServices() {
         if (result.isConfirmed) {
             $("#formServices").submit();
         }
-    })
+    });
 }
+
+$('.clockpicker').clockpicker({
+    autoclose: true,
+    donetext: 'Done'
+});

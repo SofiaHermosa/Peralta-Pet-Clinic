@@ -1,59 +1,63 @@
-$("#formUpdateUser").validate({
-    rules: {
-        fname: "required",
-        lname: "required",
-        contact_no: {
-            required: true,
-            maxlength: 12,
-            minlength: 11,
+if($('#formUpdateUser').length){
+    $("#formUpdateUser").validate({
+        rules: {
+            fname: "required",
+            lname: "required",
+            contact_no: {
+                required: true,
+                maxlength: 12,
+                minlength: 11,
+            },
+            gender: "required",
+            user_type: "required",
+            address: "required",
+            uname: "required",
+            
+            email: {
+                required: true,
+                email: true,
+            },
+            username: {
+                required: true,
+                minlength: 5,
+            },
+            password : {
+                minlength : 5,
+            },
+            confirm_password : {
+                equalTo : password
+            }
         },
-        gender: "required",
-        address: "required",
-        uname: "required",
-        email: {
-            required: true,
-            email: true,
+        messages: {
+            fname: "Please enter your first name",
+            lname: "Please enter your lase name",
+            user_type: "Please select user type",
+            contact_no: {
+                required: "Please provide contact no",
+                maxlength: "Please enter valid contact no",
+                minlength: "Please enter valid contact no"
+            },
+            gender: "Please select gender",
+            address: "Please enter your address",
+            email: {
+                email: "Please enter a valid email",
+                required : "Please provide your email",
+                remote: "Email already used"
+            },
+            username: {
+                minlength: "Username most be atleast 5 character",
+                required : "Please provide your username",
+                remote: "Username already used"
+            },
+            password : {
+                minlength : "Password most be atleast 5 character",
+            },
+            confirm_password : {
+                equalTo  : "Most be equal to password" 
+            }
         },
-        username: {
-            required: true,
-            minlength: 5,
-        },
-        password : {
-            minlength : 5,
-        },
-        confirm_password : {
-            equalTo : password
-        }
-    },
-    messages: {
-        fname: "Please enter your first name",
-        lname: "Please enter your lase name",
-        contact_no: {
-            required: "Please provide contact no",
-            maxlength: "Please enter valid contact no",
-            minlength: "Please enter valid contact no"
-        },
-        gender: "Please select gender",
-        address: "Please enter your address",
-        email: {
-            email: "Please enter a valid email",
-            required : "Please provide your email",
-            remote: "Email already used"
-        },
-        username: {
-            minlength: "Username most be atleast 5 character",
-            required : "Please provide your username",
-            remote: "Username already used"
-        },
-        password : {
-            minlength : "Password most be atleast 5 character",
-        },
-        confirm_password : {
-            equalTo  : "Most be equal to password" 
-        }
-    },
-});
-
+    });    
+}
 function objectifyForm(formArray) {
     //serialize data function
     var returnArray = {};
@@ -85,6 +89,7 @@ $(document).on('click', '.editUserBtn', function(){
     $('input[name="username"]').val('').val(data.uname).removeClass('valid');
     $('input[name="password"]').val('').removeClass('valid');
     $('input[name="confirm_password"]').val('').removeClass('valid');
+    $('select[name="user_type"]').val('').val(data.user_type).removeClass('valid');
 
     $('#editUserModal').fadeIn();
 });

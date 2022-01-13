@@ -64,6 +64,12 @@
                   <th width="20%" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Declined Reason
                   </th>
+                <?php } ?>
+                
+                <?php if($status == 5){ ?>
+                  <th width="20%" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Cancelation Reason
+                  </th>
                 <?php } ?>  
                 <th scope="col" class="relative px-6 py-3">
                   <span class="sr-only">Reply</span>
@@ -78,7 +84,8 @@
 
 <script>
   window.url='/res/table/appointment?status=<?php echo $status ?? null ?>&type=1';
-  console.log(window.url);
+
+  window.tableOrder = [2, 'desc'];
 </script>
 
 <?php

@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         success: function(result) {
             $.each(result, function(i, v) {
                 var startdateobj = new Date(v.apt_time);
-                var formatteddate = startdateobj.toISOString();
+                var formatteddate = startdateobj != 'Invalid Date' ? startdateobj.toISOString() : v.apt_time;
                 appointmentCalendar.addEvent({
                     title: v.apt_id,
                     fname: v.apt_fname,
@@ -111,32 +111,81 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 $(document).on('click', '.aptUpdtStatus', function(){
-    var action =['', '','Approve', 'Decline'];
+    var action =['', '', 'Approve', 'Decline', 'Done', 'Cancel'];
     var data = $(this).data('apt');
     data = jQuery.parseJSON(atob(data));
     var status = $(this).data('status');
     
-    Swal.fire({
-        icon: 'warning',
-        title: 'Are you sure?',
-        text: `${action[status]} this appointment`,
-        input: 'textarea',
-        inputAttributes: {
-            autocapitalize: 'off',
-            placeholder: 'Reason for declining ....'
-        },
-        showCancelButton: true,
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes',
-        customClass: {
-            confirmButton: 'bg-indigo-700',
-            container: 'bg-white backdrop-filter backdrop-blur-md bg-opacity-20'
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            $.post('/res/update/appointment/status', {status:status, id:data.id, reason:result.value}).done(function(){
-                location.reload();
-            });
-        }
-    })
+    if(status == 4){
+        Swal.fire({
+            icon: 'warning',
+            title: 'Are you sure?',
+            text: `That this appointment is already done`,
+            showCancelButton: true,
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes',
+            customClass: {
+                confirmButton: 'bg-indigo-700',
+                container: 'bg-white backdrop-filter backdrop-blur-md bg-opacity-20'
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.post('/res/update/appointment/status', {status:status, id:data.id, reason:''}).done(function(res){
+                    location.reload();
+                });
+
+                var table = $("#datatable").DataTable();
+                table.ajax.reload();
+            }
+        })
+    }else if(status == 2){
+        Swal.fire({
+            icon: 'warning',
+            title: 'Are you sure?',
+            text: `To approve this appointment`,
+            showCancelButton: true,
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes',
+            customClass: {
+                confirmButton: 'bg-indigo-700',
+                container: 'bg-white backdrop-filter backdrop-blur-md bg-opacity-20'
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.post('/res/update/appointment/status', {status:status, id:data.id, reason:''}).done(function(res){
+                    location.reload();
+                });
+
+                var table = $("#datatable").DataTable();
+                table.ajax.reload();
+            }
+        })
+    }else{
+        Swal.fire({
+            icon: 'warning',
+            title: 'Are you sure?',
+            text: `${action[status]} this appointment`,
+            input: 'textarea',
+            inputAttributes: {
+                autocapitalize: 'off',
+                placeholder: 'Reason for declining ....'
+            },
+            showCancelButton: true,
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes',
+            customClass: {
+                confirmButton: 'bg-indigo-700',
+                container: 'bg-white backdrop-filter backdrop-blur-md bg-opacity-20'
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.post('/res/update/appointment/status', {status:status, id:data.id, reason:result.value}).done(function(res){
+                    location.reload();
+                });
+
+                var table = $("#datatable").DataTable();
+                table.ajax.reload();
+            }
+        })
+    }
 });

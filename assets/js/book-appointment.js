@@ -6,10 +6,68 @@ $(document).ready(function() {
 $('#appointment').steps({
     onFinish: function() { sendAppointment() },
     onChange: function(currentIndex, newIndex, stepDirection) {
-        console.log(currentIndex, newIndex);
+       console.log(currentIndex, newIndex, stepDirection);
+       if(stepDirection == 'forward' && currentIndex == 0 && newIndex == 1){
+            if($("#newAppointmentForm").valid()){
+                return true;
+            }else{
+                return false;
+            }
+        }
 
-        return true;
+        if(stepDirection == 'forward' && currentIndex == 1 && newIndex == 1){
+            if($("#newAppointmentForm").valid()){
+               return true;
+            }else{
+               return false;
+            }
+        }
+        
+        if(stepDirection == 'forward' && currentIndex == 1 && newIndex == 2){
+            if($("#newAppointmentForm").valid()){
+               return true;
+            }else{
+               return false;
+            }
+        }
+        
+        if(stepDirection == 'forward' && currentIndex == 2 && newIndex == 2){
+            if($("#newAppointmentForm").valid()){
+               return true;
+            }else{
+               return false;
+            }
+        }
+        
+        return true
     }
+});
+
+$("#newAppointmentForm").validate({
+    rules: {
+        service: "required",
+        date: "required",
+        contact_no: {
+            required: true,
+            maxlength: 11,
+            minlength: 11,
+        },
+        fname: "required",
+        lname: "required",
+        address: "required"
+    },
+    messages: {
+        service: "Please select your reason of visit",
+        date: "Please select date of visit",
+        contact_no: {
+            required: "Please provide contact no",
+            maxlength: "Please enter valid contact no",
+            minlength: "Please enter valid contact no"
+        },
+        fname: "Please enter your first name",
+        lname: "Please enter your last name",
+        address: "Please enter your address",
+    },
 });
 
 

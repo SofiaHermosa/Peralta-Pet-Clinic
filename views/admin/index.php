@@ -8,6 +8,10 @@
 
     $appointmentClass = new Appointment;
     $appointments = $appointmentClass->getAppointment()->appointment;
+    $pending =  $appointmentClass->getAppointment(1)->appointment;
+    $approved =  $appointmentClass->getAppointment(2)->appointment;
+    $canceled =  $appointmentClass->getAppointment(5)->appointment;
+    $declined =  $appointmentClass->getAppointment(3)->appointment;
 
     $patientClass = new Patients;
     $patients = $patientClass->getPatients();
@@ -39,16 +43,50 @@
                         </svg>
                       </div>
                       <div class="col-span-3 text-left p-4">
-                          <p class="text-md d-flex font-semibold text-gray-600">Appointments<p>
-                          <h1 id="apt_card" class="d-flex text-2xl font-bold text-gray-900"><?php echo number_format(count($appointments)); ?></h1>
+                          <p class="text-sm d-flex font-semibold text-gray-600">Pending Appointment<p>
+                          <h1 id="apt_card" class="d-flex text-2xl font-bold text-gray-900"><?php echo number_format(count($pending)); ?></h1>
                       </div>
-                      <div class="col-span-4 flex space-0 w-full left-0 absolute bottom-0">
-                        <div class="bg-gray-400 text-gray-800 text-center font-semibold text-xs font-semibold tooltip" style="width: <?php echo $appointmentClass->toPercentage(count($appointmentClass->getAppointment(1)->appointment), count($appointmentClass->getAppointment()->appointment)); ?>% !important; padding:2px 0 !important;" title="PENDING: <?php echo number_format(count($appointmentClass->getAppointment(1)->appointment)); ?>">
-                        </div>
-                        <div class="bg-green-400 text-green-800 font-semibold text-center text-xs tooltip" style="width: <?php echo $appointmentClass->toPercentage(count($appointmentClass->getAppointment(2)->appointment), count($appointmentClass->getAppointment()->appointment)); ?>% !important; padding:2px 0 !important;"  title="APPROVED: <?php echo number_format(count($appointmentClass->getAppointment(2)->appointment)); ?>">
-                        </div>
-                        <div class="bg-red-400 text-red-800 font-semibold text-center text-xs font-semibold tooltip" style="width: <?php echo $appointmentClass->toPercentage(count($appointmentClass->getAppointment(3)->appointment), count($appointmentClass->getAppointment()->appointment)); ?>% !important; padding:2px 0 !important;"  title="DECLINED: <?php echo number_format(count($appointmentClass->getAppointment(3)->appointment)); ?>">
-                        </div>
+                  </div>
+              </div>
+
+              <div class="rounded-tr-lg rounded-tl-lg  overflow-hidden bg-gray-50 shadow transition transform duration-300 hover:-translate-y-2 hover:shadow-xl py-4 px-2 z-50">
+                   <div class="grid grid-cols-4">
+                      <div class="d-flex col-span-1 px-4 py-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current text-white stroke-2 bg-blue-300 p-2 rounded-xl md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                      <div class="col-span-3 text-left p-4">
+                          <p class="text-sm d-flex font-semibold text-gray-600">Approved Appointment<p>
+                          <h1 id="apt_card1" class="d-flex text-2xl font-bold text-gray-900"><?php echo number_format(count($approved)); ?></h1>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="rounded-tr-lg rounded-tl-lg  overflow-hidden bg-gray-50 shadow transition transform duration-300 hover:-translate-y-2 hover:shadow-xl py-4 px-2 z-50">
+                   <div class="grid grid-cols-4">
+                      <div class="d-flex col-span-1 px-4 py-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current text-white stroke-2 bg-yellow-500 p-2 rounded-xl md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                      <div class="col-span-3 text-left p-4">
+                          <p class="text-sm d-flex font-semibold text-gray-600">Cancelled Appointment<p>
+                          <h1 id="apt_card2" class="d-flex text-2xl font-bold text-gray-900"><?php echo number_format(count($canceled)); ?></h1>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="rounded-tr-lg rounded-tl-lg  overflow-hidden bg-gray-50 shadow transition transform duration-300 hover:-translate-y-2 hover:shadow-xl py-4 px-2 z-50">
+                   <div class="grid grid-cols-4">
+                      <div class="d-flex col-span-1 px-4 py-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current text-white stroke-2 bg-red-300 p-2 rounded-xl md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                      <div class="col-span-3 text-left p-4">
+                          <p class="text-sm d-flex font-semibold text-gray-600">Declined Appointment<p>
+                          <h1 id="apt_card3" class="d-flex text-2xl font-bold text-gray-900"><?php echo number_format(count($declined)); ?></h1>
                       </div>
                   </div>
               </div>
@@ -83,7 +121,7 @@
                         </svg>
                       </div>
                       <div class="col-span-3 text-left p-4">
-                          <p class="text-md d-flex font-semibold text-gray-600">Users<p>
+                          <p class="text-sm d-flex font-semibold text-gray-600">Registered Account<p>
                           <h1 id="pt_card" class="d-flex text-2xl font-bold text-gray-900"><?php echo number_format(count($patients)); ?></h1>
                       </div>
                   </div>
@@ -98,7 +136,7 @@
                       </div>
                       <div class="col-span-3 text-left p-4">
                           <p class="text-md d-flex font-semibold text-gray-600">Services<p>
-                          <h1 class="d-flex text-2xl font-bold text-gray-900"><?php echo number_format(count($servicesClass->getServices()->services)) ?></h1>
+                          <h1 class="d-flex text-2xl font-bold text-gray-900"><?php echo number_format(count($servicesClass->getServices('all')->services)) ?></h1>
                       </div>
                   </div>
               </div>
@@ -106,7 +144,7 @@
           <!-- END CARDS SECTION -->
 
           <!-- START GRAPHS SECTION -->
-          <div data-aos="fade-up" data-aos-duration="1200" class="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-10">
+          <!-- <div data-aos="fade-up" data-aos-duration="1200" class="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-10">
 
               <div data-aos="fade-right" data-aos-duration="1000" class="d-flex py-4 px-6 bg-gray-50 shadow rounded-lg">
                 <div class="d-flex rounded-md bg-indigo-300 transform -translate-y-10 text-white text-center shadow-md">
@@ -126,7 +164,7 @@
                 </canvas>
 
               </div>
-          </div>
+          </div> -->
           <!-- END GRAPHS SECTION -->
 
           <!-- START DAILY APPOINTMENT SECTION -->

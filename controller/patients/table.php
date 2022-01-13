@@ -9,9 +9,15 @@
 
     foreach($patients as $patient){
         $json = base64_encode(json_encode($patient));
-
+        
+        $status ="<center><span class='text-xs font-medium p-2 rounded bg-purple-200 text-purple-800 shadow'>CLIENT</span></center>";
+         
         if($patient['user_type'] == 1){
             $status ="<center><span class='text-xs font-medium p-2 rounded bg-blue-100 text-blue-800 shadow'>ADMINISTRATOR</span></center>";
+        }
+        
+        if($patient['user_type'] == 3){
+            $status ="<center><span class='text-xs font-medium p-2 rounded bg-yellow-100 text-yellow-800 shadow'>SECRETARY</span></center>";
         }
         
         $array = [

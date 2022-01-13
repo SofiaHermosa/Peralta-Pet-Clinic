@@ -15,13 +15,16 @@
 <html>
 <head>
 	<title>ET Peralta Dog and Cat Clinic</title>
-	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link href="//unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.css">
 	<link rel="stylesheet" type="text/css" href="../../../assets/css/custom.css">
     <link rel="stylesheet" type="text/css" href="../../../assets/css/custom-guest.css">
     <link rel="stylesheet" type="text/css" href="../../../assets/css/custom-appointment.css">
 </head>
 <body class="overflow-hidden">
+<?php
+	include_once('terms-condition.php');
+?> 
 <div class="w-full h-screen bg-white hidden" id="reg__success">
     <img class="w-1/4 mx-auto object-scale-down mt-20" src="../../../assets/images/mail-sent.svg">
     <p class="text-2xl mt-10 text-center w-full text-green-500">Registration Sent!</p>
@@ -104,14 +107,40 @@
                                             <input type="text" name="username" class="form_input bg-white bg-opacity-60 focus:ring-indigo-100 focus:border-indigo-100 duration-300" id="uname">
                                         </div>
 
-                                        <div class="col-span-3">
+                                         <div class="col-span-3">
                                             <label class="form_label">Password</label>
-                                            <input type="password" name="password" class="form_input bg-white bg-opacity-60 focus:ring-indigo-100 focus:border-indigo-100 duration-300" id="password">
+                                            <div class="flex">
+                                                <div class="w-11/12">
+                                                    <input type="password" name="password" class="form_input bg-white bg-opacity-60 focus:ring-indigo-100 focus:border-indigo-100 duration-300" id="password">
+                                                </div>
+                                                <button class="bg-gray-400 px-2 text-white h-10 mt-1 transform -translate-x-1 showPass"  type="button" data-target="password">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
 
                                         <div class="col-span-3">
                                             <label class="form_label">Confirm Password</label>
-                                            <input type="password" name="confirm_password" class="form_input bg-white bg-opacity-60 focus:ring-indigo-100 focus:border-indigo-100 duration-300" id="confirm_password">
+                                            <div class="flex">
+                                                <div class="w-11/12">
+                                                    <input type="password" name="confirm_password" class="form_input bg-white bg-opacity-60 focus:ring-indigo-100 focus:border-indigo-100 duration-300" id="confirm_password">
+                                                </div>
+
+                                                <button class="bg-gray-400 px-2 text-white h-10 mt-1 transform -translate-x-1 showPass" type="button" data-target="confirm_password">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-span-6 flex text-right mt-6">
+                                            <input type="checkbox" class="align-middle mt-1 mr-2 termsCheck" name="terms_condition" required>
+                                            <label class="form_label">By clicking Finish, you agree to our Terms and Condition</label>
                                         </div>
                                     </div>
                                 </div>
@@ -138,16 +167,25 @@
                 </div>
 
                 <form action="/login/2" method="POST">
-                <div class="col-span-1">
+               <div class="col-span-1">
                     <label class="form_label text-white">Email</label>
-                    <input type="text" name="email" class="form_input bg-white bg-opacity-60 focus:ring-indigo-100 focus:border-indigo-100 duration-300" id="email">
+                    <input type="text" name="email" class="form_input bg-white bg-opacity-60 focus:ring-indigo-100 focus:border-indigo-100 duration-300" required>
                 </div>
 
                 <div class="col-span-1">
-                    <label class="form_label text-white">Password</label>
-                    <input type="password" name="password" class="form_input bg-white bg-opacity-60 focus:ring-indigo-100 focus:border-indigo-100 duration-300" id="email">
+                    <label class="form_label text-white mt-2">Password</label>
+                    <div class="flex">
+                        <div class="w-11/12">
+                            <input type="password" name="password" class="form_input bg-white bg-opacity-60 focus:ring-indigo-100 focus:border-indigo-100 duration-300" required>
+                        </div>
+                        <button class="bg-gray-400 px-2 text-white h-10 mt-1 transform -translate-x-1 showPass"  type="button" data-target="password">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-
                 <div class="col-span-1">
 					<button type="submit" class="p-2 mt-10 mb-20 w-full bg-pink-600 text-white font-bold rounded-md shadow-md hover:bg-pink-700">Login</button>
                 </div>
@@ -171,11 +209,11 @@
     </svg>
 </div>  -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.js"></script>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
-<script src="http://ajax.microsoft.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="//unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="//cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+<script src="//ajax.microsoft.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="./assets/js/registration.js"></script>
 <script type="text/javascript">

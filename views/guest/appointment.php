@@ -28,7 +28,7 @@
 <html>
 <head>
 	<title>ET Peralta Dog and Cat Clinic</title>
-	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link href="//unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.css">
 	<link rel="stylesheet" type="text/css" href="../../../assets/css/custom.css">
     <link rel="stylesheet" type="text/css" href="../../../assets/css/custom-guest.css">
@@ -42,6 +42,7 @@
     <div class="w-full md:w-3/4 h-screen px-20 m-auto pt-32"> 
         <div class="z-50 relative grid grid-cols-1 gap-6">
             <div class="col-span-1">
+                <form id="newAppointmentForm">
                 <div data-aos="fade-up" data-aos-duration="1000" class="step-app rounded-lg shadow-4xl" id="appointment">
                     <ul class="step-steps gap-0 bg-transparent">
                         <li class="py-3 text-center p-0 w-auto font-semibold px-4 text-gray-700" data-step-target="step1"></li>
@@ -63,12 +64,13 @@
 
                                 <div class="col-span-1">
                                     <label class="form_label">Reason of Visit</label>
-                                    <select type="text" name="service" class="form_input bg-white bg-opacity-60" id="service">
+                                    <select type="text" name="service" class="form_input bg-white bg-opacity-60" id="service" required>
                                         <option></option>
                                         <?php
-                                            foreach($services as $key => $service){
-                                                $desc = $service['desc'];
-                                                echo "<option value='$key'>$desc</option>";
+                                            foreach($servicesClass->getServices()->services as $key => $service){
+                                                $desc = $service['name'];
+                                                $id   = $service['id'];
+                                                echo "<option value='$id'>$desc</option>";
                                             }
                                         ?>
                                     </select>
@@ -76,7 +78,7 @@
 
                                 <div class="col-span-1">
                                     <label class="form_label">Date of Visit</label>
-                                    <input type="date" class="form_input bg-white bg-opacity-60" name="date">
+                                    <input type="date" class="form_input bg-white bg-opacity-60" name="date" min="<?php echo date('Y-m-d'); ?>">
                                 </div>
                             </div>
                         </div>
@@ -107,7 +109,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+                     
                         <div class="step-tab-panel" data-step="step3">
                             <h1 class="flex text-right px-4 py-3 text-3xl text-gray-700">Available Slots</h1>
 
@@ -123,6 +125,7 @@
                             <button class="bg-green-200 py-3 font-semibold px-4 rounded-md text-gray-700"  data-step-action="finish" class="step-btn">Finish</button>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -134,9 +137,11 @@
     </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+<script src="//ajax.microsoft.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>
+<script src="//unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="//cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.js"></script>
 <script src="../../../assets/summernote/summernote.min.js"></script>
 <script src="./assets/js/book-appointment.js"></script>
 <script src="../../../assets/js/app.js"></script>

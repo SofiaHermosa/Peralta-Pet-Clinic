@@ -21,7 +21,7 @@
         $response = "";
     
         $result = mysqli_query($conn,"INSERT INTO tbl_appointment (user_id, apt_fname, apt_lname, apt_minit, apt_contactno, apt_address, apt_patient_type, apt_time, end_time ,apt_visit_reason, status) 
-                VALUES ('$user_id', '$fname', '$lname', '$minit', '$contact_no', '$address', '$patient_type', '$datetime', '$endtime', '$visit_reason', '2')")
+                VALUES ('$user_id', '$fname', '$lname', '$minit', '$contact_no', '$address', '$patient_type', '$datetime', '$endtime', '$visit_reason', '1')")
                 or die ("failed to query insertion in the appointment table". mysqli_error());
     
         if($result){

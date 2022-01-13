@@ -14,17 +14,20 @@
 
         public function authCheck($referer, $type = 2){
             
-            if(isset($_SESSION['auth']) && !empty($_SESSION['auth']) && $_SESSION['auth']['user_type'] == $type){
+            $type = $type == 2 ? array(2) : array(1,3);
+            if(isset($_SESSION['auth']) && !empty($_SESSION['auth']) && in_array($_SESSION['auth']['user_type'],$type)){
                 return $this;
             }else{
-                header("Location: ".$referer);
+                ob_start();
+                header("location: ".$referer);
                 exit();
             }
         }
 
         public function redirectIfLogin($referer, $type = 2){
             if(isset($_SESSION['auth']) && !empty($_SESSION['auth']) && $_SESSION['auth']['user_type'] == $type){
-                header("Location: ".$referer);
+                ob_start();
+                header("location: ".$referer);
                 exit();
             }else{
                return $this;
@@ -34,15 +37,17 @@
         public function logout($user_type){
             $referer = $user_type == 1 ? '/login' : '/';
             session_unset();
-
-            header("Location: ".$referer);
+            
+            ob_start();
+            header("location: ".$referer);
             exit();
         }
 
         public function login($referer="/", $user_type = 2){
-            if ($this->stmt = $this->connection->prepare('SELECT id, password, activated FROM tbl_users WHERE email = ? AND user_type = ?')) {
+            $sqlQuery = $user_type == 2 ? $this->connection->prepare('SELECT id, password, activated FROM tbl_users WHERE email = ? AND user_type = 2 AND deleted_at IS NULL') :  $this->connection->prepare('SELECT id, password, activated FROM tbl_users WHERE email = ? AND user_type IN (1,3) AND deleted_at IS NULL');
+            if ($this->stmt = $sqlQuery) {
                 // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
-                $this->stmt->bind_param('ss', $this->email, $user_type);
+                $this->stmt->bind_param('s', $this->email);
                 $this->stmt->execute();
                 // Store the result so we can check if the account exists in the database.
                 $this->stmt->store_result();
@@ -59,7 +64,8 @@
                    
                     if($user['activated'] != 1){
                         $_SESSION['error'] = 'Confirm account, Check your email for account confirmation';
-                        header('Location: ' . $_SERVER['HTTP_REFERER']);
+                        ob_start();
+                        header('location: ' . $_SERVER['HTTP_REFERER']);
                         exit();
                     }
 
@@ -69,21 +75,25 @@
                     $referer = $referer ?? $_SERVER['HTTP_REFERER'];
 
                     if($user_type == 1){
-                        header("Location:/res");
+                        ob_start();
+                        header("location:/res");
                         exit();    
                     }else{
-                        header("Location:/my-appointment");
+                        ob_start();
+                        header("location:/my-appointment");
                         exit();    
                     }
                 } else {
                    
                     $_SESSION['error'] = 'Incorrect email and/or password!';
-                    header('Location: ' . $_SERVER['HTTP_REFERER']);
+                    ob_start();
+                    header('location: ' . $_SERVER['HTTP_REFERER']);
                 }
             } else {
                 // Incorrect username
-                $_SESSION['error'] = "Credentails does'nt exist.";
-                header('Location: ' . $_SERVER['HTTP_REFERER']);
+                $_SESSION['error'] = "Credentials does'nt exist.";
+                ob_start();
+                header('location: ' . $_SERVER['HTTP_REFERER']);
             }
         }
 

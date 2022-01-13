@@ -1,7 +1,18 @@
 <div class="w-full z-1 h-screen fixed top-0 left-0 frosted hidden" id="editUserModal">
     <div  data-type="modal" class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 margin-auto w-3/4 bg-white rounded-lg shadow-lg p-10">
-        <div class="w-full py-2 text-2xl text-gray-700 font-bold mb-6">
-            <h1><span>Edit</span> User</h1>
+        <form method="POST" id="formUpdateUser" action="/registration" enctype='multipart/form-data'>
+        <div class="grid grid-cols-2 py-2 text-2xl text-gray-700 font-bold mb-6">
+            <div>
+                <h1 class="float-left inline-block"><span>Edit</span> User</h1>     
+            </div>
+            <div>
+                <select name="user_type" class="form_input w-32 float-right">
+                    <option value=""></option>
+                    <option value="1">Administrator</option>
+                    <option value="3">Secretary</option>
+                    <option value="2">Client</option>
+                </select>
+            </div>
         </div>
 
         <button type="button" class="absolute right-0 top-0 transform -translate-y-6 translate-x-6 bg-white rounded-full p-2 mx-2 inline-flex items-center justify-center text-gray-800 font-bolder shadow-xl hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 close-modal" data-toggle="#editUserModal" data-modal="true">
@@ -11,7 +22,6 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
-        <form method="POST" id="formUpdateUser" action="/registration" enctype='multipart/form-data'>
         <input type="hidden" name="id">
         <div class="grid grid-cols-3 gap-4">
             <div class="col-span-2">

@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         success: function(result) {
             $.each(result, function(i, v) {
                 var startdateobj = new Date(v.apt_time);
-                var formatteddate = startdateobj.toISOString();
+                var formatteddate = startdateobj != 'Invalid Date' ? startdateobj.toISOString() : v.apt_time;
                 dashboardCalendar.addEvent({
                     title: v.apt_id,
                     fname: v.apt_fname,

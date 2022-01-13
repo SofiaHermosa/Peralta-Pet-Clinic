@@ -2,6 +2,8 @@
 	include_once('layout/header.php');
 ?>
 <link rel="stylesheet" href="../../assets/css/bootstrap.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs4.min.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote.min.css" />
 
   <header class="bg-white shadow mt-16">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -156,7 +158,6 @@
     </div>
   </main>
 
-		
 <?php
 	include_once('layout/footer.php');
 ?>

@@ -202,6 +202,14 @@
             color: #b32820 !important;
             font-size: 12px !important;
         }
+
+        #logo-prev{
+            object-fit: cover !important;
+        }
+
+        #editProfileModal {
+            z-index: 200 !important;
+        }
         
         textarea.error {
             border-color: #b94a48;

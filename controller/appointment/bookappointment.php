@@ -1,10 +1,15 @@
 <?php
     require_once('./class/appointment.php');
 
-    $class = new Appointment;
+    try {
+        $class = new Appointment;
 
-    $appointment = $class->getAppointment()->slotAvailable();
-    
-    return $appointment;
+        $appointment = $class->getAppointment(2)->slotAvailable();
+        
+        return $appointment;
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
 
 ?>

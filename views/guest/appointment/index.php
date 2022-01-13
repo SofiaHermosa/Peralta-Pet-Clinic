@@ -40,6 +40,10 @@
     include_once('./views/guest/layout/auth-nav.php');  
     ?>
 
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . '/views/admin/modals/edit-profile.php');
+    ?>
+
     <div class="relative backdrop-filter backdrop-blur-md bg-opacity-40 md:bg-indigo-700 z-50 overflow-hidden">
         <div class="relative bg-white overflow-hidden px-20 pt-20 pb-60 min-h-screen">
             <div class="w-full mt-10 mb-36">
@@ -71,7 +75,10 @@
                     <center>Status</center>
                     </th>
                     <th width="20%" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Declined Reason
+                        Declined/Cancelation Reason
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+
                     </th>
                 </tr>
                 </thead>
@@ -154,7 +161,7 @@
 </html>
 <script>
   window.url='/my-appointment/table?user=<?php echo $_SESSION['auth']['id'] ?>';
-  console.log(window.url);
+  window.tableOrder = [1, 'desc'];
 </script>
 <script src="../../../assets/js/jquery.min.js"></script>
 <script src="../../../assets/js/tables.js"></script>
@@ -168,7 +175,10 @@
 <script src="../../../assets/summernote/summernote.min.js"></script>
 <script src="../../../assets/js/app.js"></script>
 <script src="../../../assets/js/nav.js"></script>
+<script src="../../../assets/js/setting.js"></script>
 <script src="../../../assets/js/inquiry.js"></script>
+<script src="../../../assets/js/edit-profile.js"></script>
+<script src="../../../assets/js/appointment.js"></script>
 <script type="text/javascript">
 	AOS.init();
 </script>

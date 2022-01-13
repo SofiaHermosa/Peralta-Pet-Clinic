@@ -6,7 +6,7 @@
 
     require_once($_SERVER['DOCUMENT_ROOT'] . '/controller/connection/conn.php');
     $json = array();
-    $sqlQuery = "SELECT * FROM tbl_appointment ORDER BY id";
+    $sqlQuery = "SELECT * FROM tbl_appointment WHERE deleted_at IS NULL and status=2 ORDER BY id";
 
     $result = mysqli_query($conn, $sqlQuery);
     $eventArray = array();

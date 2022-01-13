@@ -18,7 +18,7 @@
             $result = mysqli_query($this->connection, $sqlQuery);
             $patientsArray = array();
 
-            while ($row = mysqli_fetch_array($result)) {
+            while ($row = mysqli_fetch_array($result)) { 
                 array_push($patientsArray, $row);
             }
 

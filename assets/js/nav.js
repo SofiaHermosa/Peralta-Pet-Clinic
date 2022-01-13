@@ -26,6 +26,7 @@ window.onscroll = function() {
 
 $(".nav--link").click(function(e) {
     e.preventDefault();
+    $(document).find('.toggle-cont').fadeOut('easing');
     var div = $(this).attr('href');
     $('html, body').animate({
         scrollTop: $(div).offset().top

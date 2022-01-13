@@ -6,7 +6,7 @@
     use PHPMailer\PHPMailer\Exception;
     
 
-    class Mailer{
+    class Mailer {
         public $mailer;
 
         public function __construct()
@@ -14,22 +14,17 @@
             $this->mailer     = new PHPMailer(true);
         }
 
-        public function mail(){                    
+        public function mail(){    
+            $this->mailer->SMTPDebug    = 3;
             $this->mailer->isSMTP();        
-            $this->mailer->CharSet    = "utf-8";                                  
-            $this->mailer->Host       = 'smtp.gmail.com';                   
-            $this->mailer->SMTPAuth   = true;                                  
-            $this->mailer->Username   = 'noreply.peraltaclinic@gmail.com';                     
-            $this->mailer->Password   = 'Peralta2k21!';                               
-            $this->mailer->SMTPSecure = 'tls';            
-            $this->mailer->Port       = 587;  
-            $this->mailer->SMTPOptions = array(
-                'ssl' => array(
-                    'verify_peer' => false,
-                    'verify_peer_name' => false,
-                    'allow_self_signed' => true
-                )
-            );
+            $this->mailer->CharSet      = 'utf-8';                          
+            $this->mailer->Host         = 'localhost';                   
+            $this->mailer->SMTPAuth     = false;  
+            $this->mailer->SMTPAutoTLS  = false;
+            $this->mailer->Username     = 'noreply.peraltaclinic@gmail.com';
+            $this->mailer->Password     = 'Peralta2k21!';                   
+            $this->mailer->SMTPSecure   = 'tsl';            
+            $this->mailer->Port         = 25;  
 
             return $this;
         }
@@ -40,7 +35,7 @@
                 $this->mailer->addAddress($recepient);
                 $this->mailer->addReplyTo('jblando1996@gmail.com', 'Peralta Dog and Cat Clinic');
     
-                $this->mailer->isHTML(true);                                  //Set email format to HTML
+                $this->mailer->isHTML(true);                                
                 $this->mailer->Subject = $subject;
                 
                 ob_start();
@@ -57,8 +52,5 @@
                 echo json_encode($th);
             }
         }
-        
     }
-
-
 ?>
